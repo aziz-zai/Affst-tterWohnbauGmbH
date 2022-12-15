@@ -32,18 +32,23 @@ export default {
       type: 'number',
     },
     {
-      name: 'wohnfläche',
-      title: 'Wohnfläche',
+      name: 'wohnflaeche',
+      title: 'Wohnflaeche',
       type: 'number',
     },
     {
       name: 'preis',
       title: 'Preis',
-      type: 'number',
+      type: 'string',
     },
     {
       name: 'standort',
       title: 'Standort',
+      type: 'string',
+    },
+    {
+      name: 'link',
+      title: 'Link',
       type: 'string',
     },
     {

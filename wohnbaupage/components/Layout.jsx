@@ -1,12 +1,12 @@
 import Head from 'next/head';
 import React from "react";
-import Footer from './Footer';
+import Footer from "./Footer";
 import NavBar from './NavBar';
 function Layout({children}) {
   return (
   <div className="layout">
       <Head>
-          <title>Elektro Yer</title>
+          <title>AffstaeterWohnbauGmbH</title>
       </Head>
       <header>
           <NavBar/>
