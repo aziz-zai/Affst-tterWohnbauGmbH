@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import {client} from './client'
-import NavBar from './components'
+import {Home, NavBar} from './components/index'
 
 const App = () => {
   const [Test, setTest] = useState([])
@@ -22,9 +22,10 @@ const App = () => {
   }, [])
 
   return (
-    <div>
-      App{console.log('data', Test)}
-      {console.log('data2', Mehr)}
+    <div sx={{backgroundColor: '#F7FBFF'}}>
+      <NavBar />
+      {console.log('data', Test, Mehr)}
+      <Home>Home</Home>
     </div>
   )
 }
