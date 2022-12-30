@@ -1,4 +1,5 @@
 import React, {useEffect, useState} from 'react'
+import './App.scss'
 import {client} from './client'
 import {Home, NavBar} from './components/index'
 
@@ -22,10 +23,11 @@ const App = () => {
   }, [])
 
   return (
-    <div sx={{backgroundColor: '#F7FBFF'}}>
+    <div className="app">
       <NavBar />
       {console.log('data', Test, Mehr)}
-      <Home>Home</Home>
+      <Home />
+      <Home />
     </div>
   )
 }

@@ -1,8 +1,22 @@
 .app__hero-section{
     height: 100vh;
-    background-color: #F7FBFF;
+    background-color: rgb(237, 242, 248);
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
-.img{
+.app__hero-section-wrapper{
+    display: flex;
+}
+.app_hero-text{
     width: 300px;
+    height: inherit;
+    padding: 1rem
+}
+.app__hero-logo{
+    img{
+    width: 450px;
+}
 }
