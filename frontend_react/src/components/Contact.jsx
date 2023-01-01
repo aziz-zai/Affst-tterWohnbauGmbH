@@ -1,11 +1,11 @@
 import React from 'react';
-import { IoMdContact } from 'react-icons/io';
+import { RiContactsFill } from 'react-icons/ri';
 
 const Contact = () => (
   <div className="app__social">
-    <button>
-      <IoMdContact size={40}/>
-    </button>
+    <div>
+      <RiContactsFill />
+    </div>
   </div>
 );
 
