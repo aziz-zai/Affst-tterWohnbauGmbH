@@ -1,11 +1,11 @@
 import React from 'react';
-import { Contact, NavigationDots } from '../components';
+import { NavigationDots } from '../components';
 
 const AppWrap = (Component, idName, classNames) => function HOC() {
   const currentYear = new Date().getFullYear()
   return (
     <div id={idName} className={`app__container ${classNames}`}>
-      <Contact />
+      
       <div className="app__wrapper app__flex">
         <Component />
 

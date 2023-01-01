@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import './App.scss'
 import {client} from './client'
-import {Home, NavBar} from './components/index'
+import {Contact, Home, NavBar, NavigationDots} from './components/index'
 
 const App = () => {
   const [Test, setTest] = useState([])
@@ -24,8 +24,12 @@ const App = () => {
 
   return (
     <div className="app">
+      <Contact />
       <NavBar />
       {console.log('data', Test, Mehr)}
+      <Home />
+      <Home />
+      <Home />
       <Home />
       <Home />
     </div>
