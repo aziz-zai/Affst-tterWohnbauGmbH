@@ -98,39 +98,22 @@
   }
   
   .app__social {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    flex-direction: column;
-  
-    padding: 1rem;
-  
-    div {
-      width: 40px;
-      height: 40px;
-      border-radius: 50%;
-      background-color: var(--white-color);
-      margin: 0.25rem 0;
-      border: 1px solid var(--lightGray-color);
-  
-      display: flex;
-      justify-content: center;
-      align-items: center;
-  
-      transition: all 0.3s ease-in-out;
-  
+    position: fixed;
+    bottom: 1rem;
+    left: 1rem;
+    button{
+      text-decoration: none;
+      border: none;
       svg {
-        width: 15px;
-        height: 15px;
         color: var(--gray-color);
+        transition: 0.3s ease-in-out ;
       }
-  
+      
       &:hover {
-        background-color: var(--secondary-color);
-        border-color: var(--secondary-color);
-  
         svg {
-          color: var(--white-color);
+          transform: scale(1.2);
+          color: var(--secondary-color);
+          cursor: pointer;
         }
       }
   
@@ -144,8 +127,10 @@
           width: 30px;
           height: 30px;
         }
-      }
+      
     }
+    }
+      
   }
   
   .app__navigation {
@@ -153,7 +138,6 @@
     justify-content: center;
     align-items: center;
     flex-direction: column;
-  
     padding: 1rem;
   
     .app__navigation-dot {

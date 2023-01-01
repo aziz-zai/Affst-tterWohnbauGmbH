@@ -1,11 +1,11 @@
 import React from 'react'
 import logo from '../../assets/AWB-Logo.png'
+import AppWrap from '../../wrapper/AppWrap'
 import './Home.scss'
 
 const Home = () => {
   return (
     <div className="app__hero-section">
-      <div className="app__hero-section-wrapper">
         <div className="app_hero-text">
           <p>
             Irure velit amet ad id ex deserunt magna proident cillum sint. Culpa excepteur proident
@@ -18,8 +18,7 @@ const Home = () => {
           <img src={logo} alt="logo" />
         </div>
       </div>
-    </div>
   )
 }
 
-export default Home
+export default AppWrap(Home)
