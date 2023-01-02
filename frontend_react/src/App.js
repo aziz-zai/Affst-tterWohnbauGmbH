@@ -36,6 +36,7 @@ const App = () => {
     <div className="app">
       <Contact />
       <NavBar />
+      <NavigationDots />
       <div className="copyright">
         <p className="p-text">@{currentYear} YER</p>
         <p className="p-text">All rights reserved</p>

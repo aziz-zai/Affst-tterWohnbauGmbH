@@ -144,25 +144,34 @@
       
   }
   
+  .app__navigation-wrapper{
+    position: fixed;
+    right: 1rem;
+    bottom: calc(50% - 2rem);
+  }
   .app__navigation {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
     padding: 1rem;
-  
+    width: fit-content;
+    
     .app__navigation-dot {
       width: 10px;
       height: 10px;
       border-radius: 50%;
       background-color: #cbcbcb;
       margin: 0.5rem;
-  
-      transition: background-color 0.2s ease-in-out;
+      cursor: pointer;
+      transition: 0.2s ease-in-out;
+      
   
       &:hover {
         background-color: var(--secondary-color);
       }
+
+     
   
       @media screen and (min-width: 2000px) {
         width: 20px;
@@ -170,7 +179,7 @@
       }
     }
   }
-  
+   
   @media screen and (max-width: 500px) {
     .app__navigation,
     .app__social {
@@ -181,3 +190,7 @@
       padding: 2rem;
     }
   }
+  
+  a.app__navigation-dot.active {
+    background-color: var(--secondary-color);
+}
