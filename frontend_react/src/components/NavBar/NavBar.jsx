@@ -1,6 +1,6 @@
-import {motion} from 'framer-motion'
-import React, {useState} from 'react'
-import {HiMenuAlt4, HiX} from 'react-icons/hi'
+import { motion } from 'framer-motion'
+import React, { useState } from 'react'
+import { HiMenuAlt4, HiX } from 'react-icons/hi'
 import logo from '../../assets/AWB-Nav_logo.png'
 import './NavBar.scss'
 const NavBar = () => {
@@ -9,6 +9,9 @@ const NavBar = () => {
     <nav className="app__navbar">
       <div className="app__navbar-logo">
         <img src={logo} alt="logo" />
+        <div>
+          Affstätter <br/> Wohnbau <br/> GmbH
+        </div>
       </div>
       <ul className="app__navbar-links">
         {['Home', 'Projekte', 'Angebote', 'Kontakt'].map((item) => (
