@@ -26,4 +26,4 @@ const Home = () => {
   )
 }
 
-export default AppWrap(Home)
+export default AppWrap(Home, 'Home')

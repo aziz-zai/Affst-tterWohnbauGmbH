@@ -5,12 +5,12 @@ import React from 'react';
 
 const NavigationDots = ({ active }) => (
   <div className="app__navigation">
-    {['Home', 'Projekte', 'Angebote', 'Kontakt'].map((item, index) => (
+    {['Home', 'Projekte', 'Angebote', 'Kontakt', 'UeberUns'].map((item, index) => (
       <a
         href={`#${item}`}
         key={item + index}
         className="app__navigation-dot"
-        style={active === item ? { backgroundColor: '#313BAC' } : {}}
+        style={active === item ? { backgroundColor: '#FAC189' } : {}}
       />
     ))}
   </div>
