@@ -1,8 +1,10 @@
-import { motion } from 'framer-motion'
-import React, { useState } from 'react'
-import { HiMenuAlt4, HiX } from 'react-icons/hi'
-import logo from '../../assets/AWB-Nav_logo.png'
-import './NavBar.scss'
+import { motion } from 'framer-motion';
+import React, { useState } from 'react';
+import { HiMenuAlt4, HiX } from 'react-icons/hi';
+import { Link } from 'react-scroll';
+import logo from '../../assets/AWB-Nav_logo.png';
+
+import './NavBar.scss';
 const NavBar = () => {
   const [toggle, setToggle] = useState(false)
   return (
@@ -14,9 +16,12 @@ const NavBar = () => {
         </div>
       </div>
       <ul className="app__navbar-links">
-        {['Home', 'Projekte', 'Angebote', 'Kontakt', 'Über uns'].map((item) => (
+        {['Home', 'Projekte', 'Angebote', 'Kontakt', 'UeberUns'].map((item) => (
           <li className="app__flex p-text" key={`link-${item}`}>
-            <a href={`#${item}`}>{item}</a>
+            <Link activeClass="active"
+        to={item}
+        spy={true}
+        className="app__navbar-link-item">{item}</Link>
           </li>
         ))}
       </ul>
@@ -28,9 +33,12 @@ const NavBar = () => {
           <motion.div whileInView={{x: [300, 0]}} transition={{duration: 0.85, ease: 'easeOut'}}>
             <HiX onClick={() => setToggle(false)} />
             <ul className="app__navbar-links">
-              {['Home', 'Projekte', 'Angebote', 'Kontakt', 'Über uns'].map((item) => (
+              {['Home', 'Projekte', 'Angebote', 'Kontakt', 'UeberUns'].map((item) => (
                 <li className="app__flex p-text" key={`link-${item}`}>
-                  <a href={`#${item}`}>{item}</a>
+                  <Link activeClass="active"
+        to={item}
+        spy={true}
+        className="app__navbar-link-item">{item}</Link>
                 </li>
               ))}
             </ul>
