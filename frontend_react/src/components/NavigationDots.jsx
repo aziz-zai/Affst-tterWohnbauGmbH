@@ -12,7 +12,6 @@ const NavigationDots = ({ active }) => (
         activeClass="active"
         to={item}
         spy={true}
-        offset={-100}
         className="app__navigation-dot"
       />
     ))}
