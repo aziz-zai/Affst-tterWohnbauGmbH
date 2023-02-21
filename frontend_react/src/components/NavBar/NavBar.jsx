@@ -12,7 +12,7 @@ const NavBar = () => {
       <div className="app__navbar-logo">
         <img src={logo} alt="logo" />
         <div>
-          Affstätter <br/> Wohnbau <br/> GmbH
+          Affstätter <br/> Wohnbau GmbH
         </div>
       </div>
       <ul className="app__navbar-links">
