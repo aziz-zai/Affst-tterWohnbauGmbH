@@ -1,4 +1,6 @@
 import emailjs from '@emailjs/browser';
+import KeyboardDoubleArrowDownIcon from '@mui/icons-material/KeyboardDoubleArrowDown';
+import { IconButton } from '@mui/material';
 import React, { useRef, useState } from 'react';
 import AppWrap from '../../wrapper/AppWrap';
 import './Kontakt.scss';
@@ -10,9 +12,7 @@ const Card = props => (
   </div>
 );
 
-const Form = props => (
-  <form className="form" ref={props.form} onSubmit={props.onSubmit}>{props.children}</form>
-);
+
 
 const TextInput = props => (
   <div className="text-input">
@@ -54,29 +54,34 @@ const Button = props => (
 const Kontakt = () => {
   const [name, setName] = useState({ name: 'name', label: 'Name', value: '', focus: false });
   const [email, setEmail] = useState({ name: 'email', label: 'Email', value: '', focus: false });
-  const [message, setMessage] = useState({ name: 'message', label: 'Message', value: '', focus: false });
+  const [message, setMessage] = useState({ name: 'message', label: 'Nachricht', value: '', focus: false });
+  const [success, setSuccess] = useState(false);
+  const [error, setError] = useState([]);
   
   
     const form = useRef();
-  
+    const validateEmail = (email) => {
+      return email.match(
+        /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+      );
+    };
+    var validationCount = 0
     const handleSubmit = e => {
       e.preventDefault();
-  
-      emailjs
-        .sendForm(
-          'service_dyobz7r',
-          'template_2jdwx9h',
-          form.current,
-          '-7_XcIjuL_PwX7u4R'
-        )
-        .then(
-          result => {
-            console.log(result.text);
-          },
-          error => {
-            console.log(error.text);
-          }
-        );
+
+
+
+        emailjs.send("service_dyobz7r","template_valdfzd",{
+          name: name.value,
+          email: email.value,
+          message: message.value,
+          }, '-7_XcIjuL_PwX7u4R');
+        
+        setName({...name, focus: false, value:''})
+        setEmail({...email, focus: false, value:''})
+        setMessage({...message, focus: false, value:''})
+        setSuccess(true)
+        setError([])
     };
 
   const handleFocus = (e) => {
@@ -115,15 +120,25 @@ const Kontakt = () => {
 
   return (
     <div className="container">
-      <Card>
+      <div className='container__wrapper'>
+      <Card>{console.log(
+        error, validationCount
+      )}
         <h1>Schick uns eine Nachricht!</h1>
-        <Form ref={form} onSubmit={handleSubmit}>
+        <form className="form" ref={form} onSubmit={handleSubmit}>
           <TextInput {...name} onFocus={handleFocus} onBlur={handleBlur} onChange={handleChange} />
           <TextInput {...email} onFocus={handleFocus} onBlur={handleBlur} onChange={handleChange} />
           <TextArea {...message} onFocus={handleFocus} onBlur={handleBlur} onChange={handleChange} />
           <Button onClick={handleSubmit}>Absenden</Button>
-        </Form>
+        </form>
       </Card>
+      <div className="divider"/>
+      <div className="right_text">
+        <p>saojiukdhnisuahdbisaugdiuha</p>
+
+        <button className="right_text-button"><KeyboardDoubleArrowDownIcon sx={{ fontSize: 100 }}/></button>
+      </div>
+      </div>
     </div>
   )
 }

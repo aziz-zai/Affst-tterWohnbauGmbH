@@ -1,29 +1,36 @@
-body {
-    font: 400 16px Montserrat, sans-serif;
-    color: #444;
-    padding: 0;
-    margin: 0;
-    background-color: #f8f8f8;
-  }
+
   
-  .container {
+  .container__wrapper{
     display: flex;
-    min-height: 100vh;
     align-items: center;
-    justify-content: center;
-  }
-  
-  .card {
-    width: 600px;
-    background-color: #fff;
-    border-radius: 3px;
-    box-shadow: 0 2px 10px rgba(var(--primary-color),.06);
+    backdrop-filter: blur(9.5px);
+    border-radius: 20px;
+    box-shadow: 0 3.71429px 46.4286px #0000000d;;
     overflow: hidden;
+    width: 1000px;
+    height: 100%;
   }
   
-  .waves {
-    height: 80px;
-    background: linear-gradient(to bottom left, var(--secondary-color), var(--primary-color));
+  .right_text{
+    padding: 2rem;
+}
+.right_text-button{
+        all: unset;
+        color: var(--secondary-color);
+        cursor: pointer;
+        &:hover{
+        color: var(--blue-color);
+        transform: scale(1.06)
+        }
+}
+  .divider{
+    width: 2px;
+    background-color: var(--black-color);
+    height: 70%;
+    margin: 2rem;
+  }
+  .card {
+    width: 550px;
   }
   
   h1 {
@@ -33,26 +40,35 @@ body {
   
   .form {
     padding: 2rem;
+    .button {
+      display: block;
+      width: 100%;
+      align-self: right;
+      background-color: var(--secondary-color);
+      border: none;
+      border-radius: 3px;
+      padding: 1ch;
+      font-size: 1rem;
+      color: #fff;
+      font-family: inherit;
+      cursor: pointer;
+      transition: all 0.3s ease-in-out;
+      border-radius: 50px;
+      box-shadow: 0 1px 2px 0 rgb(0 0 0 / 5%);
+              &:hover{
+              background: var(--blue-color);
+              transform: scale(1.02)
+              }
+    }
   }
   
-  .button {
-    display: block;
-    width: 100%;
-    background-color: #e14;
-    border: none;
-    border-radius: 3px;
-    padding: 1ch;
-    font-size: 1rem;
-    color: #fff;
-    font-family: inherit;
-  }
   
   @mixin input {
     display: block;
     width: 100%;
     border: 2px solid #eee;
     padding: 1ch;
-    border-radius: 3px;
+    border-radius: 10px;
     transition: 150ms ease;
     outline: none;
     font-size: 1rem;
@@ -60,7 +76,7 @@ body {
   }
   
   @mixin input-focus {
-    border-color: #e14;
+    border-color: var(--secondary-color);
   }
   
   @mixin label {
@@ -77,7 +93,7 @@ body {
     position: absolute;
     top: 0;
     font-size: 0.9em;
-    color: #e14;
+    color: var(--secondary-color);
     font-weight: bold;
     transform: translateY(-50%);
     background-color: #fff;
