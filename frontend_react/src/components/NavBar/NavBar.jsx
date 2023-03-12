@@ -9,12 +9,14 @@ const NavBar = () => {
   const [toggle, setToggle] = useState(false)
   return (
     <nav className="app__navbar">
-      <div className="app__navbar-logo">
+      <Link activeClass="active"
+        to={'Home'}
+        spy={true}className="app__navbar-logo">
         <img src={logo} alt="logo" />
         <div>
           Affstätter <br/> Wohnbau GmbH
         </div>
-      </div>
+      </Link>
       <ul className="app__navbar-links">
         {['Home', 'Projekte', 'Angebote', 'Kontakt', 'UeberUns'].map((item) => (
           <li className="app__flex p-text" key={`link-${item}`}>
