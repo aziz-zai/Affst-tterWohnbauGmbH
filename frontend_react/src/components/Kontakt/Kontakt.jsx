@@ -52,36 +52,54 @@ const Button = props => (
 
 
 const Kontakt = () => {
-  const [name, setName] = useState({ name: 'name', label: 'Name', value: '', focus: false });
-  const [email, setEmail] = useState({ name: 'email', label: 'Email', value: '', focus: false });
-  const [message, setMessage] = useState({ name: 'message', label: 'Nachricht', value: '', focus: false });
+  const [name, setName] = useState({ name: 'name', label: 'Name*', value: '', focus: false });
+  const [email, setEmail] = useState({ name: 'email', label: 'Email*', value: '', focus: false });
+  const [message, setMessage] = useState({ name: 'message', label: 'Nachricht*', value: '', focus: false });
   const [success, setSuccess] = useState(false);
-  const [error, setError] = useState([]);
+  const [error, setError] = useState('sad');
   
   
     const form = useRef();
-    const validateEmail = (email) => {
-      return email.match(
-        /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-      );
-    };
-    var validationCount = 0
+    function validateEmail(email) {
+      var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+      if (email.match(validRegex)) {
+        return true;
+      } else {
+        return false;
+      }
+    
+    }
+
     const handleSubmit = e => {
+      var validationCount = 0
       e.preventDefault();
+    
+      if(name.value ===  ''  || message.value ===''  || email.value===''){
+        validationCount++;
+        setError('Bitte alle Felder ausfüllen!')
+        console.log('falsche fgleder')
 
-
-
+      }else if (validateEmail(email.value)){
+      }else{    
+        validationCount++;
+        console.log('falsche mail')
+        setError('Bitte tragen Sie eine gültige Mail ein!')}
+        console.log(
+          'valid', validationCount
+        )
+      if(validationCount===0){
         emailjs.send("service_dyobz7r","template_valdfzd",{
           name: name.value,
           email: email.value,
           message: message.value,
           }, '-7_XcIjuL_PwX7u4R');
         
+        setSuccess(true)
         setName({...name, focus: false, value:''})
         setEmail({...email, focus: false, value:''})
         setMessage({...message, focus: false, value:''})
-        setSuccess(true)
-        setError([])
+        setError('')
+      }
     };
 
   const handleFocus = (e) => {
@@ -122,13 +140,16 @@ const Kontakt = () => {
     <div className="container">
       <div className='container__wrapper'>
       <Card>{console.log(
-        error, validationCount
+        'test',error, success
       )}
         <h1>Schick uns eine Nachricht!</h1>
         <form className="form" ref={form} onSubmit={handleSubmit}>
           <TextInput {...name} onFocus={handleFocus} onBlur={handleBlur} onChange={handleChange} />
           <TextInput {...email} onFocus={handleFocus} onBlur={handleBlur} onChange={handleChange} />
           <TextArea {...message} onFocus={handleFocus} onBlur={handleBlur} onChange={handleChange} />
+          {error ?
+            <p>{error}</p>
+          :null}
           <Button onClick={handleSubmit}>Absenden</Button>
         </form>
       </Card>
