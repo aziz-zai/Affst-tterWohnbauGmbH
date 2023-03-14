@@ -1,9 +1,11 @@
 import emailjs from '@emailjs/browser';
 import KeyboardDoubleArrowDownIcon from '@mui/icons-material/KeyboardDoubleArrowDown';
-import { IconButton } from '@mui/material';
+import { motion } from 'framer-motion';
 import React, { useRef, useState } from 'react';
+import { Link } from 'react-scroll';
 import AppWrap from '../../wrapper/AppWrap';
 import './Kontakt.scss';
+import SuccessAlert from './successAlert';
 
 
 const Card = props => (
@@ -56,9 +58,13 @@ const Kontakt = () => {
   const [email, setEmail] = useState({ name: 'email', label: 'Email*', value: '', focus: false });
   const [message, setMessage] = useState({ name: 'message', label: 'Nachricht*', value: '', focus: false });
   const [success, setSuccess] = useState(false);
-  const [error, setError] = useState('sad');
+  const [error, setError] = useState('');
   
-  
+  const transitionValues = {
+    duration: 0.8,
+    yoyo: Infinity,
+    ease: "easeOut"
+  };
     const form = useRef();
     function validateEmail(email) {
       var validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
@@ -77,16 +83,10 @@ const Kontakt = () => {
       if(name.value ===  ''  || message.value ===''  || email.value===''){
         validationCount++;
         setError('Bitte alle Felder ausfüllen!')
-        console.log('falsche fgleder')
-
       }else if (validateEmail(email.value)){
       }else{    
         validationCount++;
-        console.log('falsche mail')
         setError('Bitte tragen Sie eine gültige Mail ein!')}
-        console.log(
-          'valid', validationCount
-        )
       if(validationCount===0){
         emailjs.send("service_dyobz7r","template_valdfzd",{
           name: name.value,
@@ -139,27 +139,34 @@ const Kontakt = () => {
   return (
     <div className="container">
       <div className='container__wrapper'>
-      <Card>{console.log(
-        'test',error, success
-      )}
+      <Card>
         <h1>Schick uns eine Nachricht!</h1>
         <form className="form" ref={form} onSubmit={handleSubmit}>
           <TextInput {...name} onFocus={handleFocus} onBlur={handleBlur} onChange={handleChange} />
           <TextInput {...email} onFocus={handleFocus} onBlur={handleBlur} onChange={handleChange} />
           <TextArea {...message} onFocus={handleFocus} onBlur={handleBlur} onChange={handleChange} />
-          {error ?
-            <p>{error}</p>
-          :null}
+            <p>{error ? error : ''}</p>
           <Button onClick={handleSubmit}>Absenden</Button>
         </form>
       </Card>
       <div className="divider"/>
       <div className="right_text">
-        <p>saojiukdhnisuahdbisaugdiuha</p>
-
-        <button className="right_text-button"><KeyboardDoubleArrowDownIcon sx={{ fontSize: 100 }}/></button>
+        <p>Oder besuchen Sie uns doch einfach direkt!</p>
+        <motion.div
+        transition={{
+          y: transitionValues,
+        }}
+        animate={{
+          y: ["0.5rem", "1rem"],
+        }}
+        >
+        <Link to="UeberUns">
+          <KeyboardDoubleArrowDownIcon sx={{ fontSize: 130 }}/>
+        </Link>
+        </motion.div>
       </div>
       </div>
+      <SuccessAlert open={success} closeSuccess={() => setSuccess(false)} successText="Nachricht erfolgreich verschickt!"  />
     </div>
   )
 }

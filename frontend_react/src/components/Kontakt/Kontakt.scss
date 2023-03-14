@@ -7,30 +7,40 @@
     border-radius: 20px;
     box-shadow: 0 3.71429px 46.4286px #0000000d;;
     overflow: hidden;
-    width: 1000px;
+    max-width: 1000px;
     height: 100%;
   }
   
   .right_text{
-    padding: 2rem;
-}
-.right_text-button{
-        all: unset;
-        color: var(--secondary-color);
-        cursor: pointer;
-        &:hover{
-        color: var(--blue-color);
-        transform: scale(1.06)
-        }
+    padding-top: 4rem;
+    width: 45%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    p{
+      font-size: 1.6rem;
+      font-weight: bold;
+      text-align: center;
+    }
+    a{
+            all: unset;
+            color: var(--blue-color);
+            cursor: pointer;
+            &:hover{
+            color: var(--secondary-color);
+            transform: scale(2)
+            }
+    }
 }
   .divider{
     width: 2px;
     background-color: var(--black-color);
     height: 70%;
-    margin: 2rem;
+    margin:2rem;
   }
   .card {
-    width: 550px;
+    width: 55%;
   }
   
   h1 {
@@ -40,7 +50,12 @@
   
   .form {
     padding: 2rem;
-    .button {
+    p{
+      height: 1.5rem;
+      padding-left: 0.3rem;
+      color: red
+    }
+    button {
       display: block;
       width: 100%;
       align-self: right;
