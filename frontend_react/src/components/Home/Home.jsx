@@ -1,5 +1,6 @@
 import React from 'react'
-import logo from '../../assets/hero-logo.svg'
+import { Link } from 'react-scroll'
+import logo from '../../assets/hero-logo1.svg'
 import AppWrap from '../../wrapper/AppWrap'
 import './Home.scss'
 
@@ -10,14 +11,14 @@ const Home = () => {
           <h5>WER SIND WIR?</h5>
           <h2>Der Schlüssel für Ihr Zuhause!</h2>
           <p>
-            Irure velit amet ad id ex deserunt magna proident cillum sint. Culpa excepteur proident
-            deserunt nulla. Mollit aliqua minim reprehenderit aliquip anim dolore nostrud anim velit
-            mollit pariatur qui. Nulla ullamco sunt do amet ex eu.
+          Von der <b>Beratung</b>, über die <b>Planung</b> bis zur <b>Ausführung</b> - alles aus einer Hand. Über den Bau von <b>hochwertigen Mehrfamilienhäusern,
+          Doppel-, Reihen- und Einfamilienhäusern</b> hinaus haben wir bereits mehrere <b>Wohn- und Geschäftsgebäude</b> errichtet.
+          Wir freuen uns schon, Sie von unseren Qualitäten und Vorzügen begeistern zu dürfen!
           </p>
-          
-         
           <div>
+            <Link to="Projekte">
           <button>Mehr erfahren!</button>
+            </Link>
           </div> </div>
         <div className="app__hero-logo">
           <img src={logo} alt="logo" />

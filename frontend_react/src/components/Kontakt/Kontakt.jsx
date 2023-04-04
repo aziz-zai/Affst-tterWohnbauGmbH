@@ -6,6 +6,7 @@ import { Link } from 'react-scroll';
 import AppWrap from '../../wrapper/AppWrap';
 import './Kontakt.scss';
 import SuccessAlert from './successAlert';
+import SuccessDialog from './successDialog';
 
 
 const Card = props => (
@@ -166,7 +167,7 @@ const Kontakt = () => {
         </motion.div>
       </div>
       </div>
-      <SuccessAlert open={success} closeSuccess={() => setSuccess(false)} successText="Nachricht erfolgreich verschickt!"  />
+      <SuccessDialog open={success} handleClose={() => setSuccess(false)}/>
     </div>
   )
 }
