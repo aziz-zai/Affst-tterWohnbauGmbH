@@ -8,9 +8,6 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    flex-shrink: 0;
-    width: 100%;
-    scroll-snap-align: start;
     &:after{
         content: "";
         background-image: linear-gradient(180deg,hsla(0,0%,100%,0) 65%,rgba(0,0,0,.324));
@@ -90,22 +87,21 @@
           }
           .prevButton {
             position: absolute;
-            left: 1rem;
+            left: 6rem;
             top:50%;
           }
           
           .nextButton {
             position: absolute;
-            right: 1rem;
+            right: 6rem;
             top:50%;
           }
 }
 
 .project_wrapper{
-    display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scroll-behavior: smooth;
+display: inline-flex;
+justify-content: center;
+overflow: hidden;
 transition-duration: 1s;
 transition-property: transform;
 transition-timing-function: ease-in-out;

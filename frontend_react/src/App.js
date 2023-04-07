@@ -15,6 +15,15 @@ import {
 const App = () => {
   const [Test, setTest] = useState([])
   const [Mehr, setMehr] = useState([])
+  const [scrollNav, setScrollNav] = useState(false)
+
+  const changeNav = () => {
+    if (window.scrollY >= 300) {
+      setScrollNav(true)
+    } else {
+      setScrollNav(false)
+    }
+  }
 
   const getServerSideProps = async () => {
     const query = '*[_type == "wohnbau"]'
@@ -29,13 +38,14 @@ const App = () => {
 
   useEffect(() => {
     getServerSideProps()
+    window.addEventListener('scroll', changeNav)
   }, [])
   const currentYear = new Date().getFullYear()
 
   return (
     <div className="app">
       <Contact />
-      <NavBar />
+      <NavBar scrollNav={scrollNav} />
       <NavigationDots />
       <div className="copyright">
         <p className="p-text">@{currentYear} YER</p>

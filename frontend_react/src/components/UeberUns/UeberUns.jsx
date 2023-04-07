@@ -38,4 +38,4 @@ Herzlich willkommen in Ihrem Zuhause!
   )
 }
 
-export default AppWrap(UeberUns, 'UeberUns')
+export default AppWrap(UeberUns, 'Überuns')
