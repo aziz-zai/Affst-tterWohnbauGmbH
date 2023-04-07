@@ -23,16 +23,19 @@ const navVariants = {
 };
 const NavBar = ({scrollNav}) => {
   const [toggle, setToggle] = useState(false)
-  const [hoverStyles, setHoverStyles] = useState({backgroundColor: scrollNav? "rgba(29, 29, 29, 0.85)" :"rgba(255, 255, 255, 0.85)"});
+  const [hoverStyles, setHoverStyles] = useState({backgroundColor: scrollNav? "rgba(63, 63, 63, 0.85)" :"rgba(255, 255, 255, 0.85)"});
 
   const baseStyles = {
-    backgroundColor: scrollNav? "rgba(29, 29, 29, 0.85)" :"rgba(255, 255, 255, 0.85)",
+    backgroundColor: scrollNav? "rgba(63, 63, 63, 0.85)" :"rgba(255, 255, 255, 0.85)",
   };
 
   return (
     <nav className="app__navbar">
       <motion.div className="app__navbar_container"
-       style={{ ...baseStyles, ...hoverStyles }} onMouseOver={() => setHoverStyles({ backgroundColor: scrollNav? "rgba(29, 29, 29)":"rgba(255, 255, 255)" })} onMouseOut={() => setHoverStyles({})}>
+       variants={navVariants}
+       initial="hidden"
+       animate="visible"
+       style={{ ...baseStyles, ...hoverStyles }} onMouseOver={() => setHoverStyles({ backgroundColor: scrollNav? "rgba(63, 63, 63)":"rgba(255, 255, 255)" })} onMouseOut={() => setHoverStyles({})}>
       <Link activeClass="active"
         to={'Home'}
         spy={true}className="app__navbar-logo">
@@ -80,3 +83,4 @@ const NavBar = ({scrollNav}) => {
 }
 
 export default NavBar
+
