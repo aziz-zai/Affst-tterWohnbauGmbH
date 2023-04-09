@@ -15,18 +15,17 @@ const navVariants = {
     opacity: 1,
     y: 0,
     transition: {
-      duration: 0.8,
-      ease: "easeOut",
+      duration: 0.3,
+      ease: "easeIn",
       delay: 0.5
     },
   },
 };
 const NavBar = ({scrollNav}) => {
   const [toggle, setToggle] = useState(false)
-  const [hoverStyles, setHoverStyles] = useState({backgroundColor: scrollNav? "rgba(63, 63, 63, 0.85)" :"rgba(255, 255, 255, 0.85)"});
 
   const baseStyles = {
-    backgroundColor: scrollNav? "rgba(63, 63, 63, 0.85)" :"rgba(255, 255, 255, 0.85)",
+    backgroundColor: scrollNav? "rgba(63, 63, 63, 0.8)" :"rgba(255, 255, 255, 0.8)",
   };
 
   return (
@@ -35,12 +34,14 @@ const NavBar = ({scrollNav}) => {
        variants={navVariants}
        initial="hidden"
        animate="visible"
-       style={{ ...baseStyles, ...hoverStyles }} onMouseOver={() => setHoverStyles({ backgroundColor: scrollNav? "rgba(63, 63, 63)":"rgba(255, 255, 255)" })} onMouseOut={() => setHoverStyles({})}>
+       style={baseStyles} >
       <Link activeClass="active"
         to={'Home'}
         spy={true}className="app__navbar-logo">
         <div className="app__navbar_logo_text" style={{color: scrollNav? "white" :"black"}}>
-          Affstätter <br/> Wohnbau GmbH
+          <h2>
+            Affstätter <br/> Wohnbau GmbH
+            </h2>
         </div>
         <img src={logo} alt="logo" />
       </Link>
