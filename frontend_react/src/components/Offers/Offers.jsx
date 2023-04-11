@@ -12,9 +12,11 @@ const offerArray = [
 ]
 function Offers() {
   return (
+    <div>
+
     <div className="grid_container">
       {offerArray.map(offer => 
-      <div key={offer.key} className='grid_item' style={{marginTop: offer.key % 2 === 0 ? "35px" : "", marginBottom: offer.key % 2 === 1 ? "35px" : ""}}>
+      <div key={offer.key} className='grid_item' style={{marginTop: offer.key % 2 === 1 ? "35px" : "", marginBottom: offer.key % 2 === 0 ? "35px" : ""}}>
         <div className='offer_img_wrapper'>
           <img src={offer.img} alt="das bild des Angebots"/>
           </div>
@@ -25,8 +27,9 @@ function Offers() {
           <p>{offer.text}</p>
           <button>Mehr ansehen</button>
         </div>
-      </div>
+        </div>
         )}
+        </div>
     </div>
   )
 }

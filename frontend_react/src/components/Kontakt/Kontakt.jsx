@@ -138,6 +138,13 @@ const Kontakt = () => {
   };
 
   return (
+      <div>
+<div className="kontakt_head_text">
+  <p>
+    Der Kontakt zu unseren Kunden liegt uns sehr am Herzen
+  </p>
+  <h2> Kontaktiere uns direkt!</h2>
+</div>
     <div className="container">
       <div className='container__wrapper'>
       <Card>
@@ -169,6 +176,7 @@ const Kontakt = () => {
       </div>
       <SuccessDialog open={success} handleClose={() => setSuccess(false)}/>
     </div>
+          </div>
   )
 }
 

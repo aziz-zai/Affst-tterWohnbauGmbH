@@ -59,7 +59,7 @@ function Projects() {
       </div>
       </div>
       <div className="offer_page_header">
-        <h2>Unsere Angebote</h2></div>
+        <h2>Hier kommt ein kleiner text mit Danke und Partner hin</h2></div>
     </div>
   )
 }

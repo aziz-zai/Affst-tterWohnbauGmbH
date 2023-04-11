@@ -25,7 +25,7 @@ const NavBar = ({scrollNav}) => {
   const [toggle, setToggle] = useState(false)
 
   const baseStyles = {
-    backgroundColor: scrollNav? "rgba(63, 63, 63, 0.8)" :"rgba(255, 255, 255, 0.8)",
+    backgroundColor: scrollNav? "rgba(63, 63, 63, 0.9)" :"rgba(255, 255, 255, 0.9)",
   };
 
   return (
