@@ -1,6 +1,6 @@
 import React from 'react';
-import offer1 from '../../assets/offer1.jpg';
-import offer2 from '../../assets/offer2.jpg';
+import offer1 from '../../assets/build_house3.jpeg';
+import offer2 from '../../assets/build_house4.jpeg';
 import AppWrap from '../../wrapper/AppWrap';
 import './Offers.scss';
 
@@ -13,10 +13,13 @@ const offerArray = [
 function Offers() {
   return (
     <div>
-
+      <div className="angebot_head">
+        <p>Zahlreiche Projekte die sie interessieren könnten</p>
+        <h2>Unsere Angebote!</h2>
+      </div>
     <div className="grid_container">
       {offerArray.map(offer => 
-      <div key={offer.key} className='grid_item' style={{marginTop: offer.key % 2 === 1 ? "35px" : "", marginBottom: offer.key % 2 === 0 ? "35px" : ""}}>
+      <div key={offer.key} className='grid_item' style={{marginTop: offer.key % 2 === 1 ? "30px" : "", marginBottom: offer.key % 2 === 0 ? "30px" : ""}}>
         <div className='offer_img_wrapper'>
           <img src={offer.img} alt="das bild des Angebots"/>
           </div>

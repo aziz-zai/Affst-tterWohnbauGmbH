@@ -7,7 +7,7 @@ import { Link } from 'react-scroll';
 const NavigationDots = ({ active }) => (
   <div className="app__navigation-wrapper">
   <div className="app__navigation">
-    {['Home', 'Projekte', 'Angebote', 'Kontakt', 'UeberUns'].map((item, index) => (
+    {['Home', 'Projekte', 'Angebote', 'Kontakt', 'Überuns'].map((item, index) => (
       <Link
         activeClass="active"
         to={item}

@@ -1,18 +1,35 @@
+.angebot_head{
+  padding: 1.5rem 0rem 2rem 0rem;
+
+  h2{
+    font-size: 2rem;
+  }
+  p{
+    font-size: 1rem;
+    text-transform: uppercase;
+  }
+}
+
 .grid_container{
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 30px;
-    max-width: 1200px;
+    gap: 0 30px;
+    max-width: 1400px;
     margin: 0 auto;
   
     .grid_item{
       position: relative;
-  
+      overflow: hidden;
+      border-radius: 8px;
       img {
-        width:560px;
-        height: 600px;
+        width: 600px;
+        height: 700px;
         object-fit: cover;
         border-radius: 8px;
+        transition: 0.2s;
+        &:hover{
+          scale: 1.025
+        }
       }
   
       .offer_text_wrapper {

@@ -23,7 +23,11 @@ function SuccessDialog({open, handleClose}) {
               >
                 <CloseIcon />
               </IconButton></DialogTitle>
-        <DialogContent sx={{color: "#75756d"}}>Wir haben Ihre Nachricht erfolgreich erhalten und werden uns schnellstmöglich um Ihr Anliegen kümmern</DialogContent>
+        <DialogContent sx={{color: "#75756d"}}>
+          <p className="dialog_text">
+            Wir haben Ihre Nachricht erfolgreich erhalten und werden uns schnellstmöglich um Ihr Anliegen kümmern.
+            </p>
+          </DialogContent>
         <DialogActions sx={{p:"1rem"}}><Button variant="contained" sx={[{backgroundColor:"#FAC189", padding:"0.5rem 2rem", borderRadius: "50px"}, {
       '&:hover': {
         backgroundColor: '#89C2FA'

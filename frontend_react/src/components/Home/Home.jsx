@@ -86,4 +86,4 @@ const Home = () => {
   )
 }
 
-export default AppWrap(Home, 'Home')
+export default AppWrap(Home, 'Home', 'home')

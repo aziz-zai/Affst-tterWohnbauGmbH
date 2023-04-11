@@ -1,6 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import './App.scss'
 import {client} from './client'
+import Footer from './components/Footer/Footer'
 import {
   Contact,
   Home,
@@ -18,7 +19,7 @@ const App = () => {
   const [scrollNav, setScrollNav] = useState(false)
 
   const changeNav = () => {
-    if (window.scrollY >= 300) {
+    if (window.scrollY >= 1200) {
       setScrollNav(true)
     } else {
       setScrollNav(false)
@@ -57,6 +58,7 @@ const App = () => {
       <Offers />
       <Kontakt />
       <UeberUns />
+      <Footer />
     </div>
   )
 }

@@ -1,23 +1,20 @@
 import React from 'react';
-import schloss from '../../assets/schloss1.jpg';
+import house from '../../assets/build_house4.jpeg';
 import './Projects.scss';
 
 
 function SingleProject({backgroundColor, headText, pText, lightMode}) {
-    const primaryColor = lightMode ? "#353531" : "#ffffff";
-    const btnColor = lightMode ? "#ffffff" :  "#353531";
+
   return (
-    <div  className="container_projects" style={{backgroundColor:backgroundColor, color:primaryColor}}>
+    <div  className="container_projects" style={{backgroundColor:backgroundColor}}>
       <div className="container_inner_project">
-      <div className="container_left-side">
-        <h2>{headText}</h2>
-        <p>{pText}</p>
-        <button style={{backgroundColor:{primaryColor}}}>Mehr lesen!</button>
+      <div className="container_left-side" >
+        <h2 style={{color:lightMode ? "#353531" : "#ffffff"}}>{headText}</h2>
+        <p style={{color:lightMode ? "#353531" : "#ffffff"}}>{pText}</p>
+        <button style={{backgroundColor:lightMode ? "#353531" : "#ffffff" , color:lightMode ? "#ffffff" : "#353531" }}>Mehr lesen!</button>
       </div>
       <div className="container_right-side">
-        <div className="image-wrapper">
-          <img src={schloss} alt="Bild von einem Projekt von uns"/>
-        </div>
+          <img src={house} alt="Bild von einem Projekt von uns"/>
       </div>
       </div>
     </div>

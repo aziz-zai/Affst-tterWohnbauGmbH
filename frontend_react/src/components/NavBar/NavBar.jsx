@@ -1,8 +1,9 @@
 import { motion } from 'framer-motion';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { HiMenuAlt4, HiX } from 'react-icons/hi';
 import { Link } from 'react-scroll';
 import logo from '../../assets/AWB-Nav_logo.png';
+import useScrollListener from '../../hooks/useScrollListener';
 
 import './NavBar.scss';
 
@@ -25,11 +26,23 @@ const NavBar = ({scrollNav}) => {
   const [toggle, setToggle] = useState(false)
 
   const baseStyles = {
-    backgroundColor: scrollNav? "rgba(63, 63, 63, 0.9)" :"rgba(255, 255, 255, 0.9)",
+    backgroundColor: scrollNav? "rgba(255, 255, 255)" :"rgba(255, 255, 255)",
   };
+  const [navClassList, setNavClassList] = useState([])
+  const scroll = useScrollListener()
+
+  // update classList of nav on scroll
+  useEffect(() => {
+    const _classList = []
+
+    if (scroll.y > 150 && scroll.y - scroll.lastY > 0) _classList.push('nav-bar--hidden')
+
+    setNavClassList(_classList)
+  }, [scroll.y, scroll.lastY])
+
 
   return (
-    <nav className="app__navbar">
+    <nav className={navClassList.join(" ")}>
       <motion.div className="app__navbar_container"
        variants={navVariants}
        initial="hidden"
@@ -38,7 +51,7 @@ const NavBar = ({scrollNav}) => {
       <Link activeClass="active"
         to={'Home'}
         spy={true}className="app__navbar-logo">
-        <div className="app__navbar_logo_text" style={{color: scrollNav? "white" :"black"}}>
+        <div className="app__navbar_logo_text" style={{color: scrollNav? "black" :"black"}}>
           <h2>
             Affstätter <br/> Wohnbau GmbH
             </h2>
@@ -51,9 +64,9 @@ const NavBar = ({scrollNav}) => {
             <Link activeClass="active"
         to={item}
         spy={true}
-        style={{color: scrollNav? "white" :"black"}}
+        style={{color: scrollNav? "black" :"black"}}
         className={"app__navbar-link-item"}
-        >{item}</Link>
+        >{item === 'Überuns' ? 'Über uns' : item}</Link>
           </li>
         ))}
       </ul>

@@ -138,22 +138,21 @@ const Kontakt = () => {
   };
 
   return (
-      <div>
+      <div className="kontakt_session">
 <div className="kontakt_head_text">
   <p>
-    Der Kontakt zu unseren Kunden liegt uns sehr am Herzen
+    Haben wir ihr interesse geweckt?
   </p>
-  <h2> Kontaktiere uns direkt!</h2>
+  <h2> Kontaktieren Sie uns direkt!</h2>
 </div>
     <div className="container">
       <div className='container__wrapper'>
       <Card>
-        <h1>Schick uns eine Nachricht!</h1>
         <form className="form" ref={form} onSubmit={handleSubmit}>
           <TextInput {...name} onFocus={handleFocus} onBlur={handleBlur} onChange={handleChange} />
           <TextInput {...email} onFocus={handleFocus} onBlur={handleBlur} onChange={handleChange} />
           <TextArea {...message} onFocus={handleFocus} onBlur={handleBlur} onChange={handleChange} />
-            <p>{error ? error : ''}</p>
+            <p style={{color: "red"}}>{error ? error : ''}</p>
           <Button onClick={handleSubmit}>Absenden</Button>
         </form>
       </Card>
@@ -176,7 +175,7 @@ const Kontakt = () => {
       </div>
       <SuccessDialog open={success} handleClose={() => setSuccess(false)}/>
     </div>
-          </div>
+  </div>
   )
 }
 

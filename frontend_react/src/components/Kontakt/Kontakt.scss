@@ -12,13 +12,12 @@
     align-items: center;
     justify-content: center;
     backdrop-filter: blur(9.5px);
-    background-color: #C0D0C2;
+    background-color: #E08A00;
     border-radius: 8px;
-    box-shadow: 0 3.71429px 46.4286px #0000000d;;
     overflow: hidden;
     padding: 1rem;
-    width: 1200px;
-    height: 100%;
+    width: 1000px;
+    height: 500px;
   }
   
   .kontakt_head_text{
@@ -26,12 +25,12 @@
     flex-direction: column;
     margin-top: 1rem;
     margin-bottom: 1rem;
-    p{
-      text-transform: uppercase;
-      font-size: 1rem;
-    }
     h2{
       font-size: 2rem;
+    }
+    p{
+      font-size: 1rem;
+      text-transform: uppercase;
     }
   }
   .right_text{
@@ -48,7 +47,7 @@
     }
     a{
             all: unset;
-            color: #243126;
+            color: #402800;
             cursor: pointer;
             svg:hover{
             transform: scale(1.2)
@@ -57,8 +56,8 @@
 }
   .divider{
     width: 2px;
-    background-color: var(--white-color);
-    height: 70%;
+    background-color: white;
+    height: 80%;
     margin:2rem;
   }
   .card {
@@ -75,13 +74,12 @@
     p{
       height: 1.5rem;
       padding-left: 0.3rem;
-      color: red
     }
     button {
       display: block;
       width: 100%;
       align-self: right;
-      background-color: #243126;
+      background-color: #402800;
       border: none;
       padding: 0.5rem 2rem;
       font-size: 1rem;
@@ -92,12 +90,18 @@
       border-radius: 50px;
       box-shadow: 0 1px 2px 0 rgb(0 0 0 / 5%);
               &:hover{
-              background-color: #243126;
               transform: scale(1.02)
               }
     }
   }
   
+  .dialog_text{
+    font-family: var(--font-base) !important;
+  }
+
+  .kontakt_session{
+    margin:4rem 0;
+  }
   
   @mixin input {
     display: block;
@@ -112,7 +116,7 @@
   }
   
   @mixin input-focus {
-    border-color: var(--secondary-color);
+    border-color: #402800;
   }
   
   @mixin label {
@@ -136,7 +140,6 @@
     font-weight: 600;
     border-radius: 10px;
   }
-  
   
   
   .text-input {

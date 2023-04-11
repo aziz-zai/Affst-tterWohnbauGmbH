@@ -1,16 +1,18 @@
 
-.app__navbar {
+nav{
   width: 100%;
-
   display: flex;
   justify-content: center;
   align-items: center;
-
-
-  position: fixed;
+  position: sticky;
+  top:0;
   z-index: 2;
+  transition: transform 150ms ease-in-out;
   }
 
+  nav.nav-bar--hidden {
+    transform: translateY(-150%);
+  }
   .app__navbar_container{
     display: flex;
     flex-direction: row;
@@ -20,10 +22,8 @@
     border-radius: 8px;
     margin-top: 0.75rem;
     transition: 0.2s;
-    backdrop-filter: contrast(100%);
-    &:hover{
-      backdrop-filter: contrast(0%);
-    }
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
   }
   .app__navbar_logo_text{
     text-align: right;

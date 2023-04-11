@@ -7,10 +7,10 @@ import AppWrap from '../../wrapper/AppWrap';
 import './Projects.scss';
 import SingleProject from './SingleProject';
 
-const fakeData =[{key: 0, lightmode: true, backgroundColor:"#161B33", headText: "sadsadsadas sad sad", pText:"sadsad"},
-{key: 1,lightmode: true, backgroundColor:"#A69CAC", headText: "nonono fdgfd fddf", pText:"sadnono sdf"},
-{key: 2,lightmode: true, backgroundColor:"#3B4C5D", headText: "nonono fdgfd fddsdsds sdsd", pText:"sadnono   ss sdf"},
-{key: 3,lightmode: true, backgroundColor:"#E6EFF8", headText: "nonono fdgfd fddsdsds sdsd", pText:"sadnono   ss sdf"},
+const fakeData =[{key: 0, lightMode: true, backgroundColor:"#E6EFF8", headText: "sadsadsadas sad sad", pText:"sadsad"},
+{key: 1,lightMode: false, backgroundColor:"#A69CAC", headText: "nonono fdgfd fddf", pText:"sadnono sdf"},
+{key: 2,lightMode: false, backgroundColor:"#3B4C5D", headText: "nonono fdgfd fddsdsds sdsd", pText:"sadnono   ss sdf"},
+{key: 3,lightMode: false, backgroundColor:"#161B33", headText: "nonono fdgfd fddsdsds sdsd", pText:"sadnono   ss sdf"},
 ]
 
 function Projects() {
@@ -58,10 +58,12 @@ function Projects() {
         )}
       </div>
       </div>
-      <div className="offer_page_header">
-        <h2>Hier kommt ein kleiner text mit Danke und Partner hin</h2></div>
+      <div className="partner_section">
+        <h2>Hier kommt ein kleiner text mit Danke und Partner hin</h2>
+        
+      </div>
     </div>
   )
 }
 
-export default AppWrap(Projects, 'Projekte')
+export default AppWrap(Projects, 'Projekte', 'project')
