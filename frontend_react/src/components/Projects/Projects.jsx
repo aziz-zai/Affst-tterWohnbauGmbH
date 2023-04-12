@@ -2,7 +2,7 @@ import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import { IconButton } from '@mui/material';
 import { AnimatePresence, motion } from 'framer-motion';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import AppWrap from '../../wrapper/AppWrap';
 import './Projects.scss';
 import SingleProject from './SingleProject';
@@ -15,6 +15,21 @@ const fakeData =[{key: 0, lightMode: true, backgroundColor:"#E6EFF8", headText: 
 
 function Projects() {
   const [index, setIndex] = useState(0)
+  const [isOpen, setOpen] = useState(false)
+  
+  var menuStyling = "opacity-100";
+  var landingStyling = "max-sm:opactity-0";
+
+  useEffect(() => {
+    if(isOpen){
+      menuStyling ="opacity-0"
+      landingStyling ="max-sm:opactity-100"
+    }
+    else{
+       menuStyling = "opacity-100";
+       landingStyling = "max-sm:opactity-0";
+    }
+  }, [isOpen])
 
   function nextStep() {
     if (index === fakeData.length - 1) {

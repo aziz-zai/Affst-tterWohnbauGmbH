@@ -18,12 +18,14 @@ nav{
     flex-direction: row;
     justify-content: space-around;
     padding: 0.5rem 2rem 0.5rem 2rem;
-    min-width: 1250px;
+    width: 1250px;
     border-radius: 8px;
     margin-top: 0.75rem;
     transition: 0.2s;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
-
+    @media screen and (max-width: 1300px) {
+      width: 1000px;
+    }
   }
   .app__navbar_logo_text{
     text-align: right;

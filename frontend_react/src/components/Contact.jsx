@@ -5,6 +5,7 @@ import { RiContactsFill } from 'react-icons/ri';
 function ContactPopOver(){
   const [anchorEl, setAnchorEl] = React.useState(null);
   
+
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -19,7 +20,7 @@ function ContactPopOver(){
     <div className="app__social">
       <div onClick={handleClick} style={{ backgroundColor:`${btnColor}`, borderColor:`${btnColor}`}} >
         <RiContactsFill aria-describedby={id} />
-      </div>
+      </div>{console.log(anchorEl)}
       <Popover
           id={id}
           open={open}
