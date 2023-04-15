@@ -3,6 +3,11 @@ import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import { IconButton } from '@mui/material';
 import { AnimatePresence, motion } from 'framer-motion';
 import React, { useEffect, useState } from 'react';
+import Feld from '../../assets/Feld.jpg';
+import Scherer from '../../assets/Scherer.jpg';
+import Unal from '../../assets/Unal.jpg';
+import Elektro from '../../assets/elektro.png';
+import Haser from '../../assets/haser.jpeg';
 import AppWrap from '../../wrapper/AppWrap';
 import './Projects.scss';
 import SingleProject from './SingleProject';
@@ -74,8 +79,14 @@ function Projects() {
       </div>
       </div>
       <div className="partner_section">
-        <h2>Hier kommt ein kleiner text mit Danke und Partner hin</h2>
-        
+        <h2>Besuchen Sie auch unsere Partner!</h2>
+        <div>
+          <img src={Elektro} alt="elektro yer logo" className="elektro"/>
+          {[Scherer, Haser, Feld, Scherer, Haser, Feld, Scherer, Haser, Scherer, Feld, Scherer].map(partner => 
+            <img src={partner} alt={`${partner} logo`} className="partner"/>
+            )}
+    
+        </div>
       </div>
     </div>
   )

@@ -1,3 +1,9 @@
+import EmailIcon from '@mui/icons-material/Email';
+import FacebookIcon from '@mui/icons-material/Facebook';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import LanguageIcon from '@mui/icons-material/Language';
+import LinkedInIcon from '@mui/icons-material/LinkedIn';
+import PhoneInTalkIcon from '@mui/icons-material/PhoneInTalk';
 import React from 'react';
 import { Link } from 'react-scroll';
 import './Footer.scss';
@@ -5,34 +11,35 @@ import './Footer.scss';
 const Footer = () => {
   return (
     <div className="footer">
-      <div className="container">
-        <div className="row">
-          <div className="col-md-4">
+    <div className="footer-text">
+          <div className="col-1">
             <h3>Unsere Links</h3>
             <ul className="footer-links">
-              <li><Link to="Home" spy={true}>Home</Link></li>
-              <li><Link to="Projekte" spy={true}>Projekte</Link></li>
-              <li><Link to="Angebote" spy={true}>Angebote</Link></li>
-              <li><Link to="Kontakt" spy={true}>Kontakt</Link></li>
-              <li><Link to="Überuns" spy={true}>Über uns</Link></li>
+              <Link to="Home" spy={true}>Home</Link>
+              <Link to="Projekte" spy={true}>Projekte</Link>
+              <Link to="Angebote" spy={true}>Angebote</Link>
+              <Link to="Kontakt" spy={true}>Kontakt</Link>
+              <Link to="Überuns" spy={true}>Über uns</Link>
             </ul>
           </div>
-          <div className="col-md-4">
-            <h3>Kontaktiere Uns</h3>
-            <p>123 Main Street</p>
-            <p>Anytown, USA</p>
-            <p>(555) 555-5555</p>
+          <div className="col-2">
+            <h3>Bilal Yer</h3>
+            <p>Torgauerweg 15</p>
+            <p>70599, Herrenberg</p>
+            <p>Deutschladn</p>
           </div>
-          <div className="col-md-4">
-            <h3>Folge Uns</h3>
-            <ul className="social-icons">
-              <li><a href="#"><i className="fa fa-facebook"></i></a></li>
-              <li><a href="#"><i className="fa fa-twitter"></i></a></li>
-              <li><a href="#"><i className="fa fa-instagram"></i></a></li>
-            </ul>
+          <div className="col-3">
+            <h3>Kontakt</h3>
+            <p><PhoneInTalkIcon/> (+49)176 32936640</p>
+            <p> <EmailIcon/> msy@yer.com</p>
+            <p><LanguageIcon/> www.affstätter-wohnbau.de</p>
           </div>
-        </div>
-      </div>
+    </div>
+    <div className="footer-socials">
+<LinkedInIcon/>
+<InstagramIcon/>
+<FacebookIcon/>
+    </div>
     </div>
   );
 };
