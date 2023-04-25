@@ -39,6 +39,7 @@
     position: fixed;
     bottom: 1rem;
     right: 1rem;
+    z-index: 4;
     p {
       text-align: end;
       text-transform: uppercase;
@@ -150,9 +151,10 @@
   .project{
     height: fit-content;
     min-height: 1000px;
-    background-color: red;
 
   }
+
+
   .app__navigation-wrapper{
     position: fixed;
     right: 1rem;

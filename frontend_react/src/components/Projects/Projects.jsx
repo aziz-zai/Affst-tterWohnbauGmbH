@@ -1,40 +1,29 @@
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import { IconButton } from '@mui/material';
-import { AnimatePresence, motion } from 'framer-motion';
 import React, { useEffect, useState } from 'react';
+import Aff_Mehrfam from '../../assets/Aff_Mehrfam.jpg';
 import Feld from '../../assets/Feld.jpg';
+import Jettingen_Doppelhaus from '../../assets/Jettingen_Doppelhaus.JPG';
+import Magstadt_Doppelhaus from '../../assets/Magstadt_Doppelhaus.jpg';
+import Mönchberg_Reihenhaus from '../../assets/Mönchberg_Reihenhaus.jpg';
+import Rottenburg_Doppelhaus from '../../assets/Rottenburg_Doppelhaus.JPG';
 import Scherer from '../../assets/Scherer.jpg';
-import Unal from '../../assets/Unal.jpg';
 import Elektro from '../../assets/elektro.png';
 import Haser from '../../assets/haser.jpeg';
 import AppWrap from '../../wrapper/AppWrap';
 import './Projects.scss';
 import SingleProject from './SingleProject';
 
-const fakeData =[{key: 0, lightMode: true, backgroundColor:"#E6EFF8", headText: "sadsadsadas sad sad", pText:"sadsad"},
-{key: 1,lightMode: false, backgroundColor:"#A69CAC", headText: "nonono fdgfd fddf", pText:"sadnono sdf"},
-{key: 2,lightMode: false, backgroundColor:"#3B4C5D", headText: "nonono fdgfd fddsdsds sdsd", pText:"sadnono   ss sdf"},
-{key: 3,lightMode: false, backgroundColor:"#161B33", headText: "nonono fdgfd fddsdsds sdsd", pText:"sadnono   ss sdf"},
+const fakeData =[{key: 0, lightMode: true, backgroundColor:"#E6EFF8", img:Aff_Mehrfam, headText: "Mehrfamilienhaus in Affstätt", pText:"Ein schönes Mehrfamilienhaus in Affstätt mit schönen Blick und "},
+{key: 1,lightMode: false, backgroundColor:"#A69CAC", img:Jettingen_Doppelhaus,headText: "Doppelhaus in Jettingen", pText:"sadnono sdf"},
+{key: 2,lightMode: false, backgroundColor:"#3B4C5D", img:Magstadt_Doppelhaus,headText: "Doppelhaus in Magstadt", pText:"sadnono   ss sdf"},
+{key: 3,lightMode: false, backgroundColor:"#161B33", img:Mönchberg_Reihenhaus,headText: "Drei Reihenhäuser in Mönchberg", pText:"sadnono   ss sdf"},
+{key: 4,lightMode: true, backgroundColor:"#E6EFF8", img:Rottenburg_Doppelhaus,headText: "Doppelhaus in Rottenburg", pText:"sadnono   ss sdf"},
 ]
 
 function Projects() {
-  const [index, setIndex] = useState(0)
-  const [isOpen, setOpen] = useState(false)
-  
-  var menuStyling = "opacity-100";
-  var landingStyling = "max-sm:opactity-0";
-
-  useEffect(() => {
-    if(isOpen){
-      menuStyling ="opacity-0"
-      landingStyling ="max-sm:opactity-100"
-    }
-    else{
-       menuStyling = "opacity-100";
-       landingStyling = "max-sm:opactity-0";
-    }
-  }, [isOpen])
+  const [index, setIndex] = useState(0)  
 
   function nextStep() {
     if (index === fakeData.length - 1) {
@@ -58,15 +47,18 @@ function Projects() {
       {fakeData.map(project => 
       <SingleProject key={project.key}lightMode={project.lightMode} 
       backgroundColor={project.backgroundColor} 
+      img={project.img}
       headText={project.headText} 
       pText={project.pText}
       />
       )}
       </div>
-      <IconButton className='prevButton navButtons' onClick={prevStep}>
+      <IconButton className='prevButton navButtons' onClick={prevStep} 
+      style={{color:  fakeData[index].lightMode ? "gray" : "white", borderColor:  fakeData[index].lightMode ? "gray" : "white"}} >
         <ArrowBackIosIcon/>
       </IconButton>
-      <IconButton className='nextButton navButtons' onClick={nextStep}>
+      <IconButton className='nextButton navButtons' onClick={nextStep} 
+      style={{color:  fakeData[index].lightMode ? "gray" : "white", borderColor:  fakeData[index].lightMode ? "gray" : "white"}}>
         <ArrowForwardIosIcon/>
       </IconButton>
        <div className="activeNavOption_container">

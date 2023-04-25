@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react'
 import './App.scss'
+import ScrollToTopFab from './ScrollToTop'
 import {client} from './client'
 import Footer from './components/Footer/Footer'
 import {
@@ -12,7 +13,6 @@ import {
   Projects,
   UeberUns,
 } from './components/index'
-
 const App = () => {
   const [Test, setTest] = useState([])
   const [Mehr, setMehr] = useState([])
@@ -59,6 +59,7 @@ const App = () => {
       <Kontakt />
       <UeberUns />
       <Footer />
+      <ScrollToTopFab />
     </div>
   )
 }

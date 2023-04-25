@@ -5,10 +5,12 @@ import AppWrap from '../../wrapper/AppWrap';
 import './Offers.scss';
 
 const offerArray = [
-  {key:0, img: offer1, title: "Haus am See", text:"Ein Haus am See mit 3D Drucker"},
-  {key:1, img: offer2,title: "Steckfeld", text:"Ein Haus mit Meerblick" },
-  {key:2, img: offer1, title: "Holdergraben", text:"Ein Haus für den reichen Zinken"},
-  {key:3, img: offer2 , title: "Gühlstein", text:"Hmmm, Naja..."},
+  {key:0, img: offer1, title: "Oberndorf Variante 1", text:"700.000€ inkl. EW(240.000€)"},
+  {key:1, img: offer2,title: "Oberndorf Variante 2", text:"600.000€" },
+  {key:2, img: offer1, title: "Oberndorf Variante 3", text:"600.000€"},
+  {key:3, img: offer2 , title: "Altensteig 1", text:"500.000€"},
+  {key:4, img: offer2 , title: "Altensteig 2", text:"380.000€"},
+  {key:5, img: offer2 , title: "Altensteig 3", text:"380.000€"},
 ]
 function Offers() {
   return (
