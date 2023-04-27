@@ -28,38 +28,41 @@ const offerArray = [
   {key:5, img: bild_Altensteig , moreImg:[G3_Altensteig], title: "Altensteig 3", text:"380.000€"},
 ]
 function Offers() {
-  const [infoBtnClicked, setInfoBtnClicked] = useState(0)
-  const [open, setOpen] = useState(false)
+  const [cardStates, setCardStates] = useState(Array(offerArray.length).fill(false));
+
+  const handleInfoButtonClick = (index) => {
+    const newCardStates = [...cardStates];
+    newCardStates[index] = !newCardStates[index];
+    setCardStates(newCardStates);
+  }
 
   return (
     <div>
-      {console.log("info", infoBtnClicked)}
       <div className="angebot_head">
         <p>Zahlreiche Projekte die sie interessieren könnten</p>
         <h2>Unsere Angebote!</h2>
       </div>
-    <div className="grid_container">
-      {offerArray.map(offer =>
-      <div key={offer.key} className='grid_item' style={{marginTop: offer.key % 2 === 1 ? "30px" : "", marginBottom: offer.key % 2 === 0 ? "30px" : ""}}>
-        <div className='offer_img_wrapper'>
-          <img src={offer.img} alt="das bild des Angebots"/>
+      <div className="grid_container">
+        {offerArray.map((offer, index) =>
+          <div key={offer.key} className='grid_item' style={{marginTop: offer.key % 2 === 1 ? "30px" : "", marginBottom: offer.key % 2 === 0 ? "30px" : ""}}>
+            <div className='offer_img_wrapper'>
+              <img src={offer.img} alt="das bild des Angebots" style={{height: "600px"}}/>
+            </div>
+            <div className="offer_text_wrapper" style={{
+              height: cardStates[index] ? "100%" : "25%",
+            }}>
+              <h2>
+                {offer.title}
+              </h2>
+              <p>{offer.text}</p>
+              <button onClick={() => handleInfoButtonClick(index)}>
+                {cardStates[index] ? "Weniger anzeigen" : "Mehr anzeigen"}
+              </button>
+            </div>
           </div>
-        <div className="offer_text_wrapper" style={{
-        height: infoBtnClicked ? "100%" :"auto",
-        transition: "all 1s ease-in-out"}}>
-          <h2>
-            {offer.title}
-          </h2>
-          <p>{offer.text}</p>
-          <button onClick={() => setOpen(!open)}>{
-            infoBtnClicked ? "Mehr anzeigen" :"Weniger anzeigen"}</button>
-            <MoreDialog open={open} handleClose={() => setOpen(!open)} offerTitle={offer.title}/>
-          </div>
-        </div>
         )}
-        </div>
+      </div>
     </div>
-  )
+  );
 }
-
 export default AppWrap(Offers, 'Angebote')
