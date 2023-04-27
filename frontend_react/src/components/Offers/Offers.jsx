@@ -1,3 +1,6 @@
+import CloseIcon from '@mui/icons-material/Close';
+import CollectionsIcon from '@mui/icons-material/Collections';
+import { IconButton } from "@mui/material";
 import { motion } from "framer-motion";
 import React, { useState } from 'react';
 import G1_Altensteig from '../../assets/offer/1G_Altensteig.jpg';
@@ -18,6 +21,7 @@ import og_oberndorf_v2 from '../../assets/offer/og_oberndorf_v2.jpg';
 import og_oberndorf_v3 from '../../assets/offer/og_oberndorf_v3.jpg';
 import AppWrap from '../../wrapper/AppWrap';
 import MoreDialog from './MoreDialog';
+
 import './Offers.scss';
 
 
@@ -31,11 +35,22 @@ const offerArray = [
 ]
 function Offers() {
   const [cardStates, setCardStates] = useState(Array(offerArray.length).fill(false));
+  const [openGallery, setOpenGallery] = useState(false);
 
   const handleInfoButtonClick = (index) => {
     const newCardStates = [...cardStates];
     newCardStates[index] = !newCardStates[index];
     setCardStates(newCardStates);
+  }
+
+  const handleOpenGallery = (index) => {
+    console.log(index, "sadsa")
+    if(index){
+      setOpenGallery(true)
+    }
+    else{
+      setOpenGallery(false)
+    }
   }
   const container = {
     hidden: { opacity: 1, scale: 0 },
@@ -59,7 +74,9 @@ function Offers() {
     <div>
       <div className="angebot_head">
         <p>Zahlreiche Projekte die sie interessieren könnten</p>
-        <h2>Unsere Angebote!</h2>
+        <h2>Unsere Angebote!</h2>{console.log(
+          "logs", openGallery
+        )}
       </div>
       <div className="grid_container">
         {offerArray.map((offer, index) =>
@@ -72,6 +89,21 @@ function Offers() {
             }}>
               <h2>
                 {offer.title}
+
+                {cardStates[index] ?
+                <IconButton
+                aria-label="close"
+                onClick={() => handleInfoButtonClick(index)}
+                sx={{
+                  position: "absolute",
+                  right: 3,
+                  top: 3,
+                  color: "white",
+                }}
+                >
+                <CloseIcon sx={{fontSize: 35  }}/>
+            </IconButton>
+                :null}
               </h2>
                 <p>{offer.text}</p>
               {cardStates[index] ? 
@@ -86,9 +118,13 @@ function Offers() {
                 )}
               </motion.div>
               :null}
-              <button onClick={() => handleInfoButtonClick(index)}>
-                {cardStates[index] ? "Weniger anzeigen" : "Mehr anzeigen"}
+              <div>
+              <button onClick={cardStates[index] ? () =>  setOpenGallery(true) : () => handleInfoButtonClick(index)} className="text-btn" style={{color: cardStates[index] ? "#00AFFF" : "black"}}>
+                {cardStates[index] ? <CollectionsIcon sx={{color:"#00AFFF"}}/> : null}
+                {cardStates[index] ? "Zur Galerie" : "Mehr anzeigen"}
               </button>
+              <MoreDialog open={openGallery} handleClose={() => setOpenGallery(false)} offerTitle="sadas" imgArray={offer.moreImg}/>
+              </div>
             </div>
           </div>
         )}

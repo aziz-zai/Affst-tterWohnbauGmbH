@@ -23,6 +23,9 @@ function MoreDialog({offerTitle, imgArray, open, handleClose}) {
                 <CloseIcon />
             </IconButton>
         </DialogTitle>
+        <DialogContent>
+          <img src={imgArray[1]} alt="" style={{width:""}}/>
+        </DialogContent>
     </Dialog>
     :null
   )
