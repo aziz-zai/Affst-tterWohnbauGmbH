@@ -75,7 +75,8 @@ const Home = () => {
         <motion.div className="app__hero-house"
             variants={container}
             initial="hidden"
-            animate="visible">
+            animate="visible"
+            >
           {
             [house, house1, house2, house3].map(imgName =>
               <motion.img key={imgName} src={imgName} alt="house" variants={item}/>

@@ -1,5 +1,5 @@
 .angebot_head{
-  padding: 1.5rem 0rem 2rem 0rem;
+  padding: 3rem 0rem 1rem 0rem;
 
   h2{
     font-size: 2rem;
@@ -10,6 +10,19 @@
   }
 }
 
+.info-line{
+  display: flex;
+  flex-direction: row;
+  gap: 0.5rem
+}
+
+.info-wrapper{
+  padding: 1rem 1rem 1rem 0;
+}
+
+.info-question{
+  font-style: bold;
+}
 .grid_container{
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -21,17 +34,17 @@
       position: relative;
       overflow: hidden;
       border-radius: 8px;
-      
-      img {
-        width: 800px;
-        height: auto;
-        object-fit: cover;
-        border-radius: 8px;
-        transition: 0.2s;
-        scale: 1.025;
-
+      .offer_img_wrapper{
+        img {
+          width: 850px;
+          height: 600px;
+          object-fit: cover;
+          border-radius: 8px;
+          transition: 0.2s;
+          scale: 1.025;
+        }
       }
-      
+        
       .offer_text_wrapper {
         position: absolute;
         bottom: 0;
@@ -43,7 +56,7 @@
         border-bottom-left-radius: 8px;
         border-bottom-right-radius: 8px;
         transition: height 0.5s ease-in-out;
-        background-color: rgba(0, 0, 0, 0.808);
+        background-color: rgba(51, 51, 51, 0.281);
         button{
             margin-top: 1rem;
             display: block;
