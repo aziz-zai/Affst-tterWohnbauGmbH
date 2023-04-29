@@ -52,12 +52,20 @@ function MoreDialog({offerTitle, imgArray, open, handleClose}) {
           )}
           </div>
           </div>
+          <div className='gallery-nav'>
           <IconButton className='prevButton navButtons' onClick={prevStep}  >
         <ArrowBackIosIcon/>
       </IconButton>
+            <div className='gallery-navdots'>
+              {imgArray.map(item => <button 
+              onClick={() => setIndex(imgArray.indexOf(item))} key={item} 
+              className='gallery-navdot-items' 
+              style={{backgroundColor: imgArray.indexOf(item) === index ? "#FAC189" : "#cbcbcb"}} />)}
+            </div>
       <IconButton className='nextButton navButtons' onClick={nextStep} >
         <ArrowForwardIosIcon/>
       </IconButton>
+          </div>
         </DialogContent>
     </Dialog>
     :null
