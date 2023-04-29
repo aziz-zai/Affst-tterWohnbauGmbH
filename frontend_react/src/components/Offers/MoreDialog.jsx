@@ -9,7 +9,7 @@ function MoreDialog({offerTitle, imgArray, open, handleClose}) {
     }
   return (
     open?
-    <Dialog open={open} >
+    <Dialog open={open} >{console.log('test', open)}
         <DialogTitle sx={{color: "#353531"}}>{offerTitle}
             <IconButton
                 aria-label="close"

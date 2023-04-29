@@ -25,6 +25,13 @@
 .info-question{
   font-style: bold;
 }
+.offer-mini-text{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: fit-content;
+  gap: 0.2rem;
+}
 .grid_container{
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -82,7 +89,7 @@
       align-items: center;
       gap: 0.3rem;
       &:hover{
-          color:var(--white-color);
+          color:var(--white-color) !important;
           background-color: var(--black-color);
           transform: scale(1.02);
               }

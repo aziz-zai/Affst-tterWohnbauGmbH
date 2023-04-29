@@ -1,5 +1,7 @@
-import CloseIcon from '@mui/icons-material/Close';
 import CollectionsIcon from '@mui/icons-material/Collections';
+import ExpandLessIcon from '@mui/icons-material/ExpandLess';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import HomeIcon from '@mui/icons-material/Home';
 import { IconButton } from "@mui/material";
 import { motion } from "framer-motion";
 import React, { useState } from 'react';
@@ -35,7 +37,7 @@ const offerArray = [
 ]
 function Offers() {
   const [cardStates, setCardStates] = useState(Array(offerArray.length).fill(false));
-  const [openGallery, setOpenGallery] = useState(false);
+  const [cardStatesGallery, setCardGallery] = useState(Array(offerArray.length).fill(false));
 
   const handleInfoButtonClick = (index) => {
     const newCardStates = [...cardStates];
@@ -44,13 +46,9 @@ function Offers() {
   }
 
   const handleOpenGallery = (index) => {
-    console.log(index, "sadsa")
-    if(index){
-      setOpenGallery(true)
-    }
-    else{
-      setOpenGallery(false)
-    }
+    const newCardStatesGallery = [...cardStatesGallery];
+    newCardStatesGallery[index] = !newCardStatesGallery[index];
+    setCardGallery(newCardStatesGallery);
   }
   const container = {
     hidden: { opacity: 1, scale: 0 },
@@ -74,9 +72,7 @@ function Offers() {
     <div>
       <div className="angebot_head">
         <p>Zahlreiche Projekte die sie interessieren könnten</p>
-        <h2>Unsere Angebote!</h2>{console.log(
-          "logs", openGallery
-        )}
+        <h2>Unsere Angebote!</h2>
       </div>
       <div className="grid_container">
         {offerArray.map((offer, index) =>
@@ -101,11 +97,16 @@ function Offers() {
                   color: "white",
                 }}
                 >
-                <CloseIcon sx={{fontSize: 35  }}/>
+                <ExpandMoreIcon sx={{fontSize: 35  }}/>
             </IconButton>
                 :null}
               </h2>
-                <p>{offer.text}</p>
+                <div className='offer-mini-text'>
+                  <HomeIcon/>
+                  <p>
+                  {offer.text}
+                  </p>
+                </div>
               {cardStates[index] ? 
               <motion.div variants={container}
               initial="hidden"
@@ -119,11 +120,11 @@ function Offers() {
               </motion.div>
               :null}
               <div>
-              <button onClick={cardStates[index] ? () =>  setOpenGallery(true) : () => handleInfoButtonClick(index)} className="text-btn" style={{color: cardStates[index] ? "#00AFFF" : "black"}}>
-                {cardStates[index] ? <CollectionsIcon sx={{color:"#00AFFF"}}/> : null}
+              <button onClick={cardStates[index] ? () =>  handleOpenGallery(index) : () => handleInfoButtonClick(index)} className="text-btn" style={{color: cardStates[index] ? "#00AFFF" : "black"}}>
+                {cardStates[index] ? <CollectionsIcon sx={{color:"#00AFFF"}}/> : <ExpandLessIcon/>}
                 {cardStates[index] ? "Zur Galerie" : "Mehr anzeigen"}
               </button>
-              <MoreDialog open={openGallery} handleClose={() => setOpenGallery(false)} offerTitle="sadas" imgArray={offer.moreImg}/>
+              <MoreDialog open={cardStatesGallery[index]} handleClose={() => handleOpenGallery(index)} offerTitle="sadas" imgArray={offer.moreImg}/>
               </div>
             </div>
           </div>
