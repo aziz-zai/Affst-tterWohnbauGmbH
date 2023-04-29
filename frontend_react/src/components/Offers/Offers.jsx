@@ -2,6 +2,7 @@ import CollectionsIcon from '@mui/icons-material/Collections';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import HomeIcon from '@mui/icons-material/Home';
+import LabelIcon from '@mui/icons-material/Label';
 import { IconButton } from "@mui/material";
 import { motion } from "framer-motion";
 import React, { useState } from 'react';
@@ -23,8 +24,8 @@ import og_oberndorf_v2 from '../../assets/offer/og_oberndorf_v2.jpg';
 import og_oberndorf_v3 from '../../assets/offer/og_oberndorf_v3.jpg';
 import AppWrap from '../../wrapper/AppWrap';
 import MoreDialog from './MoreDialog';
-
 import './Offers.scss';
+
 
 
 const offerArray = [
@@ -114,6 +115,7 @@ function Offers() {
               className="info-wrapper">
               {offer.info.map(info => 
               <motion.div key={info.q} variants={item} className="info-line">
+                <LabelIcon/>
               <p className="info-answer">{info.a}</p>
               </motion.div>  
                 )}
@@ -124,7 +126,7 @@ function Offers() {
                 {cardStates[index] ? <CollectionsIcon sx={{color:"#00AFFF"}}/> : <ExpandLessIcon/>}
                 {cardStates[index] ? "Zur Galerie" : "Mehr anzeigen"}
               </button>
-              <MoreDialog open={cardStatesGallery[index]} handleClose={() => handleOpenGallery(index)} offerTitle="sadas" imgArray={offer.moreImg}/>
+              <MoreDialog open={cardStatesGallery[index]} handleClose={() => handleOpenGallery(index)} offerTitle={offer.title} imgArray={offer.moreImg}/>
               </div>
             </div>
           </div>

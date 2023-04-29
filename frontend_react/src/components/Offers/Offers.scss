@@ -14,8 +14,11 @@
 
 .info-line{
   display: flex;
+  justify-content: center;
+  align-items: center;
   flex-direction: row;
-  gap: 0.5rem
+  gap: 0.5rem;
+  width: fit-content;
 }
 
 .info-wrapper{
@@ -93,4 +96,25 @@
           background-color: var(--black-color);
           transform: scale(1.02);
               }
+  }
+
+
+  .gallery_items-wrapper{
+
+    overflow: hidden;
+  }
+  .gallery_items {
+    display: inline-flex;
+    justify-content: center;
+    transition-duration: 0.5s;
+    transition-property: transform;
+    transition-timing-function: ease-in-out;
+    overflow: hidden;
+    
+    img {
+      overflow: hidden;
+      width: 600px;
+      height: auto; // Add object-fit property
+      transform: translateX(-1.5rem);
+    }
   }
