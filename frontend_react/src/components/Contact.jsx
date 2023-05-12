@@ -1,6 +1,6 @@
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
-import { Divider } from '@mui/material';
-import * as React from 'react';
+import { IconButton, Tooltip } from '@mui/material';
+import React, { useState } from 'react';
 import { RiContactsFill } from 'react-icons/ri';
 
 // see https://iconsvg.xyz/
@@ -71,10 +71,31 @@ const Star = ({ size = 16, color = "currentColor" }) => (
     <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2" />
   </svg>
 );
+const StyledTooltip = ({ title, color, children, ...props }) => (
+  <Tooltip
+    {...props}
+    title={title}
+    placement="right"
+    componentsProps={{
+      tooltip: {
+        sx: {
+          backgroundColor: color,
+        },
+      },
+    }}
+  >
+    {children}
+  </Tooltip>
+);
 
 
 function ContactPopOver(){
-  
+  const [isCopied, setIsCopied] = useState(false)
+  const handleCopyClick = (text) => {
+    // Select the text to copy
+    navigator.clipboard.writeText(text)
+    setIsCopied(!isCopied)
+  };
   return(
     <div className="app__social">
       <div className='app__social-wrapper'>
@@ -82,15 +103,21 @@ function ContactPopOver(){
         <div className="app__social-card-entry">
         <div className="app__social-card-entry-title"><h2>Bilal Yer</h2><div/><p>Geschäftsführer</p></div>
         <div className="app__social-card-entry-point">
-        <div> <Phone/> <p>+49 1796686832</p> <ContentCopyIcon sx={{position: "absolute", right: 3, width: 20}}/></div>
-        <div> <Mail/> <p>Bilal.yer@sidal.com</p> <ContentCopyIcon sx={{position: "absolute", right: 3, width: 20}}/></div>
+        <div> <Phone/><p>+49 1796686832</p>
+        <StyledTooltip title={`${isCopied ? "Erfolgreich kopiert" : "Kopieren"}`} color={`${isCopied ? "green" : "#636363"}`}>
+          <IconButton sx={{position: "absolute", right: 3, width: 20, cursor: "pointer", color: "white"}} onClick={() => {handleCopyClick("+49 1796686832")}}>
+          <ContentCopyIcon sx={{width: 20, color: "white"}}/>
+          </IconButton>
+        </StyledTooltip>
+        </div>
+        <div> <Mail/> <p>Bilal.yer@sidal.com</p> <Tooltip title="Kopieren" placement="right"><ContentCopyIcon sx={{position: "absolute", right: 3, width: 20, cursor: "pointer"}}/></Tooltip></div>
         </div>
         </div>
         <div className="app__social-card-entry">
         <div className="app__social-card-entry-title"><h2>Karl Heinz</h2><div/> <p>Bauzeichner</p></div>
         <div className="app__social-card-entry-point">
-        <div> <Phone/> <p>+49 3796686832</p> <ContentCopyIcon sx={{position: "absolute", right: 3, width: 20}}/></div>
-        <div> <Mail/> <p>Karl.heinz@sidal.com</p> <ContentCopyIcon sx={{position: "absolute", right: 3, width: 20}}/></div>
+        <div> <Phone/> <p>+49 3796686832</p> <Tooltip title="Kopieren" placement="right"><ContentCopyIcon sx={{position: "absolute", right: 3, width: 20, cursor: "pointer"}}/></Tooltip></div>
+        <div> <Mail/> <p>Karl.heinz@sidal.com</p> <Tooltip title="Kopieren" placement="right"><ContentCopyIcon sx={{position: "absolute", right: 3, width: 20, cursor: "pointer"}}/></Tooltip></div>
         </div>
         </div>
       </div>
