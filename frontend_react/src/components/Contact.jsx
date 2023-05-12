@@ -2,6 +2,7 @@ import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import { IconButton, Tooltip } from '@mui/material';
 import React, { useState } from 'react';
 import { RiContactsFill } from 'react-icons/ri';
+import { CopyToClipboardButton } from '../constants/CopyClipboard';
 
 // see https://iconsvg.xyz/
 
@@ -88,7 +89,6 @@ const StyledTooltip = ({ title, color, children, ...props }) => (
   </Tooltip>
 );
 
-
 function ContactPopOver(){
   const [isCopied, setIsCopied] = useState(false)
   const handleCopyClick = (text) => {
@@ -104,7 +104,7 @@ function ContactPopOver(){
         <div className="app__social-card-entry-title"><h2>Bilal Yer</h2><div/><p>Geschäftsführer</p></div>
         <div className="app__social-card-entry-point">
         <div> <Phone/><p>+49 1796686832</p>
-        <StyledTooltip title={`${isCopied ? "Erfolgreich kopiert" : "Kopieren"}`} color={`${isCopied ? "green" : "#636363"}`}>
+        <StyledTooltip title={`${isCopied ? "Erfolgreich kopiert" : "Kopieren"}`} color={`${isCopied ? "green" : "#636363"}`} >
           <IconButton sx={{position: "absolute", right: 3, width: 20, cursor: "pointer", color: "white"}} onClick={() => {handleCopyClick("+49 1796686832")}}>
           <ContentCopyIcon sx={{width: 20, color: "white"}}/>
           </IconButton>
