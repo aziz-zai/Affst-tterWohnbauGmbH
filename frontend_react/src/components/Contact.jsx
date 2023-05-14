@@ -1,8 +1,8 @@
+import CheckCircleOutlineIcon from '@mui/icons-material/CheckCircleOutline';
 import ContentCopyIcon from '@mui/icons-material/ContentCopy';
 import { IconButton, Tooltip } from '@mui/material';
 import React, { useState } from 'react';
 import { RiContactsFill } from 'react-icons/ri';
-import { CopyToClipboardButton } from '../constants/CopyClipboard';
 
 // see https://iconsvg.xyz/
 
@@ -90,11 +90,27 @@ const StyledTooltip = ({ title, color, children, ...props }) => (
 );
 
 function ContactPopOver(){
-  const [isCopied, setIsCopied] = useState(false)
-  const handleCopyClick = (text) => {
+  const [isCopied, setIsCopied] = useState([false, false, false, false]);
+  
+  const handleCopyClick = (text, index) => {
     // Select the text to copy
-    navigator.clipboard.writeText(text)
-    setIsCopied(!isCopied)
+    navigator.clipboard.writeText(text);
+    
+    // Update isCopied state to show check circle icon
+    setIsCopied(prevState => {
+      const newState = [...prevState];
+      newState[index] = true;
+      return newState;
+    });
+    
+    // Reset isCopied state after 1 second
+    setTimeout(() => {
+      setIsCopied(prevState => {
+        const newState = [...prevState];
+        newState[index] = false;
+        return newState;
+      });
+    }, 1000);
   };
   return(
     <div className="app__social">
@@ -103,21 +119,47 @@ function ContactPopOver(){
         <div className="app__social-card-entry">
         <div className="app__social-card-entry-title"><h2>Bilal Yer</h2><div/><p>Geschäftsführer</p></div>
         <div className="app__social-card-entry-point">
-        <div> <Phone/><p>+49 1796686832</p>
-        <StyledTooltip title={`${isCopied ? "Erfolgreich kopiert" : "Kopieren"}`} color={`${isCopied ? "green" : "#636363"}`} >
-          <IconButton sx={{position: "absolute", right: 3, width: 20, cursor: "pointer", color: "white"}} onClick={() => {handleCopyClick("+49 1796686832")}}>
-          <ContentCopyIcon sx={{width: 20, color: "white"}}/>
+        <div> <Phone/><a style={{color: "white"}} href="tel:+49 1796686832">+49 1796686832</a>
+        <StyledTooltip title={`${isCopied[0] ? "Erfolgreich kopiert" : "Kopieren"}`} color={`${isCopied[0] ? "green" : "#636363"}`} >
+          <IconButton sx={{position: "absolute", right: 3, width: 20, cursor: "pointer", color: "white"}} onClick={() => {handleCopyClick("+49 1796686832", 0)}}>
+          {isCopied[0] ?
+          <CheckCircleOutlineIcon sx={{width: 20, color: "white"}}/>
+        :<ContentCopyIcon sx={{width: 20, color: "white"}}/>}
           </IconButton>
         </StyledTooltip>
         </div>
-        <div> <Mail/> <p>Bilal.yer@sidal.com</p> <Tooltip title="Kopieren" placement="right"><ContentCopyIcon sx={{position: "absolute", right: 3, width: 20, cursor: "pointer"}}/></Tooltip></div>
+        <div> <Mail/> <a style={{color: "white"}}href="mailto:Bilal.yer@sidal.com?subject=Kundenanfrage%20Here&body=Dein%20Anliegem">Bilal.yer@sidal.com</a>
+        <StyledTooltip title={`${isCopied[1] ? "Erfolgreich kopiert" : "Kopieren"}`} color={`${isCopied[1] ? "green" : "#636363"}`} >
+          <IconButton sx={{position: "absolute", right: 3, width: 20, cursor: "pointer", color: "white"}} onClick={() => {handleCopyClick("Bilal.yer@sidal.com", 1)}}>
+          {isCopied[1] ?
+          <CheckCircleOutlineIcon sx={{width: 20, color: "white"}}/>
+        :<ContentCopyIcon sx={{width: 20, color: "white"}}/>}
+          </IconButton>
+        </StyledTooltip>
+        </div>
         </div>
         </div>
         <div className="app__social-card-entry">
         <div className="app__social-card-entry-title"><h2>Karl Heinz</h2><div/> <p>Bauzeichner</p></div>
         <div className="app__social-card-entry-point">
-        <div> <Phone/> <p>+49 3796686832</p> <Tooltip title="Kopieren" placement="right"><ContentCopyIcon sx={{position: "absolute", right: 3, width: 20, cursor: "pointer"}}/></Tooltip></div>
-        <div> <Mail/> <p>Karl.heinz@sidal.com</p> <Tooltip title="Kopieren" placement="right"><ContentCopyIcon sx={{position: "absolute", right: 3, width: 20, cursor: "pointer"}}/></Tooltip></div>
+        <div> <Phone/> <a style={{color: "white"}}href="tel:+49 1796686832">+49 1796686832</a>
+        <StyledTooltip title={`${isCopied[2] ? "Erfolgreich kopiert" : "Kopieren"}`} color={`${isCopied[2] ? "green" : "#636363"}`} >
+          <IconButton sx={{position: "absolute", right: 3, width: 20, cursor: "pointer", color: "white"}} onClick={() => {handleCopyClick("+49 3796686832", 2)}}>
+          {isCopied[2] ?
+          <CheckCircleOutlineIcon sx={{width: 20, color: "white"}}/>
+        :<ContentCopyIcon sx={{width: 20, color: "white"}}/>}
+          </IconButton>
+        </StyledTooltip>
+        </div>
+        <div> <Mail/> <a style={{color: "white"}}href="mailto:Karl.heinz@sidal.com?subject=Kundenanfrage%20Here&body=Dein%20Anliegem">Karl.heinz@sidal.com</a>
+        <StyledTooltip title={`${isCopied[3] ? "Erfolgreich kopiert" : "Kopieren"}`} color={`${isCopied[3] ? "green" : "#636363"}`} >
+          <IconButton sx={{position: "absolute", right: 3, width: 20, cursor: "pointer", color: "white"}} onClick={() => {handleCopyClick("Karl.heinz@sidal.com", 3)}}>
+          {isCopied[3] ?
+          <CheckCircleOutlineIcon sx={{width: 20, color: "white"}}/>
+        :<ContentCopyIcon sx={{width: 20, color: "white"}}/>}
+          </IconButton>
+        </StyledTooltip>
+        </div>
         </div>
         </div>
       </div>
