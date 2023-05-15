@@ -23,7 +23,7 @@ const MapMarker2 = ({ size = 16, color = "currentColor" }) => (
     <path d="M12 21.7C17.3 17 20 13 20 10a8 8 0 1 0-16 0c0 3 2.7 6.9 8 11.7z" />
   </svg>
 );
-const Phone = ({ size = 16, color = "currentColor" }) => (
+const Phone = ({ size = 16, color = "#241200" }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width={size}
@@ -39,7 +39,7 @@ const Phone = ({ size = 16, color = "currentColor" }) => (
     <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
   </svg>
 );
-const Mail = ({ size = 16, color = "currentColor", ...props }) => (
+const Mail = ({ size = 16, color = "#241200", ...props }) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width={size}
@@ -128,7 +128,7 @@ function ContactPopOver(){
           </IconButton>
         </StyledTooltip>
         </div>
-        <div> <Mail/> <a style={{color: "white"}}href="mailto:Bilal.yer@sidal.com?subject=Kundenanfrage%20Here&body=Dein%20Anliegem">Bilal.yer@sidal.com</a>
+        <div> <Mail/> <a style={{color: "white"}}href="mailto:Bilal.yer@sidal.com?subject=Kundenanfrage&body=Dein%20Anliegen">Bilal.yer@sidal.com</a>
         <StyledTooltip title={`${isCopied[1] ? "Erfolgreich kopiert" : "Kopieren"}`} color={`${isCopied[1] ? "green" : "#636363"}`} >
           <IconButton sx={{position: "absolute", right: 3, width: 20, cursor: "pointer", color: "white"}} onClick={() => {handleCopyClick("Bilal.yer@sidal.com", 1)}}>
           {isCopied[1] ?
@@ -138,6 +138,7 @@ function ContactPopOver(){
         </StyledTooltip>
         </div>
         </div>
+        <div className="app__social-card-entry-divider"/>
         </div>
         <div className="app__social-card-entry">
         <div className="app__social-card-entry-title"><h2>Karl Heinz</h2><div/> <p>Bauzeichner</p></div>
@@ -151,7 +152,7 @@ function ContactPopOver(){
           </IconButton>
         </StyledTooltip>
         </div>
-        <div> <Mail/> <a style={{color: "white"}}href="mailto:Karl.heinz@sidal.com?subject=Kundenanfrage%20Here&body=Dein%20Anliegem">Karl.heinz@sidal.com</a>
+        <div> <Mail/> <a style={{color: "white"}}href="mailto:Karl.heinz@sidal.com?subject=Kundenanfrage&body=Dein%20Anliegen">Karl.heinz@sidal.com</a>
         <StyledTooltip title={`${isCopied[3] ? "Erfolgreich kopiert" : "Kopieren"}`} color={`${isCopied[3] ? "green" : "#636363"}`} >
           <IconButton sx={{position: "absolute", right: 3, width: 20, cursor: "pointer", color: "white"}} onClick={() => {handleCopyClick("Karl.heinz@sidal.com", 3)}}>
           {isCopied[3] ?
@@ -163,7 +164,7 @@ function ContactPopOver(){
         </div>
         </div>
       </div>
-      <div  className="app__social-button" style={{ backgroundColor:"#FAC189", borderColor:"#FAC189"}} >
+      <div  className="app__social-button" style={{ backgroundColor:"#ff8000", borderColor:"#ff8000"}} >
         <RiContactsFill/>
       </div>
       </div>
