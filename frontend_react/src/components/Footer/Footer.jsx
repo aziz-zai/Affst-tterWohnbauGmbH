@@ -35,11 +35,6 @@ const Footer = () => {
             <p><LanguageIcon/> www.affstätter-wohnbau.de</p>
           </div>
     </div>
-    <div className="footer-socials">
-<LinkedInIcon/>
-<InstagramIcon/>
-<FacebookIcon/>
-    </div>
     </div>
   );
 };

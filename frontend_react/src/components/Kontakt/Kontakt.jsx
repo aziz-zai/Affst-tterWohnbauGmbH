@@ -168,7 +168,7 @@ const Kontakt = () => {
         }}
         >
         <Link to="UeberUns">
-          <KeyboardDoubleArrowDownIcon sx={{ fontSize: 130 }}/>
+          <KeyboardDoubleArrowDownIcon sx={{ fontSize: 90 }}/>
         </Link>
         </motion.div>
       </div>

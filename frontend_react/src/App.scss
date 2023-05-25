@@ -40,6 +40,9 @@
     bottom: 1rem;
     right: 1rem;
     z-index: 4;
+    @media screen and (max-width: 600px) {
+      display: none;
+    }
     p {
       text-align: end;
       text-transform: uppercase;

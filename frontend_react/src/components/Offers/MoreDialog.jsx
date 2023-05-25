@@ -20,39 +20,51 @@ const  MoreDialog = ({ offerTitle, offerText, imgArray, open, handleClose }) => 
 }
 
   return (
-    <Dialog open={open} onClose={handleClose} fullScreen TransitionComponent={Transition}>
-       <DialogTitle sx={{color: "white", backgroundColor: "#FAC189", ml:"2rem", mr:"2rem", borderBottomRightRadius:"16px", borderBottomLeftRadius:"16px"}}>{offerTitle} | {offerText}
-            <IconButton
+    
+    open?
+    <div className='gallery-wrapper'>
+      <div className='gallery-header'>
+        <h2>{offerTitle}</h2>
+        <IconButton
                 aria-label="close"
                 onClick={handleDialogClose}
                 sx={{
                   position: "absolute",
                   right: "3rem",
-                  top: 3,
+                  top: "1.2rem",
                   color:"white", 
                 }}
               >
-                <CloseIcon sx={{fontSize:"2.6rem"}}/>
+                <CloseIcon sx={{fontSize:"1.8rem"}}/>
             </IconButton>
-        </DialogTitle>
-      <DialogContent sx={{display:"flex", flexDirection:"column", alignItems:"center"}}>
-        <div className='navigation'>
-          <IconButton onClick={handlePrev}>
-            <ChevronLeftIcon fontSize="large"/>
+      </div>
+      <div className='gallery-content'>
+      <div className='navigation'>
+          <IconButton onClick={handlePrev} sx={{
+                  position: "absolute",
+                  left: "2rem",
+                  top: "50%",
+                }}>
+            <ChevronLeftIcon fontSize="large" sx={{color:"white"}}/>
           </IconButton>
-          <img src={imgArray[currentIndex]} alt={offerTitle} style={{ width: '100%', maxHeight: '80vh', objectFit: 'contain' }} />
-          <IconButton onClick={handleNext}>
-            <ChevronRightIcon fontSize="large"/>
+          <img src={imgArray[currentIndex]} alt={offerTitle}  />
+          <IconButton onClick={handleNext} sx={{
+                  position: "absolute",
+                  right: "3rem",
+                  top: "50%",
+                }}>
+            <ChevronRightIcon fontSize="large" sx={{color:"white"}}/>
           </IconButton>
         </div>
         <div className='gallery-navdots'>
-              {imgArray.map(item => <button 
+              {imgArray.map(item => <img src={item} alt="Bild"
               onClick={() => setCurrentIndex(imgArray.indexOf(item))} key={item} 
               className='gallery-navdot-items' 
-              style={{backgroundColor: imgArray.indexOf(item) === currentIndex ? "#FAC189" : "#cbcbcb"}} />)}
+              style={{borderColor: imgArray.indexOf(item) === currentIndex ? "#FAC189" : "#cbcbcb"}} />)}
             </div>
-      </DialogContent>
-    </Dialog>
+        </div>
+    </div>
+    :null
   );
 };
 

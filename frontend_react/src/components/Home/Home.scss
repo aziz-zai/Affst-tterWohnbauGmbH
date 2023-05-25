@@ -67,7 +67,10 @@
   grid-row: auto auto;
   grid-column-gap: 20px;
   grid-row-gap: 20px;
+  @media screen and (max-width: 1060px) {
+    display:none;
 
+}
     img{
         width: 200px;
         height: 200px;

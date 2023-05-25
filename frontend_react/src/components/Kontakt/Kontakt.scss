@@ -16,8 +16,11 @@
     border-radius: 8px;
     overflow: hidden;
     padding: 1rem;
-    width: 1000px;
     height: 500px;
+    @media screen and (max-width: 800px) {
+      flex-direction: column;
+      height: 800px;
+      }
   }
   
   .kontakt_head_text{
@@ -34,7 +37,6 @@
     }
   }
   .right_text{
-    padding-top: 4rem;
     width: 45%;
     display: flex;
     justify-content: center;
@@ -44,6 +46,9 @@
       font-size: 2rem;
       font-weight: bold;
       text-align: center;
+      @media screen and (max-width: 800px) {
+        font-size: 1.25rem;
+     }
     }
     a{
             all: unset;
@@ -58,10 +63,18 @@
     width: 2px;
     background-color: white;
     height: 80%;
-    margin:2rem;
+    @media screen and (max-width: 800px) {
+      width: 80%;
+      height: 2px;
+      margin:1rem;
+      }
   }
   .card {
     width: 55%;
+    @media screen and (max-width: 800px) {
+      
+      width: 100%;
+      }
   }
   
   h1 {
@@ -100,7 +113,7 @@
   }
 
   .kontakt_session{
-    margin:4rem 0;
+    margin: 4rem 0;
   }
   
   @mixin input {
