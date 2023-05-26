@@ -44,14 +44,22 @@ const  MoreDialog = ({ offerTitle, offerText, imgArray, open, handleClose }) => 
                   position: "absolute",
                   left: "2rem",
                   top: "50%",
+                  zIndex: 8,
                 }}>
             <ChevronLeftIcon fontSize="large" sx={{color:"white"}}/>
           </IconButton>
-          <img src={imgArray[currentIndex]} alt={offerTitle}  />
+          <div className='big-pics-gallery' style={{ transform: `translate(-${currentIndex*100}%)`}}>
+          {imgArray.map(img => 
+          <div>
+          <img src={img} alt="bild"/>
+          </div>
+          )}
+          </div>
           <IconButton onClick={handleNext} sx={{
                   position: "absolute",
                   right: "3rem",
                   top: "50%",
+                  zIndex: 8,
                 }}>
             <ChevronRightIcon fontSize="large" sx={{color:"white"}}/>
           </IconButton>
