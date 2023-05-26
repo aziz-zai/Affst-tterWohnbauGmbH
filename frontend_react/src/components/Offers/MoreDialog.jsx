@@ -23,6 +23,7 @@ const  MoreDialog = ({ offerTitle, offerText, imgArray, open, handleClose }) => 
     
     open?
     <div className='gallery-wrapper'>
+
       <div className='gallery-header'>
         <h2>{offerTitle}</h2>
         <IconButton
@@ -30,8 +31,8 @@ const  MoreDialog = ({ offerTitle, offerText, imgArray, open, handleClose }) => 
                 onClick={handleDialogClose}
                 sx={{
                   position: "absolute",
-                  right: "3rem",
-                  top: "1.2rem",
+                  right: 3,
+                  top: 3,
                   color:"white", 
                 }}
               >
@@ -42,11 +43,11 @@ const  MoreDialog = ({ offerTitle, offerText, imgArray, open, handleClose }) => 
       <div className='navigation'>
           <IconButton onClick={handlePrev} sx={{
                   position: "absolute",
-                  left: "2rem",
-                  top: "50%",
+                  left: {xs: "10%", sm:"0", md:"1rem"},
+            top: {xs: "20%", sm:"50%", md:"50%"},
                   zIndex: 8,
                 }}>
-            <ChevronLeftIcon fontSize="large" sx={{color:"white"}}/>
+            <ChevronLeftIcon sx={{color:"white", fontSize:{xs : "5rem", sm: "1.5rem", md:"2.75rem"}}}/>
           </IconButton>
           <div className='big-pics-gallery' style={{ transform: `translate(-${currentIndex*100}%)`}}>
           {imgArray.map(img => 
@@ -56,12 +57,13 @@ const  MoreDialog = ({ offerTitle, offerText, imgArray, open, handleClose }) => 
           )}
           </div>
           <IconButton onClick={handleNext} sx={{
-                  position: "absolute",
-                  right: "3rem",
-                  top: "50%",
-                  zIndex: 8,
-                }}>
-            <ChevronRightIcon fontSize="large" sx={{color:"white"}}/>
+            position: "absolute",
+            right: {xs: "10%", sm:"0", md:"1rem"},
+            top: {xs: "20%", sm:"50%", md:"50%"},
+            zIndex: 8,
+            
+          }}>
+            <ChevronRightIcon  sx={{color:"white" , fontSize:{xs : "5rem", sm: "1.5rem", md:"2.75rem"}}}/>
           </IconButton>
         </div>
         <div className='gallery-navdots'>

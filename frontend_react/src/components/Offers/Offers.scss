@@ -114,6 +114,13 @@
     height: 80dvh;
     max-width: 90dvw;
     border-radius: 16px;
+    @media screen and (max-width: 1170px) {
+      height: 60dvh;
+    }
+    @media screen and (max-width: 900px) {
+      width: 90dvw;
+      height: auto;
+    }
   }
 }
     .gallery-navdots{
@@ -161,15 +168,20 @@
   .gallery-content{
     display: flex;
     align-items: center;
+      justify-content: flex-start;
     flex-direction: column;
     width: 100%;
-
+    height: 100%;
+    @media  screen and (max-width: 1170px  ) {
+      justify-content: center;
+    }
   }
-
+  
   .big-pics-gallery{
     display: inline-flex;
     width: 100%;
     transition: transform 1s ease-in-out;
+    position: relative;
     div{
       display: flex;
       min-width: 100vw;
