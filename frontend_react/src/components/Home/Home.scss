@@ -5,6 +5,7 @@
     flex-wrap: wrap;
     gap:1.5rem;
     width: 100%;
+    height: fit-content;
     min-height: calc(100vh + 80px);
     position: absolute;
     top: 0;
@@ -13,7 +14,7 @@
     padding-bottom: 80px;
     @media screen and (max-width: 1060px) {
         padding-top: 80px;
-        min-height: calc(1300px + 80px)
+
     }
 }
 
@@ -22,17 +23,26 @@
     width: 600px;
     display: flex;
     flex-direction: column;
+    padding: 1rem;
     h5{
         color: var(--blue-color);
     font-size: 1.6rem;
-
-    }
-    h2{
+@media screen and (max-width: 800px ) {
+    font-size: 1rem;
+}
+}
+h2{
     padding-bottom: 1rem;
     font-size: 4rem;
+    @media screen and (max-width: 800px ) {
+        font-size: 2rem;
     }
-    p{
+}
+p{
     font-size: 1.3rem;
+    @media screen and (max-width: 800px ) {
+        font-size: 1rem;
+    }
     }
     
     div{
@@ -67,14 +77,17 @@
   grid-row: auto auto;
   grid-column-gap: 20px;
   grid-row-gap: 20px;
-  @media screen and (max-width: 1060px) {
-    display:none;
-
+  @media screen and (max-width: 500px) {
+    grid-template-columns: 140px 140px;
 }
     img{
         width: 200px;
         height: 200px;
         object-fit: cover;
         border-radius: 8px;
+        @media screen and (max-width:  500px) {
+            width: 140px;
+            height: 140px;
+}
 }
 }

@@ -1,5 +1,5 @@
 import { motion } from "framer-motion"
-import React, { useEffect, useState } from "react"
+import React from "react"
 import { Link } from 'react-scroll'
 import house from '../../assets/build_house1.jpeg'
 import house1 from '../../assets/build_house2.jpeg'
@@ -43,13 +43,7 @@ const textVariants = {
 };
 const Home = () => {
   return (
-    <div className="app__hero-section"
-    initial={{ opacity: 0  }}
-  animate={{ opacity: 1 }}
-  transition={{
-    type: "spring",
-  }}
-  duration= {1}>
+    <div className="app__hero-section">
         <div className="app__hero-text"
 
        >

@@ -82,6 +82,7 @@ const NavBar = ({scrollNav}) => {
                 <li className="app__flex p-text" key={`link-${item}`} >
                   <Link activeClass="active"
         to={item}
+        onClick={() => setToggle(false)}
         spy={true}
         className="app__navbar-link-item"
         style={{color: scrollNav? "white" :"black"}}>{item}</Link>

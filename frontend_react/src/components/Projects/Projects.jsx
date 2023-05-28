@@ -2,10 +2,18 @@ import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos';
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 import { IconButton } from '@mui/material';
 import React, { useEffect, useState } from 'react';
-import Feld from '../../assets/Feld.jpg';
-import Scherer from '../../assets/Scherer.jpg';
 import Elektro from '../../assets/elektro.png';
-import Haser from '../../assets/haser.jpeg';
+import ACAR from '../../assets/partner/p_acar.jpg';
+import ADIL from '../../assets/partner/p_adil.jpg';
+import Bucher from '../../assets/partner/p_bucher.jpg';
+import Dittus from '../../assets/partner/p_dittus.jpg';
+import Eberhardt from '../../assets/partner/p_eberhardt.jpg';
+import Feld from '../../assets/partner/p_feld.jpg';
+import Haser from '../../assets/partner/p_haser.jpg';
+import Nestle from '../../assets/partner/p_nestle.jpg';
+import Scherer from '../../assets/partner/p_scherer.jpg';
+import Straub from '../../assets/partner/p_straub.jpg';
+import Unal from '../../assets/partner/p_unal.jpg';
 import Aff_Mehrfam from '../../assets/projects/Aff_Mehrfam.jpg';
 import Jettingen_Doppelhaus from '../../assets/projects/Jettingen_Doppelhaus.JPG';
 import Magstadt_Doppelhaus from '../../assets/projects/Magstadt_Doppelhaus.jpg';
@@ -50,8 +58,11 @@ function Projects() {
       img={project.img}
       headText={project.headText} 
       pText={project.pText}
+      fakeData={fakeData}
+      index={index}
       />
       )}
+       
       </div>
       <IconButton className='prevButton navButtons' onClick={prevStep} 
       style={{color:  fakeData[index].lightMode ? "gray" : "white", borderColor:  fakeData[index].lightMode ? "gray" : "white"}} >
@@ -61,20 +72,11 @@ function Projects() {
       style={{color:  fakeData[index].lightMode ? "gray" : "white", borderColor:  fakeData[index].lightMode ? "gray" : "white"}}>
         <ArrowForwardIosIcon/>
       </IconButton>
-       <div className="activeNavOption_container">
-        <div className="activeNavOption_wrapper">
-        {fakeData.map(data => 
-        data.key == index ?
-        <div key={data.key} className="activeNavOption" style={{backgroundColor:"white"}}/>
-        : <div key={data.key} className="activeNavOption"/>
-        )}
-      </div>
-      </div>
       <div className="partner_section">
         <h2>Besuchen Sie auch unsere Partner!</h2>
         <div>
           <img src={Elektro} alt="elektro yer logo" className="elektro"/>
-          {[Scherer, Haser, Feld, Scherer, Haser, Feld, Scherer, Haser, Scherer, Feld, Scherer].map(partner => 
+          {[ACAR, ADIL, Bucher, Dittus, Eberhardt, Feld, Haser, Nestle, Scherer, Straub, Unal].map(partner => 
             <img src={partner} alt={`${partner} logo`} className="partner"/>
             )}
     

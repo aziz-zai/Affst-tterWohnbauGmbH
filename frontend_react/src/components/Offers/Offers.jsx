@@ -1,11 +1,13 @@
+import { Start } from '@mui/icons-material';
 import CollectionsIcon from '@mui/icons-material/Collections';
 import ExpandLessIcon from '@mui/icons-material/ExpandLess';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import HomeIcon from '@mui/icons-material/Home';
 import KeyboardArrowRightIcon from '@mui/icons-material/KeyboardArrowRight';
 import { IconButton } from "@mui/material";
-import { motion } from "framer-motion";
-import React, { useState } from 'react';
+import { motion, useAnimation } from "framer-motion";
+import React, { useEffect, useState } from 'react';
+import { useInView } from 'react-intersection-observer';
 import G1_Altensteig from '../../assets/offer/1G_Altensteig.jpg';
 import G2_Altensteig from '../../assets/offer/2G_Altensteig.jpg';
 import G3_Altensteig from '../../assets/offer/3G_Altensteig.jpg';
@@ -40,6 +42,7 @@ function Offers() {
   const [cardStates, setCardStates] = useState(Array(offerArray.length).fill(false));
   const [cardStatesGallery, setCardGallery] = useState(Array(offerArray.length).fill(false));
 
+  const {ref, inView} = useInView({threshold: 0.2});
   const handleInfoButtonClick = (index) => {
     const newCardStates = [...cardStates];
     newCardStates[index] = !newCardStates[index];
@@ -52,13 +55,12 @@ function Offers() {
     setCardGallery(newCardStatesGallery);
   }
   const container = {
-    hidden: { opacity: 1, scale: 0 },
+    hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      scale: 1,
       transition: {
-        delayChildren: 0.2,
-        staggerChildren: 0.1
+        delayChildren: 0.3,
+        staggerChildren: 0.3
       }
     }
   };
@@ -69,15 +71,19 @@ function Offers() {
       opacity: 1
     }
   };
+
+  const animation = useAnimation()
   return (
-    <div>
+    <div ref={ref}>
       <div className="angebot_head">
         <p>Zahlreiche Projekte die sie interessieren könnten</p>
         <h2>Unsere Angebote!</h2>
       </div>
-      <div className="grid_container">
+      <motion.div variants={container}
+            initial="hidden"
+            animate={inView ? "visible" : "hidden"} className="grid_container" >
         {offerArray.map((offer, index) =>
-          <div key={offer.key} className='grid_item' style={{marginTop: offer.key % 2 === 1 ? "30px" : "", marginBottom: offer.key % 2 === 0 ? "30px" : ""}}>
+          <motion.div variants={item} key={offer.key} className='grid_item' style={{marginTop: offer.key % 2 === 1 ? "30px" : "", marginBottom: offer.key % 2 === 0 ? "30px" : ""}}>
             <div className='offer_img_wrapper'>
               <img src={offer.img} alt="das bild des Angebots"/>
             </div>
@@ -129,9 +135,9 @@ function Offers() {
               <MoreDialog open={cardStatesGallery[index]} handleClose={() => handleOpenGallery(index)} offerTitle={offer.title} imgArray={offer.moreImg} offerText={offer.text}/>
               </div>
             </div>
-          </div>
+          </motion.div>
         )}
-      </div>
+      </motion.div>
     </div>
   );
 }

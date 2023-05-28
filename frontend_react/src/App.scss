@@ -197,9 +197,12 @@
   
   .home{
     height: 100vh;
-    @media screen and (max-width: 1060px) {
-      height: 1300px
-  }
+    @media screen and (max-width:1045px) {
+    height: 1000px;  
+    }
+    @media screen and (max-width:800px) {
+    height: 850px;  
+    }
   }
   .project{
     height: fit-content;

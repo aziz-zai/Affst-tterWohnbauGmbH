@@ -2,7 +2,7 @@ import React from 'react';
 import './Projects.scss';
 
 
-function SingleProject({backgroundColor, img, headText, pText, lightMode}) {
+function SingleProject({backgroundColor, img, headText, pText, lightMode, fakeData, index}) {
 
   return (
     <div  className="container_projects" style={{backgroundColor:backgroundColor}}>
@@ -14,6 +14,15 @@ function SingleProject({backgroundColor, img, headText, pText, lightMode}) {
       </div>
       <div className="container_right-side">
           <img src={img} alt="Bild von einem Projekt von uns"/>
+      </div>
+      </div>
+      <div className="activeNavOption_container">
+        <div className="activeNavOption_wrapper">
+        {fakeData.map(data => 
+        data.key == index ?
+        <div key={data.key} className="activeNavOption" style={{backgroundColor:"white"}}/>
+        : <div key={data.key} className="activeNavOption"/>
+        )}
       </div>
       </div>
     </div>
