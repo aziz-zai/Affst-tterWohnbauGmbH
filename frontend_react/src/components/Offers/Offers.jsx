@@ -82,7 +82,7 @@ function Offers() {
               <img src={offer.img} alt="das bild des Angebots"/>
             </div>
             <div className="offer_text_wrapper" style={{
-              height: cardStates[index] ? "100%" : "30%",
+              height: cardStates[index] ? "100%" : "40%",
             }}>
               <h2>
                 {offer.title}

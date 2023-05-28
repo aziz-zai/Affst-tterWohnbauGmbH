@@ -19,7 +19,7 @@
     height: 500px;
     @media screen and (max-width: 800px) {
       flex-direction: column;
-      height: 800px;
+      height: 700px;
       }
   }
   
@@ -48,6 +48,9 @@
       text-align: center;
       @media screen and (max-width: 800px) {
         font-size: 1.25rem;
+     }
+      @media screen and (max-width: 400px) {
+        font-size: 1rem;
      }
     }
     a{
@@ -84,6 +87,9 @@
   
   .form {
     padding: 2rem;
+    @media screen and (max-width: 500px) {
+      padding: 0.5rem;
+    }
     p{
       height: 1.5rem;
       padding-left: 0.3rem;
@@ -114,6 +120,9 @@
 
   .kontakt_session{
     margin: 4rem 0;
+    @media  screen and (max-width: 500px){
+        padding:  0 1rem;
+    }
   }
   
   @mixin input {
