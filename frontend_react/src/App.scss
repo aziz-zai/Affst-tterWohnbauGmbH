@@ -100,7 +100,7 @@
     z-index: 1;
     .app__social-wrapper{
       display: flex;
-      transform: translateX(-240px);
+      transform: translateX(-295px);
       transition: transform 500ms ease-in;
       &:hover{
         transform: translateX(0);
@@ -141,8 +141,8 @@
       }
     }
     .app__social-card{
-      width: 240px;
-      height: 209px;
+      width: 295px;
+      height: 180px;
       background-color: #ff8000;
       display: flex;
       flex-direction: column;

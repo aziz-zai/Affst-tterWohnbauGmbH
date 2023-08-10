@@ -10,7 +10,6 @@ function SingleProject({backgroundColor, img, headText, pText, lightMode}) {
       <div className="container_left-side" >
         <h2 style={{color:lightMode ? "#353531" : "#ffffff"}}>{headText}</h2>
         <p style={{color:lightMode ? "#353531" : "#ffffff"}}>{pText}</p>
-        <button style={{backgroundColor:lightMode ? "#353531" : "#ffffff" , color:lightMode ? "#ffffff" : "#353531" }}>Mehr lesen!</button>
       </div>
       <div className="container_right-side">
           <img src={img} alt="Bild von einem Projekt von uns"/>

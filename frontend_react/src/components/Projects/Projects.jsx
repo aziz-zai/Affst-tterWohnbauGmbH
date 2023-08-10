@@ -24,11 +24,11 @@ import AppWrap from '../../wrapper/AppWrap';
 import './Projects.scss';
 import SingleProject from './SingleProject';
 
-const fakeData =[{key: 0, lightMode: true, backgroundColor:"#E6EFF8", img:Aff_Mehrfam, headText: "Mehrfamilienhaus in Affstätt", pText:"Ein schönes Mehrfamilienhaus in Affstätt mit schönen Blick und "},
-{key: 1,lightMode: false, backgroundColor:"#A69CAC", img:Jettingen_Doppelhaus,headText: "Doppelhaus in Jettingen", pText:"sadnono sdf"},
-{key: 2,lightMode: false, backgroundColor:"#3B4C5D", img:Magstadt_Doppelhaus,headText: "Doppelhaus in Magstadt", pText:"sadnono   ss sdf"},
-{key: 3,lightMode: false, backgroundColor:"#161B33", img:Mönchberg_Reihenhaus,headText: "Drei Reihenhäuser in Mönchberg", pText:"sadnono   ss sdf"},
-{key: 4,lightMode: true, backgroundColor:"#E6EFF8", img:Rottenburg_Doppelhaus,headText: "Doppelhaus in Rottenburg", pText:"sadnono   ss sdf"},
+const fakeData =[{key: 0, lightMode: false, backgroundColor:"#3F88C5", img:Aff_Mehrfam, headText: "Mehrfamilienhaus in Affstätt", pText:"Ein schönes Mehrfamilienhaus in Affstätt mit schönen Blick und netten Nachbarn"},
+{key: 1,lightMode: false, backgroundColor:"#D72638", img:Jettingen_Doppelhaus,headText: "Doppelhaus in Jettingen", pText:"Ein schönes Doppelhaus in Jettingen mit schönen Blick und netten Nachbarn"},
+{key: 2,lightMode: false, backgroundColor:"#F49D37", img:Magstadt_Doppelhaus,headText: "Doppelhaus in Magstadt", pText:"Ein schönes Doppelhaus in Magstadt mit schönen Blick und netten Nachbarn"},
+{key: 3,lightMode: false, backgroundColor:"#140F2D", img:Mönchberg_Reihenhaus,headText: "Drei Reihenhäuser in Mönchberg", pText:"Drei Reihenhäuser in Mönchberg mit schönen Blick und netten Nachbarn"},
+{key: 4,lightMode: false, backgroundColor:"#F22B29", img:Rottenburg_Doppelhaus,headText: "Doppelhaus in Rottenburg", pText:"Ein schönes Doppelhaus in Rottenburg mit schönen Blick und netten Nachbarn"},
 ]
 
 function Projects() {

@@ -78,14 +78,14 @@ const NavBar = ({scrollNav}) => {
           <motion.div whileInView={{x: [300, 0]}} transition={{duration: 0.85, ease: 'easeOut'}}>
             <HiX onClick={() => setToggle(false)} />
             <ul className="app__navbar-links">
-              {['Home', 'Projekte', 'Angebote', 'Kontakt', 'ÜberUns'].map((item) => (
+              {['Home', 'Projekte', 'Angebote', 'Kontakt', 'Überuns'].map((item) => (
                 <li className="app__flex p-text" key={`link-${item}`} >
                   <Link activeClass="active"
         to={item}
         onClick={() => setToggle(false)}
         spy={true}
         className="app__navbar-link-item"
-        style={{color: scrollNav? "white" :"black"}}>{item}</Link>
+        style={{color: scrollNav? "white" :"black"}}>{item === 'Überuns' ? 'Über uns' : item}</Link>
                 </li>
               ))}
             </ul>

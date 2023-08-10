@@ -1,6 +1,5 @@
 import React from 'react'
-import avatar1 from '../../assets/avatar1.jpg'
-import avatar2 from '../../assets/avatar2.jpg'
+import avatar1 from '../../assets/avatar_placeholder.png'
 import map from '../../assets/maps.jpg'
 import AppWrap from '../../wrapper/AppWrap'
 import './UeberUns.scss'
@@ -18,7 +17,7 @@ function UeberUns() {
           <p>CEO & Founder</p>
         </div>
         <div>
-          <img src={avatar2} alt="Bild von Karl"/>
+          <img src={avatar1} alt="Bild von Karl"/>
           <h3>Karl Heinz</h3>
           <p>Architekt & Visionär</p>
         </div>

@@ -128,7 +128,7 @@ function ContactPopOver(){
           </IconButton>
         </StyledTooltip>
         </div>
-        <div> <Mail/> <a style={{color: "white"}}href="mailto:Bilal.yer@sidal.com?subject=Kundenanfrage&body=Dein%20Anliegen">Bilal.yer@sidal.com</a>
+        <div> <Mail/> <a style={{color: "white"}}href="mailto:info@affstaetterwohnbau.com?subject=Kundenanfrage&body=Dein%20Anliegen">info@affstaetterwohnbau.com</a>
         <StyledTooltip title={`${isCopied[1] ? "Erfolgreich kopiert" : "Kopieren"}`} color={`${isCopied[1] ? "green" : "#636363"}`} >
           <IconButton sx={{position: "absolute", right: 3, width: 20, cursor: "pointer", color: "white"}} onClick={() => {handleCopyClick("Bilal.yer@sidal.com", 1)}}>
           {isCopied[1] ?
@@ -152,15 +152,7 @@ function ContactPopOver(){
           </IconButton>
         </StyledTooltip>
         </div>
-        <div> <Mail/> <a style={{color: "white"}}href="mailto:Karl.heinz@sidal.com?subject=Kundenanfrage&body=Dein%20Anliegen">Karl.heinz@sidal.com</a>
-        <StyledTooltip title={`${isCopied[3] ? "Erfolgreich kopiert" : "Kopieren"}`} color={`${isCopied[3] ? "green" : "#636363"}`} >
-          <IconButton sx={{position: "absolute", right: 3, width: 20, cursor: "pointer", color: "white"}} onClick={() => {handleCopyClick("Karl.heinz@sidal.com", 3)}}>
-          {isCopied[3] ?
-          <CheckCircleOutlineIcon sx={{width: 20, color: "white"}}/>
-        :<ContentCopyIcon sx={{width: 20, color: "white"}}/>}
-          </IconButton>
-        </StyledTooltip>
-        </div>
+
         </div>
         </div>
       </div>
