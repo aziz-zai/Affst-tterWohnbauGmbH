@@ -11,7 +11,7 @@ function UeberUns() {
       <div className="uberuns_section">
         <div className="map">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2638.890050816746!2d8.844331892067332!3d48.59280404536046!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x479759117ff3faaf%3A0xd557943efc01e569!2sTorgauer%20Weg%2015%2C%2071083%20Herrenberg!5e0!3m2!1sde!2sde!4v1693849578469!5m2!1sde!2sde"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2639.7872812580003!2d8.768949792061964!3d48.575622846559156!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47975a5aab7303bf%3A0xa0b99630998b2bd5!2sNagolder%20Str.%204%2C%2071131%20Jettingen!5e0!3m2!1sde!2sde!4v1693858074887!5m2!1sde!2sde"
             width="100%"
             allowFullscreen=""
             loading="lazy"
@@ -22,12 +22,12 @@ function UeberUns() {
           <div>
             <img src={avatar1} alt="Bild von Bilal" />
             <h3>Bilal Yer</h3>
-            <p>CEO & Founder</p>
+            <p>Geschäftsführer</p>
           </div>
           <div>
             <img src={avatar1} alt="Bild von Karl" />
             <h3>Karl Heinz</h3>
-            <p>Architekt & Visionär</p>
+            <p>Bauzeichner</p>
           </div>
         </div>
         <div className="uberuns_text">

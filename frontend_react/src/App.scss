@@ -142,7 +142,7 @@
     }
     .app__social-card{
       width: 295px;
-      height: 180px;
+      height: 220px;
       background-color: #ff8000;
       display: flex;
       flex-direction: column;
@@ -185,9 +185,6 @@
             margin-bottom: 0.2rem;
             position: relative;
             padding: 0.2rem;
-            &:hover{
-              background-color: #fda247;
-            }
           }
           }
       }

@@ -28,7 +28,7 @@ const fakeData = [
   {
     key: 0,
     lightMode: false,
-    backgroundColor: '#3F88C5',
+    backgroundColor: '#4B3B40',
     img: Aff_Mehrfam,
     headText: 'Mehrfamilienhaus in Affstätt',
     pText: 'Ein schönes Mehrfamilienhaus in Affstätt mit schönen Blick und netten Nachbarn',
@@ -36,7 +36,7 @@ const fakeData = [
   {
     key: 1,
     lightMode: false,
-    backgroundColor: '#D72638',
+    backgroundColor: '#82735C',
     img: Jettingen_Doppelhaus,
     headText: 'Doppelhaus in Jettingen',
     pText: 'Ein schönes Doppelhaus in Jettingen mit schönen Blick und netten Nachbarn',
@@ -44,7 +44,7 @@ const fakeData = [
   {
     key: 2,
     lightMode: false,
-    backgroundColor: '#F49D37',
+    backgroundColor: '#9DB17C',
     img: Magstadt_Doppelhaus,
     headText: 'Doppelhaus in Magstadt',
     pText: 'Ein schönes Doppelhaus in Magstadt mit schönen Blick und netten Nachbarn',
@@ -52,7 +52,7 @@ const fakeData = [
   {
     key: 3,
     lightMode: false,
-    backgroundColor: '#140F2D',
+    backgroundColor: '#6C698D',
     img: Mönchberg_Reihenhaus,
     headText: 'Drei Reihenhäuser in Mönchberg',
     pText: 'Drei Reihenhäuser in Mönchberg mit schönen Blick und netten Nachbarn',
@@ -60,7 +60,7 @@ const fakeData = [
   {
     key: 4,
     lightMode: false,
-    backgroundColor: '#F22B29',
+    backgroundColor: '#C6878F',
     img: Rottenburg_Doppelhaus,
     headText: 'Doppelhaus in Rottenburg',
     pText: 'Ein schönes Doppelhaus in Rottenburg mit schönen Blick und netten Nachbarn',
