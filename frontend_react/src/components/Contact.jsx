@@ -175,7 +175,7 @@ function ContactPopOver() {
                       color: 'white',
                     }}
                     onClick={() => {
-                      handleCopyClick('Bilal.yer@sidal.com', 1)
+                      handleCopyClick('info@affstaetterwohnbau.com', 1)
                     }}
                   >
                     {isCopied[1] ? (
@@ -198,8 +198,8 @@ function ContactPopOver() {
               <div>
                 {' '}
                 <Phone />{' '}
-                <a style={{color: 'white'}} href="tel:+49 1796686832">
-                  +49 1796686832
+                <a style={{color: 'white'}} href="tel:+49 1742435919">
+                  +49 1742435919
                 </a>
                 <StyledTooltip
                   title={`${isCopied[2] ? 'Erfolgreich kopiert' : 'Kopieren'}`}
@@ -214,7 +214,7 @@ function ContactPopOver() {
                       color: 'white',
                     }}
                     onClick={() => {
-                      handleCopyClick('+49 3796686832', 2)
+                      handleCopyClick('+49 1742435919', 2)
                     }}
                   >
                     {isCopied[2] ? (
@@ -230,9 +230,9 @@ function ContactPopOver() {
                 <Mail />{' '}
                 <a
                   style={{color: 'white'}}
-                  href="mailto:info@affstaetterwohnbau.com?subject=Kundenanfrage&body=Dein%20Anliegen"
+                  href="mailto:planung@affstaetterwohnbau.de?subject=Kundenanfrage&body=Dein%20Anliegen"
                 >
-                  info@affstaetterwohnbau.com
+                  planung@affstaetterwohnbau.de
                 </a>
                 <StyledTooltip
                   title={`${isCopied[1] ? 'Erfolgreich kopiert' : 'Kopieren'}`}
@@ -247,7 +247,7 @@ function ContactPopOver() {
                       color: 'white',
                     }}
                     onClick={() => {
-                      handleCopyClick('Bilal.yer@sidal.com', 1)
+                      handleCopyClick('planung@affstaetterwohnbau.de', 1)
                     }}
                   >
                     {isCopied[1] ? (
