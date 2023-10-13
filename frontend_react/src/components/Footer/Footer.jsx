@@ -41,7 +41,7 @@ const Footer = () => {
         <div className="col-3">
           <h3>Kontakt</h3>
           <p>
-            <PhoneInTalkIcon /> (+49)176 32936640
+            <PhoneInTalkIcon /> (+49)179 5988329
           </p>
           <p>
             {' '}
