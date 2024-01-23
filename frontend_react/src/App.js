@@ -1,7 +1,7 @@
 import React, {useEffect, useState} from 'react'
 import './App.scss'
 import ScrollToTopFab from './ScrollToTop'
-import Footer from './components/Footer/Footer'
+import Footer from './component/Footer/Footer'
 import {
   Contact,
   Home,
@@ -11,7 +11,7 @@ import {
   Offers,
   Projects,
   UeberUns,
-} from './components/index'
+} from './component/index'
 const App = () => {
   const [scrollNav, setScrollNav] = useState(false)
 
