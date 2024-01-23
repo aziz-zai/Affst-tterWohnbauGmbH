@@ -1,22 +1,42 @@
+.text-gradient {
+  background-color: red;
+
+  /* Create the gradient. */
+  background-image: linear-gradient(45deg, rgba(191, 96, 0, 1) 16%, rgba(110, 103, 255, 1) 74%);
+
+  /* Set the background size and repeat properties. */
+  background-size: 100%;
+  background-repeat: repeat;
+
+  /* Use the text as a mask for the background. */
+  /* This will show the gradient as a text color rather than element bg. */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -moz-background-clip: text;
+  -moz-text-fill-color: transparent;
+}
 .app__hero-section {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
-  gap: 1.5rem;
+  padding-left: 4rem;
   width: 100%;
   height: fit-content;
   min-height: calc(100vh + 80px);
   position: absolute;
   top: 0;
   background: var(--white-color);
-  color: var(--white-color);
+  color: #161c27;
+  max-height: 100vh;
   padding-bottom: 80px;
-  @media screen and (max-width: 1060px) {
+  @media screen and (max-width: 1150px) {
     padding-top: 70px;
+    padding-left: 3rem;
   }
   @media screen and (max-width: 400px) {
     min-height: 930px;
+    padding-left: 1rem;
   }
 }
 
@@ -24,10 +44,12 @@
   width: 600px;
   display: flex;
   flex-direction: column;
-  padding: 1rem;
   h5 {
-    color: var(--blue-color);
+    color: #6e67ff;
     font-size: 1.6rem;
+    @media screen and (max-width: 1265px) {
+      font-size: 1.2rem;
+    }
     @media screen and (max-width: 800px) {
       font-size: 1rem;
     }
@@ -35,12 +57,18 @@
   h2 {
     padding-bottom: 1rem;
     font-size: 4rem;
+    @media screen and (max-width: 1265px) {
+      font-size: 3rem;
+    }
     @media screen and (max-width: 800px) {
       font-size: 2rem;
     }
   }
   p {
     font-size: 1.3rem;
+    @media screen and (max-width: 1265px) {
+      font-size: 1.2rem;
+    }
     @media screen and (max-width: 800px) {
       font-size: 1rem;
     }
@@ -50,7 +78,7 @@
     padding-top: 2rem;
     button {
       border-radius: 50px;
-      background: var(--blue-color);
+      background: #6e67ff;
       white-space: nowrap;
       padding: 0.5rem 2rem;
       color: var(--white-color);
@@ -73,13 +101,12 @@
 }
 
 .app__hero-house {
-  display: grid;
-  grid-template-columns: 200px 200px;
-  grid-row: auto auto;
-  grid-column-gap: 20px;
-  grid-row-gap: 20px;
-  @media screen and (max-width: 500px) {
-    grid-template-columns: 140px 140px;
+  width: 800px;
+  @media screen and (max-width: 1465px) {
+    width: 600px;
+  }
+  @media screen and (max-width: 1265px) {
+    width: 450px;
   }
   img {
     width: 200px;
@@ -91,4 +118,20 @@
       height: 140px;
     }
   }
+}
+.container_hero {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  gap: 2rem;
+  padding-top: 0 !important;
+  padding-left: 0.5rem; /* 2px */
+  width: fit-content;
+}
+
+.item {
+  display: flex;
+  gap: 0.5rem; /* 2px */
+  align-items: center;
+  margin-bottom: 0.75rem; /* 3px */
 }
