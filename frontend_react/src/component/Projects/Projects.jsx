@@ -31,7 +31,7 @@ const fakeData = [
     backgroundColor: '#4B3B40',
     img: Aff_Mehrfam,
     headText: 'Mehrfamilienhaus in Affstätt',
-    pText: 'Ein schönes Mehrfamilienhaus in Affstätt mit schönen Blick und netten Nachbarn',
+    pText: '',
   },
   {
     key: 1,
@@ -39,7 +39,7 @@ const fakeData = [
     backgroundColor: '#82735C',
     img: Jettingen_Doppelhaus,
     headText: 'Doppelhaus in Jettingen',
-    pText: 'Ein schönes Doppelhaus in Jettingen mit schönen Blick und netten Nachbarn',
+    pText: '',
   },
   {
     key: 2,
@@ -47,7 +47,7 @@ const fakeData = [
     backgroundColor: '#9DB17C',
     img: Magstadt_Doppelhaus,
     headText: 'Doppelhaus in Magstadt',
-    pText: 'Ein schönes Doppelhaus in Magstadt mit schönen Blick und netten Nachbarn',
+    pText: '',
   },
   {
     key: 3,
@@ -55,7 +55,7 @@ const fakeData = [
     backgroundColor: '#6C698D',
     img: Mönchberg_Reihenhaus,
     headText: 'Drei Reihenhäuser in Mönchberg',
-    pText: 'Drei Reihenhäuser in Mönchberg mit schönen Blick und netten Nachbarn',
+    pText: '',
   },
   {
     key: 4,
@@ -63,7 +63,7 @@ const fakeData = [
     backgroundColor: '#C6878F',
     img: Rottenburg_Doppelhaus,
     headText: 'Doppelhaus in Rottenburg',
-    pText: 'Ein schönes Doppelhaus in Rottenburg mit schönen Blick und netten Nachbarn',
+    pText: '',
   },
 ]
 
@@ -152,10 +152,12 @@ function Projects() {
       <div className="partner_section">
         <h2>Besuchen Sie auch unsere Partner!</h2>
         <div>
-          <img src={Elektro} alt="elektro yer logo" className="elektro" />
+          <a href="https://www.elektro-yer.de/">
+            <img src={Elektro} alt="elektro yer logo" className="elektro" />
+          </a>
           {[ACAR, ADIL, Bucher, Dittus, Eberhardt, Feld, Haser, Nestle, Scherer, Straub, Unal].map(
             (partner) => (
-              <img src={partner} alt={`${partner} logo`} className="partner" />
+              <img key={partner} src={partner} alt={`${partner} logo`} className="partner" />
             )
           )}
         </div>

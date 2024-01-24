@@ -27,6 +27,10 @@
   position: absolute;
   top: 0;
   background: var(--white-color);
+  background-image: url(../../assets/bg.svg);
+  background-size: cover; /* This makes the background image cover the entire area */
+  background-repeat: no-repeat; /* This prevents the image from repeating */
+  background-position: center;
   color: #161c27;
   max-height: 100vh;
   padding-bottom: 80px;
