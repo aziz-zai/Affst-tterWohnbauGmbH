@@ -26,11 +26,13 @@
   min-height: calc(100vh + 80px);
   position: absolute;
   top: 0;
-  background: var(--white-color);
-  background-image: url(../../assets/bg.svg);
-  background-size: cover; /* This makes the background image cover the entire area */
-  background-repeat: no-repeat; /* This prevents the image from repeating */
-  background-position: center;
+  background: rgb(255, 253, 251);
+  background: linear-gradient(
+    90deg,
+    rgba(255, 253, 251, 0.9864320728291317) 0%,
+    rgba(250, 253, 255, 0.9864320728291317) 100%
+  );
+
   color: #161c27;
   max-height: 100vh;
   padding-bottom: 80px;
