@@ -114,7 +114,7 @@ function Offers() {
   const [cardStates, setCardStates] = useState(Array(offerArray.length).fill(false))
   const [cardStatesGallery, setCardGallery] = useState(Array(offerArray.length).fill(false))
 
-  const {ref, inView} = useInView({threshold: 0.2})
+  const {ref, inView} = useInView({threshold: 0.1})
   const handleInfoButtonClick = (index) => {
     const newCardStates = [...cardStates]
     newCardStates[index] = !newCardStates[index]
@@ -131,8 +131,8 @@ function Offers() {
     visible: {
       opacity: 1,
       transition: {
-        delayChildren: 0.3,
-        staggerChildren: 0.3,
+        delayChildren: 0.1,
+        staggerChildren: 0.1,
       },
     },
   }
@@ -144,7 +144,6 @@ function Offers() {
     },
   }
 
-  const animation = useAnimation()
   return (
     <div ref={ref}>
       <div className="angebot_head">
@@ -173,7 +172,7 @@ function Offers() {
             <div
               className="offer_text_wrapper"
               style={{
-                height: cardStates[index] ? '100%' : '44%',
+                height: cardStates[index] ? '100%' : '50%',
               }}
             >
               <h2>

@@ -1,8 +1,5 @@
 import EmailIcon from '@mui/icons-material/Email'
-import FacebookIcon from '@mui/icons-material/Facebook'
-import InstagramIcon from '@mui/icons-material/Instagram'
 import LanguageIcon from '@mui/icons-material/Language'
-import LinkedInIcon from '@mui/icons-material/LinkedIn'
 import PhoneInTalkIcon from '@mui/icons-material/PhoneInTalk'
 import React from 'react'
 import {Link} from 'react-scroll'
@@ -50,6 +47,9 @@ const Footer = () => {
           <p>
             <LanguageIcon /> www.affstaetterwohnbau.com
           </p>
+          <a href="/Impressum" spy={true}>
+            Impressum
+          </a>
         </div>
       </div>
     </div>
