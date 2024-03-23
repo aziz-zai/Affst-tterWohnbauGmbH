@@ -16,7 +16,7 @@ const Main = () => {
   const [scrollNav, setScrollNav] = useState(false)
 
   const changeNav = () => {
-    if (window.scrollY >= 1200) {
+    if (window.scrollY >= 280) {
       setScrollNav(true)
     } else {
       setScrollNav(false)

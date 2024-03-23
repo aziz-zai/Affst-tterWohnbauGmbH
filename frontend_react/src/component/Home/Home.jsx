@@ -44,24 +44,23 @@ const textVariants = {
 const Home = () => {
   return (
     <div className="app__hero-section">
+      <div className="app__hero-background"></div>
       <div className="app__hero-text">
-        <motion.div variants={textVariants} initial="hidden" animate="visible">
-          <h5>WER SIND WIR?</h5>
+        <motion.div
+          variants={textVariants}
+          initial="hidden"
+          animate="visible"
+          className="app__hero-text-wrapper"
+        >
           <h2>
             Der Schlüssel für Ihr <b className="text-gradient">Zuhause!</b>{' '}
           </h2>
-          <p>
-            Von der <b style={{color: '#ff8000'}}>Beratung</b>, über die{' '}
-            <b style={{color: '#ff8000'}}>Planung</b> bis zur{' '}
-            <b style={{color: '#ff8000'}}>Ausführung</b> - alles aus einer Hand. Über den Bau von
-            hochwertigen Mehrfamilienhäusern, Doppel-, Reihen- und Einfamilienhäusern hinaus haben
-            wir bereits mehrere Wohn- und Geschäftsgebäude errichtet.
+          <p className="hero-text-p">
+            Komplettservice von <b style={{color: '#ff8000'}}>Beratung</b> bis{' '}
+            <b style={{color: '#ff8000'}}>Ausführung </b>
+            für hochwertige Wohnbauten, inklusive Mehrfamilien-, Doppel-, Reihen- und
+            Einfamilienhäuser sowie Wohn- und Geschäftsgebäude.
           </p>
-          <div>
-            <Link to="Projekte">
-              <button>Mehr erfahren!</button>
-            </Link>
-          </div>
           <div class="container_hero">
             <div class="item">
               <FaCircleCheck color="#ff8000"></FaCircleCheck>
@@ -72,16 +71,13 @@ const Home = () => {
               <p>100% Qualität</p>
             </div>
           </div>
+          <div>
+            <Link to="Projekte">
+              <button>Mehr erfahren!</button>
+            </Link>
+          </div>
         </motion.div>
       </div>
-      <motion.div
-        className="app__hero-house"
-        variants={container}
-        initial="hidden"
-        animate="visible"
-      >
-        <Lottie animationData={heroAnim} />
-      </motion.div>
     </div>
   )
 }

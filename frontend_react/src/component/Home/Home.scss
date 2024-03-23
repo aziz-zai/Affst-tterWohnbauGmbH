@@ -19,40 +19,55 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  position: relative; /* Behalten Sie diese Position bei */
+  overflow: hidden;
   flex-wrap: wrap;
-  padding-left: 4rem;
   width: 100%;
   height: fit-content;
-  min-height: calc(100vh + 80px);
-  position: absolute;
-  top: 0;
-  background: rgb(255, 253, 251);
-  background: linear-gradient(
-    90deg,
-    rgba(255, 253, 251, 0.9864320728291317) 0%,
-    rgba(250, 253, 255, 0.9864320728291317) 100%
-  );
-
+  min-height: calc(100vh);
   color: #161c27;
   max-height: 100vh;
   padding-bottom: 80px;
-  @media screen and (max-width: 1150px) {
-    padding-top: 70px;
-    padding-left: 3rem;
-  }
-  @media screen and (max-width: 400px) {
-    min-height: 930px;
-    padding-left: 1rem;
-  }
+}
+
+.app__hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6); /* Schwarz mit 50% Transparenz */
+  z-index: 1; /* Overlay über dem Hintergrundbild */
+}
+
+.app__hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../../assets/hero-key.jpg'); /* Überprüfen Sie den Pfad */
+  filter: blur(2px);
+  background-size: cover;
+  background-position: center;
+  z-index: 0; /* Hinter dem Inhalt */
 }
 
 .app__hero-text {
-  width: 600px;
+  position: relative; /* Stellt sicher, dass diese Inhalte über dem Hintergrund angezeigt werden */
+  width: 800px;
+  z-index: 2; /* Über dem Inhalt */
+  color: white;
   display: flex;
   flex-direction: column;
+  @media screen and (max-width: 1000px) {
+    width: 500px;
+  }
   h5 {
     color: #6e67ff;
     font-size: 1.6rem;
+    text-align: center;
     @media screen and (max-width: 1265px) {
       font-size: 1.2rem;
     }
@@ -62,15 +77,19 @@
   }
   h2 {
     padding-bottom: 1rem;
-    font-size: 4rem;
+    font-size: 3rem;
+    text-align: center;
+
     @media screen and (max-width: 1265px) {
-      font-size: 3rem;
+      font-size: 2.5rem;
     }
     @media screen and (max-width: 800px) {
       font-size: 2rem;
     }
   }
   p {
+    text-align: center;
+
     font-size: 1.3rem;
     @media screen and (max-width: 1265px) {
       font-size: 1.2rem;
@@ -79,14 +98,35 @@
       font-size: 1rem;
     }
   }
+  .hero-text-p {
+    text-align: center;
 
+    font-size: 1.1rem;
+    @media screen and (max-width: 1265px) {
+      font-size: 1rem;
+    }
+    @media screen and (max-width: 800px) {
+      font-size: 1rem;
+    }
+    @media screen and (max-width: 600px) {
+      display: none;
+    }
+  }
+  .app__hero-text-wrapper {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+  }
   div {
-    padding-top: 2rem;
+    padding-top: 1rem;
+
     button {
-      border-radius: 50px;
-      background: #6e67ff;
+      border-radius: 8px;
+      background: var(--black-color);
+
       white-space: nowrap;
-      padding: 0.5rem 2rem;
+      padding: 0.75rem 2rem;
       color: var(--white-color);
       font-size: 20px;
       outline: none;
