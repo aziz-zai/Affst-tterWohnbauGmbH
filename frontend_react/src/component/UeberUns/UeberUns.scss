@@ -125,3 +125,22 @@
 
     }
 }
+
+.map-placeholder{
+    width: 750px;
+    height: 100%;
+    min-height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @media screen and (max-width: 1630px) {
+        width:650px;
+    }
+    @media screen and (max-width: 1375px) {
+        width: 80vw;
+        margin: auto;
+    }
+    @media screen and (max-width: 500px) {
+        min-height: 300px;
+    }
+}
