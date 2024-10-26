@@ -1,23 +1,16 @@
-import { KeyboardArrowUp } from '@mui/icons-material'
+import CookieIcon from '@mui/icons-material/Cookie';
 import { Box, Fab, Zoom } from '@mui/material'
-import useScrollTrigger from '@mui/material/useScrollTrigger'
-import React, { useCallback } from 'react'
+import React from 'react'
+import * as CookieConsent from 'vanilla-cookieconsent';
 
 function ScrollToTopFab() {
     // Use `window` instead of `body` as `document` will be `undefined` when the
     // hooks first runs. By default, useScrollTrigger will attach itself to `window`.
-    const trigger = useScrollTrigger({
-      // Number of pixels needed to scroll to toggle `trigger` to `true`.
-      threshold: 100,
-      disableHysteresis: true, 
-    })
-  
-    const scrollToTop = useCallback(() => {
-      window.scrollTo({ top: 0, behavior: "smooth" })
-    }, [])
+    const handleAdjustPreferences = () => {
+      CookieConsent.showPreferences(); // Opens the cookie preferences modal
+    };
   
     return (
-      <Zoom in={trigger}>
         <Box
           role="presentation"
           // Place the button in the bottom right corner.
@@ -29,7 +22,7 @@ function ScrollToTopFab() {
           }}
         >
           <Fab
-            onClick={scrollToTop}
+            onClick={handleAdjustPreferences}
             sx={{
                 color:"white", backgroundColor:  "#161B33",
                 "&:hover": {color:"#161B33", backgroundColor:  "white"}
@@ -37,10 +30,9 @@ function ScrollToTopFab() {
             size="small"
             aria-label="Scroll back to top"
           >
-            <KeyboardArrowUp fontSize="medium" />
+            <CookieIcon fontSize="medium" />
           </Fab>
         </Box>
-      </Zoom>
     )
   }
   

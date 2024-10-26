@@ -1,28 +1,31 @@
-import { useEffect } from "react";
-
+import { useEffect, useState } from "react";
 import "vanilla-cookieconsent/dist/cookieconsent.css";
 import * as CookieConsent from "vanilla-cookieconsent";
 
-const pushToDataLayer = (event) => {
+const pushToDataLayer = (event, setPreferences) => {
   const dataLayer = window.dataLayer || [];
   dataLayer.push({ event });
+
+  // Get the latest preferences and update state
+  const preferences = CookieConsent.getUserPreferences();
+  setPreferences(preferences); // Update preferences in state
 };
 
-const updateConsent = () => {
-  pushToDataLayer("consent_update");
+const updateConsent = (setPreferences) => {
+  pushToDataLayer("consent_update", setPreferences);
 };
 
-const initializeConsent = () => {
-  updateConsent();
+const initializeConsent = (setPreferences) => {
+  updateConsent(setPreferences);
   setTimeout(() => {
-    pushToDataLayer("consent_initial_selection");
+    pushToDataLayer("consent_initial_selection", setPreferences);
   }, 500);
 };
 
-const getConfig = ({ lang, privacyPolicyUrl }) => {
-  const config = {
-    onFirstConsent: initializeConsent,
-    onChange: updateConsent,
+const getConfig = ({ lang, privacyPolicyUrl, setPreferences }) => {
+  return {
+    onFirstConsent: () => initializeConsent(setPreferences),
+    onChange: () => updateConsent(setPreferences),
     guiOptions: {
       consentModal: {
         layout: "bar inline",
@@ -38,16 +41,10 @@ const getConfig = ({ lang, privacyPolicyUrl }) => {
       },
     },
     categories: {
-      necessary: {
-        readOnly: true,
-      },
       functionality: {},
-      analytics: {},
-      marketing: {},
     },
     language: {
       default: lang,
-      // autoDetect: 'browser',
       translations: {
         de: {
           consentModal: {
@@ -60,7 +57,6 @@ const getConfig = ({ lang, privacyPolicyUrl }) => {
           preferencesModal: {
             title: "Datenschutzeinstellungen",
             acceptAllBtn: "Alle Cookies akzeptieren",
-            acceptNecessaryBtn: "Nur notwendige Cookies",
             savePreferencesBtn: "Einstellungen speichern",
             closeIconLabel: "Modales Fenster schließen",
             serviceCounterLabel: "Dienst|Dienste",
@@ -68,12 +64,12 @@ const getConfig = ({ lang, privacyPolicyUrl }) => {
               {
                 title: "Verwendung von Cookies",
                 description:
-                  "Wenn Sie eine Website besuchen, kann diese Informationen in Form von Cookies auf Ihrem Browser speichern oder abrufen. Diese Informationen können sich auf Sie, Ihre Einstellungen oder Ihr Gerät beziehen und werden hauptsächlich verwendet, um die Website so zu gestalten, wie Sie es erwarten. Die Informationen identifizieren Sie normalerweise nicht direkt, aber sie können Ihnen eine persönlichere Web-Erfahrung bieten. Da wir Ihr Recht auf Privatsphäre respektieren, können Sie bestimmte Arten von Cookies ablehnen. Klicken Sie auf die verschiedenen Kategorien, um mehr zu erfahren und Ihre Standard-Einstellungen zu ändern.",
+                  "Wenn Sie eine Website besuchen, kann diese Informationen in Form von Cookies auf Ihrem Browser speichern oder abrufen...",
               },
               {
                 title: "Funktionale Cookies",
                 description:
-                  "Diese Cookies ermöglichen der Website, erweiterte Funktionen und Personalisierung basierend auf Ihrer Interaktion mit der Website bereitzustellen. Sie können von uns oder von Drittanbietern gesetzt werden, deren Dienste wir zu unseren Seiten hinzugefügt haben.",
+                  "Diese Cookies ermöglichen der Website, erweiterte Funktionen und Personalisierung basierend auf Ihrer Interaktion bereitzustellen...",
                 linkedCategory: "functionality",
               },
             ],
@@ -82,21 +78,20 @@ const getConfig = ({ lang, privacyPolicyUrl }) => {
       },
     },
   };
-
-  return config;
 };
 
 export const useCookieBanner = ({
   lang = "de",
   privacyPolicyUrl = "/datenschutzerklaerung",
 }) => {
-  useEffect(() => {
-    // Uncomment the following line to reset the consent cookie:
-    // CookieConsent.reset(true)
+  const [preferences, setPreferences] = useState(null);
 
+  useEffect(() => {
     CookieConsent.setLanguage(lang);
-    CookieConsent.run(getConfig({ lang, privacyPolicyUrl }));
+    CookieConsent.run(getConfig({ lang, privacyPolicyUrl, setPreferences }));
+    setPreferences(CookieConsent.getUserPreferences());
+
   }, [lang, privacyPolicyUrl]);
 
-  return null;
+  return preferences; // Return preferences so it can be accessed in App.js
 };

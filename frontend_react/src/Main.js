@@ -12,7 +12,7 @@ import {
   Projects,
   UeberUns,
 } from './component/index'
-const Main = () => {
+const Main = ({userPref}) => {
   const [scrollNav, setScrollNav] = useState(false)
 
   const changeNav = () => {
@@ -41,7 +41,7 @@ const Main = () => {
       <Projects />
       <Offers />
       <Kontakt />
-      <UeberUns />
+      <UeberUns userPref={userPref} />
       <Footer />
       <ScrollToTopFab />
     </div>

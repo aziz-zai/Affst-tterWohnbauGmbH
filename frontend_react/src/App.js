@@ -8,12 +8,12 @@ import PrivacyPolicy from './PrivacyPolicy.js';
 
 const App = () => {
   // Verwende den Cookie Banner Hook
-  useCookieBanner({ lang: 'de', privacyPolicyUrl: '/Datenschutzerklärung' });
+  const userPref = useCookieBanner({ lang: 'de', privacyPolicyUrl: '/Datenschutzerklärung' });
 
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Main />} />
+        <Route path="/" element={<Main userPref={userPref} />} />
         <Route path="/impressum" element={<Impressum />} />
         <Route path="/Datenschutzerklärung" element={<PrivacyPolicy />} />
       </Routes>
