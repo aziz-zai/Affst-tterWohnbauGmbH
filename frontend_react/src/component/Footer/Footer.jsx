@@ -47,8 +47,11 @@ const Footer = () => {
           <p>
             <LanguageIcon /> www.affstaetterwohnbau.com
           </p>
-          <a href="/Impressum" spy={true}>
+          <a href="/Impressum" className="links" spy={true}>
             Impressum
+          </a>
+          <a href="/Datenschutzerklärung" className="links" spy={true}>
+            Datenschutzerklärung
           </a>
         </div>
       </div>
