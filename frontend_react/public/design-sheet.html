@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Design Sheet – Affstätter Wohnbau GmbH</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --font-base: "DM Sans", sans-serif;
+      --primary-color: #ffffff;
+      --secondary-color: #FAC189;
+      --blue-color: #89C2FA;
+      --black-color: #353531;
+      --lightGray-color: #e4e4e4;
+      --gray-color: #5F5E5E;
+      --green-color: #E1E096;
+      --white-color: #ffffff;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: var(--font-base);
+      background: #f5f5f5;
+      color: #222;
+      line-height: 1.6;
+    }
+
+    /* ── Layout ── */
+    header {
+      background: #182138;
+      color: white;
+      padding: 3rem 4rem 2rem;
+      border-bottom: 5px solid #FAC189;
+    }
+    header h1 { font-size: 2.5rem; font-weight: 700; letter-spacing: -0.5px; }
+    header p  { color: #FAC189; font-size: 1rem; margin-top: 0.4rem; }
+
+    main { max-width: 1200px; margin: 0 auto; padding: 3rem 2rem 6rem; }
+
+    section { margin-bottom: 4rem; }
+    section > h2 {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #888;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 0.5rem;
+      margin-bottom: 1.5rem;
+    }
+
+    /* ── Grid helpers ── */
+    .grid       { display: flex; flex-wrap: wrap; gap: 1rem; }
+    .grid-2     { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .grid-3     { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+
+    /* ── Cards ── */
+    .card {
+      background: #fff;
+      border-radius: 10px;
+      padding: 1.5rem;
+      box-shadow: 0 2px 8px rgba(0,0,0,.06);
+    }
+    .card-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #aaa;
+      margin-bottom: 0.5rem;
+    }
+    .card-value {
+      font-size: 0.85rem;
+      color: #444;
+      font-family: "Courier New", monospace;
+    }
+
+    /* ── Color swatches ── */
+    .swatch-row { display: flex; flex-wrap: wrap; gap: 1rem; }
+    .swatch {
+      border-radius: 10px;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,.08);
+      width: 140px;
+    }
+    .swatch-color { height: 80px; }
+    .swatch-info  { background: #fff; padding: 0.6rem 0.75rem; }
+    .swatch-name  { font-size: 0.75rem; font-weight: 600; }
+    .swatch-hex   { font-size: 0.7rem; color: #888; font-family: monospace; }
+    .swatch-var   { font-size: 0.65rem; color: #aaa; font-family: monospace; }
+
+    /* ── Typography specimens ── */
+    .type-specimen { margin-bottom: 1.25rem; }
+    .type-meta {
+      font-size: 0.68rem;
+      color: #aaa;
+      font-family: monospace;
+      margin-bottom: 0.2rem;
+    }
+
+    /* ── Button samples ── */
+    .btn-primary {
+      border-radius: 50px;
+      background: #6e67ff;
+      padding: 0.5rem 2rem;
+      color: #fff;
+      font-size: 1rem;
+      font-family: var(--font-base);
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 1px 2px 0 rgba(0,0,0,.05);
+      transition: all .3s ease-in-out;
+    }
+    .btn-primary:hover { background: #353531; transform: scale(1.05); }
+
+    .btn-cta {
+      border-radius: 50px;
+      background: #402800;
+      padding: 0.5rem 2rem;
+      color: #fff;
+      font-size: 1rem;
+      font-family: var(--font-base);
+      border: none;
+      cursor: pointer;
+      transition: all .3s ease-in-out;
+    }
+    .btn-cta:hover { transform: scale(1.02); }
+
+    .btn-ghost {
+      border-radius: 50px;
+      background: #fff;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      font-family: var(--font-base);
+      cursor: pointer;
+      transition: all .3s ease-in-out;
+      color: #353531;
+      box-shadow: 0 1px 2px 0 rgba(0,0,0,.05);
+    }
+    .btn-ghost:hover { background: #353531; color: #fff; transform: scale(1.02); }
+
+    /* ── Nav sample ── */
+    .nav-sample {
+      background: rgb(255,253,251);
+      border-radius: 8px;
+      box-shadow: rgba(149,157,165,.2) 0px 8px 24px;
+      padding: 0.75rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 0.25rem;
+    }
+    .nav-logo-box { font-size: 0.8rem; font-weight: 700; text-transform: uppercase; }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { font-size: 0.8rem; font-weight: 500; text-decoration: none; color: #353531; text-transform: uppercase; }
+    .nav-links a:hover { color: #FAC189; }
+    .nav-dot { width: 35px; height: 35px; border-radius: 50%; background: #FAC189; display: flex; align-items: center; justify-content: center; }
+    .nav-dot span { color: #fff; font-size: 1.1rem; }
+
+    /* ── Contact card sample ── */
+    .contact-card-sample {
+      background: #ff8000;
+      border-radius: 0 8px 8px 0;
+      padding: 1rem 1.25rem;
+      color: white;
+      width: 295px;
+    }
+    .contact-card-sample h2 { font-size: 1rem; }
+    .contact-card-sample p  { font-size: 0.8rem; }
+
+    /* ── Form sample ── */
+    .form-sample {
+      background: #E08A00;
+      border-radius: 8px;
+      padding: 1.5rem;
+      max-width: 360px;
+      color: white;
+    }
+    .form-sample input, .form-sample textarea {
+      display: block;
+      width: 100%;
+      border: 2px solid #eee;
+      padding: 1ch;
+      border-radius: 10px;
+      outline: none;
+      font-size: 1rem;
+      font-family: var(--font-base);
+      margin-bottom: 1rem;
+    }
+    .form-sample textarea { height: 6em; resize: none; }
+    .form-sample .btn-cta { width: 100%; margin-top: 0.5rem; }
+
+    /* ── Gradient text ── */
+    .text-gradient {
+      background-image: linear-gradient(45deg, rgba(191,96,0,1) 16%, rgba(110,103,255,1) 74%);
+      background-size: 100%;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    /* ── Section header sample ── */
+    .section-header-sample { padding: 1rem 0 0.5rem; }
+    .section-header-sample p { font-size: 1rem; text-transform: uppercase; color: #888; }
+    .section-header-sample h2 { font-size: 2rem; color: #343434; }
+
+    /* ── UeberUns header ── */
+    .uberuns-title-sample {
+      background: #182138;
+      color: white;
+      font-size: 2rem;
+      height: 80px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 8px;
+    }
+
+    /* ── Breakpoint bar ── */
+    .bp-bar {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+    .bp-chip {
+      background: #182138;
+      color: #FAC189;
+      border-radius: 20px;
+      padding: 0.3rem 0.9rem;
+      font-size: 0.75rem;
+      font-family: monospace;
+    }
+
+    /* ── Shadow samples ── */
+    .shadow-sample {
+      background: #fff;
+      border-radius: 8px;
+      padding: 1.25rem;
+      text-align: center;
+      font-size: 0.75rem;
+      color: #666;
+    }
+
+    /* ── Border radius ── */
+    .radius-sample {
+      width: 80px;
+      height: 80px;
+      background: #FAC189;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      color: #402800;
+      font-weight: 600;
+    }
+
+    /* ── Transition ref ── */
+    .transition-sample {
+      border-radius: 8px;
+      padding: 1rem 1.5rem;
+      cursor: pointer;
+      text-align: center;
+      font-size: 0.85rem;
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Design Sheet</h1>
+  <p>Affstätter Wohnbau GmbH · Stand Juli 2026</p>
+</header>
+
+<main>
+
+  <!-- ═══════════════════════════════════ 1. FARBEN ═══════════════════════════ -->
+  <section>
+    <h2>1. Farben</h2>
+
+    <p style="font-size:.8rem;color:#666;margin-bottom:1rem;">CSS-Custom-Properties aus <code>index.css</code> + direkt im Code verwendete Farben</p>
+
+    <h3 style="font-size:.8rem;font-weight:600;margin-bottom:.75rem;color:#444;">CSS-Variablen</h3>
+    <div class="swatch-row" style="margin-bottom:2rem;">
+      <div class="swatch">
+        <div class="swatch-color" style="background:#FAC189;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Secondary</div>
+          <div class="swatch-hex">#FAC189</div>
+          <div class="swatch-var">--secondary-color</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#353531;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Black</div>
+          <div class="swatch-hex">#353531</div>
+          <div class="swatch-var">--black-color</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#ffffff; border:1px solid #eee;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">White / Primary</div>
+          <div class="swatch-hex">#FFFFFF</div>
+          <div class="swatch-var">--white-color / --primary-color</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#5F5E5E;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Gray</div>
+          <div class="swatch-hex">#5F5E5E</div>
+          <div class="swatch-var">--gray-color</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#e4e4e4;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Light Gray</div>
+          <div class="swatch-hex">#E4E4E4</div>
+          <div class="swatch-var">--lightGray-color</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#89C2FA;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Blue</div>
+          <div class="swatch-hex">#89C2FA</div>
+          <div class="swatch-var">--blue-color</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#E1E096;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Green</div>
+          <div class="swatch-hex">#E1E096</div>
+          <div class="swatch-var">--green-color</div>
+        </div>
+      </div>
+    </div>
+
+    <h3 style="font-size:.8rem;font-weight:600;margin-bottom:.75rem;color:#444;">Direkte Farben (Komponenten)</h3>
+    <div class="swatch-row">
+      <div class="swatch">
+        <div class="swatch-color" style="background:#182138;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Navy (Über uns)</div>
+          <div class="swatch-hex">#182138</div>
+          <div class="swatch-var">UeberUns, Text</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#ff8000;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Orange</div>
+          <div class="swatch-hex">#FF8000</div>
+          <div class="swatch-var">Contact-Card, CTA</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#E08A00;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Dark Orange</div>
+          <div class="swatch-hex">#E08A00</div>
+          <div class="swatch-var">Kontakt-Formular</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#402800;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Brown</div>
+          <div class="swatch-hex">#402800</div>
+          <div class="swatch-var">Submit-Button</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#6e67ff;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Purple / Hero</div>
+          <div class="swatch-hex">#6E67FF</div>
+          <div class="swatch-var">Hero-Button, h5</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#241200;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Dark Brown</div>
+          <div class="swatch-hex">#241200</div>
+          <div class="swatch-var">Card-Divider</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#343434;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Dark Gray</div>
+          <div class="swatch-hex">#343434</div>
+          <div class="swatch-var">Section h2</div>
+        </div>
+      </div>
+      <div class="swatch">
+        <div class="swatch-color" style="background:#a0a0a0;"></div>
+        <div class="swatch-info">
+          <div class="swatch-name">Mid Gray</div>
+          <div class="swatch-hex">#A0A0A0</div>
+          <div class="swatch-var">Footer BG</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:1.5rem;" class="card">
+      <div class="card-label">Gradient – Hero Text</div>
+      <div style="font-size:2.5rem;font-weight:700;" class="text-gradient">Der Schlüssel für Ihr Zuhause!</div>
+      <div class="card-value" style="margin-top:.5rem;">linear-gradient(45deg, rgba(191,96,0,1) 16%, rgba(110,103,255,1) 74%)</div>
+    </div>
+
+  </section>
+
+  <!-- ═══════════════════════════════ 2. TYPOGRAFIE ════════════════════════════ -->
+  <section>
+    <h2>2. Typografie</h2>
+
+    <div class="card" style="margin-bottom:1rem;">
+      <div class="card-label">Font Family</div>
+      <div class="card-value">--font-base: "DM Sans", sans-serif</div>
+    </div>
+
+    <div class="card">
+      <div class="type-specimen">
+        <div class="type-meta">h5 · 1.6rem · Hero Subtitle · color #6E67FF</div>
+        <h5 style="font-size:1.6rem;color:#6e67ff;font-family:var(--font-base);">WER SIND WIR?</h5>
+      </div>
+      <div class="type-specimen">
+        <div class="type-meta">h2 · 4rem · Hero Headline · font-weight 400</div>
+        <h2 style="font-size:4rem;font-family:var(--font-base);line-height:1.1;color:#353531;">Ihr Zuhause</h2>
+      </div>
+      <div class="type-specimen">
+        <div class="type-meta">h2 · 2rem · Section Headline · color #343434</div>
+        <h2 style="font-size:2rem;font-family:var(--font-base);color:#343434;">Unsere Angebote!</h2>
+      </div>
+      <div class="type-specimen">
+        <div class="type-meta">h2 · 2.5rem · Über uns</div>
+        <h2 style="font-size:2.5rem;font-family:var(--font-base);color:#182138;">Wer sind wir?</h2>
+      </div>
+      <div class="type-specimen">
+        <div class="type-meta">p · 1.3rem · Hero Body</div>
+        <p style="font-size:1.3rem;font-family:var(--font-base);color:#353531;">Von der Beratung bis zur Ausführung – alles aus einer Hand.</p>
+      </div>
+      <div class="type-specimen">
+        <div class="type-meta">p · 1rem · Section Sub-Label · text-transform: uppercase · color #888</div>
+        <p style="font-size:1rem;text-transform:uppercase;font-family:var(--font-base);color:#888;">Zahlreiche Projekte die sie interessieren könnten</p>
+      </div>
+      <div class="type-specimen">
+        <div class="type-meta">nav a · 0.8rem · font-weight 500 · uppercase</div>
+        <a style="font-size:0.8rem;font-weight:500;text-decoration:none;color:#353531;text-transform:uppercase;font-family:var(--font-base);">Home &nbsp; Projekte &nbsp; Angebote &nbsp; Kontakt</a>
+      </div>
+      <div class="type-specimen">
+        <div class="type-meta">.p-text · 0.8rem · color --gray-color</div>
+        <p style="font-size:0.8rem;color:#5F5E5E;font-family:var(--font-base);">Allgemeiner Bodytext in grau, z.B. Copyright-Hinweise.</p>
+      </div>
+      <div class="type-specimen">
+        <div class="type-meta">.bold-text · 1rem · font-weight 800 · color --black-color</div>
+        <p style="font-size:1rem;font-weight:800;color:#353531;font-family:var(--font-base);">Fetter Hervorhebungstext</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═════════════════════════════════ 3. BUTTONS ═════════════════════════════ -->
+  <section>
+    <h2>3. Buttons</h2>
+    <div class="card grid" style="align-items:flex-start;gap:1.5rem;">
+
+      <div>
+        <div class="type-meta" style="margin-bottom:.5rem;">Hero CTA · bg #6E67FF · border-radius 50px</div>
+        <button class="btn-primary">Mehr erfahren!</button>
+      </div>
+
+      <div>
+        <div class="type-meta" style="margin-bottom:.5rem;">Kontakt Submit · bg #402800 · border-radius 50px</div>
+        <button class="btn-cta">Absenden</button>
+      </div>
+
+      <div>
+        <div class="type-meta" style="margin-bottom:.5rem;">Ghost / "Mehr anzeigen" · bg white · border-radius 50px</div>
+        <button class="btn-ghost">Mehr anzeigen</button>
+      </div>
+
+      <div>
+        <div class="type-meta" style="margin-bottom:.5rem;">Mobile Nav Burger · bg --secondary-color · border-radius 50%</div>
+        <div class="nav-dot"><span>☰</span></div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ════════════════════════════════ 4. NAVIGATION ════════════════════════════ -->
+  <section>
+    <h2>4. Navigation</h2>
+    <div class="card">
+      <div class="type-meta" style="margin-bottom:.5rem;">Sticky Navbar · max-width 1250px · border-radius 8px · bg rgb(255,253,251)</div>
+      <div class="nav-sample">
+        <div class="nav-logo-box">AWB Logo</div>
+        <ul class="nav-links">
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Projekte</a></li>
+          <li><a href="#">Angebote</a></li>
+          <li><a href="#" style="color:#FAC189;">Kontakt</a></li>
+        </ul>
+        <div class="nav-dot"><span style="font-size:.8rem;">☰</span></div>
+      </div>
+      <div class="card-value" style="margin-top:.75rem;">
+        box-shadow: rgba(149,157,165,.2) 0px 8px 24px &nbsp;|&nbsp; margin-top: 0.75rem &nbsp;|&nbsp; z-index: 2<br>
+        Verbirgt sich bei Scrollen: transform: translateY(-150%) (nav.nav-bar--hidden)
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════ 5. KONTAKT-KARTE (SLIDE-IN) ══════════════════════ -->
+  <section>
+    <h2>5. Kontakt-Karte (Slide-in)</h2>
+    <div class="card">
+      <div class="type-meta" style="margin-bottom:.5rem;">
+        Fixiert links · transform translateX(-295px) → translateX(0) bei :hover · bg #FF8000 · border-right-radius 8px
+      </div>
+      <div style="display:flex;width:fit-content;">
+        <div class="contact-card-sample">
+          <h2>Bilal Yer</h2>
+          <p>Geschäftsführer</p>
+          <div style="height:1px;background:#241200;margin:.75rem 0;"></div>
+          <h2>Karl Heinz</h2>
+          <p>Bauzeichner</p>
+        </div>
+        <div style="width:50px;height:50px;background:#ff8000;border-radius:0 8px 8px 0;display:flex;align-items:center;justify-content:center;color:white;font-size:1.2rem;align-self:center;">📞</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ═════════════════════════════════ 6. FORMULAR ═════════════════════════════ -->
+  <section>
+    <h2>6. Kontaktformular</h2>
+    <div class="card grid-2">
+      <div>
+        <div class="type-meta" style="margin-bottom:.5rem;">
+          Container · bg #E08A00 · border-radius 8px · backdrop-filter blur(9.5px) · height 500px
+        </div>
+        <div class="form-sample">
+          <input type="text" placeholder="Name*" />
+          <input type="text" placeholder="Email*" />
+          <textarea placeholder="Nachricht*"></textarea>
+          <button class="btn-cta" style="width:100%;">Absenden</button>
+        </div>
+      </div>
+      <div>
+        <div class="type-meta" style="margin-bottom:.75rem;">Input-Felder</div>
+        <div class="card" style="box-shadow:none;border:1px solid #eee;">
+          <div class="card-label">Default</div>
+          <div class="card-value">border: 2px solid #eee · border-radius 10px · padding 1ch · font-size 1.25rem</div>
+          <br>
+          <div class="card-label">Focus</div>
+          <div class="card-value">border-color: #402800</div>
+          <br>
+          <div class="card-label">Label Animation</div>
+          <div class="card-value">
+            Default: position absolute, top 1ch, color #888<br>
+            Focus: translateY(-50%), font-size 0.9em, color --secondary-color, bg white
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════ 7. SECTION STYLES ═══════════════════════════ -->
+  <section>
+    <h2>7. Section-Styles</h2>
+    <div class="grid-2" style="gap:1rem;">
+
+      <div class="card">
+        <div class="type-meta" style="margin-bottom:.5rem;">Hero Section · bg gradient</div>
+        <div style="background:linear-gradient(90deg,rgba(255,253,251,.98) 0%,rgba(250,253,255,.98) 100%);border-radius:8px;padding:1.5rem;color:#161c27;">
+          <div style="font-size:1rem;font-weight:700;">Hier steht der Hero-Inhalt</div>
+          <div style="font-size:.75rem;color:#888;margin-top:.3rem;">min-height: 100vh+80px · padding-left: 4rem · position: absolute top:0</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="type-meta" style="margin-bottom:.5rem;">Über Uns – Header-Banner</div>
+        <div class="uberuns-title-sample">Über uns</div>
+        <div class="card-value" style="margin-top:.5rem;">bg #182138 · color white · height 80px · font-size 2rem</div>
+      </div>
+
+      <div class="card">
+        <div class="type-meta" style="margin-bottom:.5rem;">Section Sub-Header (Angebote, Kontakt)</div>
+        <div class="section-header-sample">
+          <p>Zahlreiche Projekte</p>
+          <h2>Unsere Angebote!</h2>
+        </div>
+        <div class="card-value" style="margin-top:.5rem;">p: uppercase · h2: 2rem · color #343434</div>
+      </div>
+
+      <div class="card">
+        <div class="type-meta" style="margin-bottom:.5rem;">Partner-Bereich</div>
+        <div style="background:rgb(240,240,240);border-radius:8px;padding:1.25rem;text-align:center;">
+          <div style="font-size:1rem;font-weight:700;text-transform:uppercase;">Unsere Partner</div>
+          <div style="font-size:.75rem;color:#666;margin-top:.5rem;">bg rgb(240,240,240) · grayscale(100%) + mix-blend-mode: color-burn</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="type-meta" style="margin-bottom:.5rem;">Footer</div>
+        <div style="background:#a0a0a0;border-radius:8px;padding:1.25rem;color:#495057;text-align:center;">
+          <div style="font-size:.9rem;">© Affstätter Wohnbau GmbH</div>
+          <div style="font-size:.75rem;margin-top:.3rem;">bg #A0A0A0 · color #495057 · padding 50px 0</div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="type-meta" style="margin-bottom:.5rem;">Galerie-Overlay</div>
+        <div style="background:#000000c5;border-radius:8px;padding:1.5rem;color:white;text-align:center;">
+          <div style="font-size:.9rem;">Galerie-Lightbox</div>
+          <div style="font-size:.75rem;margin-top:.3rem;color:#ccc;">bg #000000c5 · backdrop-filter blur(5px) · position fixed fullscreen</div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════ 8. ABSTÄNDE ═════════════════════════════ -->
+  <section>
+    <h2>8. Abstände (Spacing)</h2>
+    <div class="card">
+      <table style="width:100%;border-collapse:collapse;font-size:.85rem;">
+        <thead>
+          <tr style="border-bottom:2px solid #eee;">
+            <th style="text-align:left;padding:.5rem;color:#888;font-weight:600;">Kontext</th>
+            <th style="text-align:left;padding:.5rem;color:#888;font-weight:600;">Wert</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom:1px solid #f0f0f0;"><td style="padding:.5rem;">Navbar padding</td><td style="padding:.5rem;font-family:monospace;color:#444;">0.5rem 2rem</td></tr>
+          <tr style="border-bottom:1px solid #f0f0f0;"><td style="padding:.5rem;">Hero padding-left</td><td style="padding:.5rem;font-family:monospace;color:#444;">4rem</td></tr>
+          <tr style="border-bottom:1px solid #f0f0f0;"><td style="padding:.5rem;">Hero padding-bottom</td><td style="padding:.5rem;font-family:monospace;color:#444;">80px</td></tr>
+          <tr style="border-bottom:1px solid #f0f0f0;"><td style="padding:.5rem;">Section-Kopf padding</td><td style="padding:.5rem;font-family:monospace;color:#444;">3rem 0 1rem 1rem</td></tr>
+          <tr style="border-bottom:1px solid #f0f0f0;"><td style="padding:.5rem;">Angebots-Grid gap</td><td style="padding:.5rem;font-family:monospace;color:#444;">0 30px</td></tr>
+          <tr style="border-bottom:1px solid #f0f0f0;"><td style="padding:.5rem;">Angebots-Grid max-width</td><td style="padding:.5rem;font-family:monospace;color:#444;">1400px</td></tr>
+          <tr style="border-bottom:1px solid #f0f0f0;"><td style="padding:.5rem;">Kontakt margin</td><td style="padding:.5rem;font-family:monospace;color:#444;">4rem 0</td></tr>
+          <tr style="border-bottom:1px solid #f0f0f0;"><td style="padding:.5rem;">UeberUns section padding</td><td style="padding:.5rem;font-family:monospace;color:#444;">2rem</td></tr>
+          <tr style="border-bottom:1px solid #f0f0f0;"><td style="padding:.5rem;">Footer padding</td><td style="padding:.5rem;font-family:monospace;color:#444;">50px 0</td></tr>
+          <tr><td style="padding:.5rem;">Navbar max-width</td><td style="padding:.5rem;font-family:monospace;color:#444;">1250px</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ═══════════════════════════════ 9. BORDER RADIUS ════════════════════════ -->
+  <section>
+    <h2>9. Border Radius</h2>
+    <div class="card grid" style="gap:1.5rem;align-items:center;">
+      <div style="text-align:center;">
+        <div class="radius-sample" style="border-radius:8px;margin:0 auto .5rem;">8px</div>
+        <div class="card-value">Cards, Navbar, Grid-Items</div>
+      </div>
+      <div style="text-align:center;">
+        <div class="radius-sample" style="border-radius:50px;margin:0 auto .5rem;width:120px;height:44px;">50px</div>
+        <div class="card-value">Alle Buttons</div>
+      </div>
+      <div style="text-align:center;">
+        <div class="radius-sample" style="border-radius:50%;margin:0 auto .5rem;">50%</div>
+        <div class="card-value">Burger-Button, Nav-Dots</div>
+      </div>
+      <div style="text-align:center;">
+        <div class="radius-sample" style="border-radius:10px;margin:0 auto .5rem;">10px</div>
+        <div class="card-value">Formular-Inputs</div>
+      </div>
+      <div style="text-align:center;">
+        <div class="radius-sample" style="border-radius:16px;margin:0 auto .5rem;">16px</div>
+        <div class="card-value">Galerie-Bilder</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════ 10. SCHATTEN ══════════════════════════════ -->
+  <section>
+    <h2>10. Schatten (Shadows)</h2>
+    <div class="grid-3" style="gap:1rem;">
+      <div class="shadow-sample" style="box-shadow:rgba(149,157,165,.2) 0px 8px 24px;">
+        Navbar<br><span style="font-family:monospace;font-size:.7rem;">rgba(149,157,165,.2) 0px 8px 24px</span>
+      </div>
+      <div class="shadow-sample" style="box-shadow:0 1px 2px 0 rgba(0,0,0,.05);">
+        Buttons<br><span style="font-family:monospace;font-size:.7rem;">0 1px 2px 0 rgba(0,0,0,.05)</span>
+      </div>
+      <div class="shadow-sample" style="box-shadow:0px 0px 20px rgba(168,168,168,.15);">
+        Mobile Menü<br><span style="font-family:monospace;font-size:.7rem;">0px 0px 20px rgba(168,168,168,.15)</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════ 11. ANIMATIONEN ═══════════════════════════ -->
+  <section>
+    <h2>11. Transitions &amp; Animationen</h2>
+    <div class="card">
+      <table style="width:100%;border-collapse:collapse;font-size:.85rem;">
+        <thead>
+          <tr style="border-bottom:2px solid #eee;">
+            <th style="text-align:left;padding:.5rem;color:#888;font-weight:600;">Element</th>
+            <th style="text-align:left;padding:.5rem;color:#888;font-weight:600;">Transition / Animation</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="border-bottom:1px solid #f0f0f0;"><td style="padding:.5rem;">Navbar (scroll hide)</td><td style="padding:.5rem;font-family:monospace;color:#444;">transition: transform 150ms ease-in-out</td></tr>
+          <tr style="border-bottom:1px solid #f0f0f0;"><td style="padding:.5rem;">Contact Slide-in</td><td style="padding:.5rem;font-family:monospace;color:#444;">transition: transform 500ms ease-in</td></tr>
+          <tr style="border-bottom:1px solid #f0f0f0;"><td style="padding:.5rem;">Nav-Links / Buttons</td><td style="padding:.5rem;font-family:monospace;color:#444;">transition: all 0.3s ease-in-out</td></tr>
+          <tr style="border-bottom:1px solid #f0f0f0;"><td style="padding:.5rem;">Angebots-Overlay</td><td style="padding:.5rem;font-family:monospace;color:#444;">transition: height 0.5s ease-in-out</td></tr>
+          <tr style="border-bottom:1px solid #f0f0f0;"><td style="padding:.5rem;">Galerie Slide</td><td style="padding:.5rem;font-family:monospace;color:#444;">transition: transform 1s ease-in-out</td></tr>
+          <tr style="border-bottom:1px solid #f0f0f0;"><td style="padding:.5rem;">Projekt Slide</td><td style="padding:.5rem;font-family:monospace;color:#444;">transition-duration: 1s · ease-in-out</td></tr>
+          <tr style="border-bottom:1px solid #f0f0f0;"><td style="padding:.5rem;">Framer Motion – Hero Text</td><td style="padding:.5rem;font-family:monospace;color:#444;">duration: 0.8s · easeOut · y: 50→0 · opacity 0→1</td></tr>
+          <tr style="border-bottom:1px solid #f0f0f0;"><td style="padding:.5rem;">Framer Motion – Grid Items</td><td style="padding:.5rem;font-family:monospace;color:#444;">staggerChildren: 0.1 · delayChildren: 0.1</td></tr>
+          <tr><td style="padding:.5rem;">Button :hover</td><td style="padding:.5rem;font-family:monospace;color:#444;">transform: scale(1.02 – 1.05)</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- ══════════════════════════════ 12. BREAKPOINTS ═══════════════════════════ -->
+  <section>
+    <h2>12. Breakpoints (Responsive)</h2>
+    <div class="card">
+      <div class="bp-bar">
+        <div class="bp-chip">≤ 325px – XS</div>
+        <div class="bp-chip">≤ 400px</div>
+        <div class="bp-chip">≤ 450px</div>
+        <div class="bp-chip">≤ 480px</div>
+        <div class="bp-chip">≤ 500px</div>
+        <div class="bp-chip">≤ 600px</div>
+        <div class="bp-chip">≤ 750px</div>
+        <div class="bp-chip">≤ 800px – MD</div>
+        <div class="bp-chip">≤ 900px – Nav</div>
+        <div class="bp-chip">≤ 950px</div>
+        <div class="bp-chip">≤ 1000px</div>
+        <div class="bp-chip">≤ 1045px</div>
+        <div class="bp-chip">≤ 1060px</div>
+        <div class="bp-chip">≤ 1150px</div>
+        <div class="bp-chip">≤ 1170px</div>
+        <div class="bp-chip">≤ 1265px</div>
+        <div class="bp-chip">≤ 1300px</div>
+        <div class="bp-chip">≤ 1375px</div>
+        <div class="bp-chip">≤ 1400px</div>
+        <div class="bp-chip">≤ 1465px</div>
+        <div class="bp-chip">≤ 1630px</div>
+        <div class="bp-chip">≥ 2000px – 4K</div>
+      </div>
+      <div style="margin-top:1rem;font-size:.8rem;color:#666;">
+        <strong>Wichtigste Schaltpunkte:</strong><br>
+        <b>900px</b> – Navbar-Links verschwinden, Hamburger erscheint &nbsp;|&nbsp;
+        <b>1060px</b> – Angebots-Grid wechselt auf 1 Spalte &nbsp;|&nbsp;
+        <b>1375px</b> – Über-uns-Layout wird vertikal
+      </div>
+    </div>
+  </section>
+
+  <!-- ════════════════════════════ 13. BIBLIOTHEKEN ════════════════════════════ -->
+  <section>
+    <h2>13. UI-Bibliotheken &amp; Packages</h2>
+    <div class="grid-3" style="gap:1rem;">
+      <div class="card">
+        <div class="card-label">Animation</div>
+        <div style="font-size:.9rem;font-weight:600;">Framer Motion ^6.5</div>
+        <div class="card-value" style="margin-top:.3rem;">motion.div, variants, useInView</div>
+      </div>
+      <div class="card">
+        <div class="card-label">Animation</div>
+        <div style="font-size:.9rem;font-weight:600;">Lottie React ^2.4</div>
+        <div class="card-value" style="margin-top:.3rem;">Hero-Animation (aff.json)</div>
+      </div>
+      <div class="card">
+        <div class="card-label">Icons</div>
+        <div style="font-size:.9rem;font-weight:600;">MUI Icons ^5.11</div>
+        <div class="card-value" style="margin-top:.3rem;">@mui/icons-material</div>
+      </div>
+      <div class="card">
+        <div class="card-label">Icons</div>
+        <div style="font-size:.9rem;font-weight:600;">React Icons ^4.12</div>
+        <div class="card-value" style="margin-top:.3rem;">react-icons/ri, react-icons/fa6</div>
+      </div>
+      <div class="card">
+        <div class="card-label">UI Components</div>
+        <div style="font-size:.9rem;font-weight:600;">MUI Material ^5.11</div>
+        <div class="card-value" style="margin-top:.3rem;">IconButton, Tooltip, Fab</div>
+      </div>
+      <div class="card">
+        <div class="card-label">Scroll &amp; Touch</div>
+        <div style="font-size:.9rem;font-weight:600;">react-scroll ^1.8 · react-swipeable ^7.0</div>
+        <div class="card-value" style="margin-top:.3rem;">Smooth Scroll, Touch-Gesten</div>
+      </div>
+      <div class="card">
+        <div class="card-label">Cookies</div>
+        <div style="font-size:.9rem;font-weight:600;">vanilla-cookieconsent ^3.0</div>
+        <div class="card-value" style="margin-top:.3rem;">DSGVO Cookie Banner</div>
+      </div>
+      <div class="card">
+        <div class="card-label">E-Mail</div>
+        <div style="font-size:.9rem;font-weight:600;">@emailjs/browser ^3.10</div>
+        <div class="card-value" style="margin-top:.3rem;">Kontaktformular-Versand</div>
+      </div>
+      <div class="card">
+        <div class="card-label">Routing</div>
+        <div style="font-size:.9rem;font-weight:600;">react-router-dom ^6.21</div>
+        <div class="card-value" style="margin-top:.3rem;">/, /impressum, /Datenschutzerklärung</div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+</body>
+</html>

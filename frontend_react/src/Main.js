@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from 'react'
+import React from 'react'
 import './App.scss'
 import ScrollToTopFab from './ScrollToTop'
 import Footer from './component/Footer/Footer'
@@ -13,25 +13,12 @@ import {
   UeberUns,
 } from './component/index'
 const Main = ({userPref}) => {
-  const [scrollNav, setScrollNav] = useState(false)
-
-  const changeNav = () => {
-    if (window.scrollY >= 1200) {
-      setScrollNav(true)
-    } else {
-      setScrollNav(false)
-    }
-  }
-
-  useEffect(() => {
-    window.addEventListener('scroll', changeNav)
-  }, [])
   const currentYear = new Date().getFullYear()
 
   return (
     <div className="app">
       <Contact />
-      <NavBar scrollNav={scrollNav} />
+      <NavBar />
       <NavigationDots />
       <div className="copyright">
         <p className="p-text">@{currentYear} YER</p>

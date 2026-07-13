@@ -91,9 +91,8 @@ function ContactPopOver() {
             </div>
             <div className="app__social-card-entry-point">
               <div>
-                {' '}
                 <Phone />
-                <a style={{color: 'white'}} href="tel:+49 179 5988329">
+                <a style={{color: 'white', flex: 1, minWidth: 0, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap'}} href="tel:+491795988329">
                   +49 179 5988329
                 </a>
                 <StyledTooltip
@@ -101,30 +100,21 @@ function ContactPopOver() {
                   color={`${isCopied[0] ? 'green' : '#636363'}`}
                 >
                   <IconButton
-                    sx={{
-                      position: 'absolute',
-                      right: 3,
-                      width: 20,
-                      cursor: 'pointer',
-                      color: 'white',
-                    }}
-                    onClick={() => {
-                      handleCopyClick('+49 179 5988329', 0)
-                    }}
+                    sx={{width: 24, height: 24, flexShrink: 0, color: 'white', ml: 'auto'}}
+                    onClick={() => handleCopyClick('+49 179 5988329', 0)}
                   >
                     {isCopied[0] ? (
-                      <CheckCircleOutlineIcon sx={{width: 20, color: 'white'}} />
+                      <CheckCircleOutlineIcon sx={{width: 16, color: 'white'}} />
                     ) : (
-                      <ContentCopyIcon sx={{width: 20, color: 'white'}} />
+                      <ContentCopyIcon sx={{width: 16, color: 'white'}} />
                     )}
                   </IconButton>
                 </StyledTooltip>
               </div>
               <div>
-                {' '}
-                <Mail />{' '}
+                <Mail />
                 <a
-                  style={{color: 'white'}}
+                  style={{color: 'white', flex: 1, minWidth: 0, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap'}}
                   href="mailto:info@affstaetterwohnbau.com?subject=Kundenanfrage&body=Dein%20Anliegen"
                 >
                   info@affstaetterwohnbau.com
@@ -134,21 +124,13 @@ function ContactPopOver() {
                   color={`${isCopied[1] ? 'green' : '#636363'}`}
                 >
                   <IconButton
-                    sx={{
-                      position: 'absolute',
-                      right: 3,
-                      width: 20,
-                      cursor: 'pointer',
-                      color: 'white',
-                    }}
-                    onClick={() => {
-                      handleCopyClick('info@affstaetterwohnbau.com', 1)
-                    }}
+                    sx={{width: 24, height: 24, flexShrink: 0, color: 'white', ml: 'auto'}}
+                    onClick={() => handleCopyClick('info@affstaetterwohnbau.com', 1)}
                   >
                     {isCopied[1] ? (
-                      <CheckCircleOutlineIcon sx={{width: 20, color: 'white'}} />
+                      <CheckCircleOutlineIcon sx={{width: 16, color: 'white'}} />
                     ) : (
-                      <ContentCopyIcon sx={{width: 20, color: 'white'}} />
+                      <ContentCopyIcon sx={{width: 16, color: 'white'}} />
                     )}
                   </IconButton>
                 </StyledTooltip>
@@ -163,9 +145,8 @@ function ContactPopOver() {
             </div>
             <div className="app__social-card-entry-point">
               <div>
-                {' '}
-                <Phone />{' '}
-                <a style={{color: 'white'}} href="tel:+49 1742435919">
+                <Phone />
+                <a style={{color: 'white', flex: 1, minWidth: 0, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap'}} href="tel:+491742435919">
                   +49 1742435919
                 </a>
                 <StyledTooltip
@@ -173,54 +154,37 @@ function ContactPopOver() {
                   color={`${isCopied[2] ? 'green' : '#636363'}`}
                 >
                   <IconButton
-                    sx={{
-                      position: 'absolute',
-                      right: 3,
-                      width: 20,
-                      cursor: 'pointer',
-                      color: 'white',
-                    }}
-                    onClick={() => {
-                      handleCopyClick('+49 1742435919', 2)
-                    }}
+                    sx={{width: 24, height: 24, flexShrink: 0, color: 'white', ml: 'auto'}}
+                    onClick={() => handleCopyClick('+49 1742435919', 2)}
                   >
                     {isCopied[2] ? (
-                      <CheckCircleOutlineIcon sx={{width: 20, color: 'white'}} />
+                      <CheckCircleOutlineIcon sx={{width: 16, color: 'white'}} />
                     ) : (
-                      <ContentCopyIcon sx={{width: 20, color: 'white'}} />
+                      <ContentCopyIcon sx={{width: 16, color: 'white'}} />
                     )}
                   </IconButton>
                 </StyledTooltip>
               </div>
               <div>
-                {' '}
-                <Mail />{' '}
+                <Mail />
                 <a
-                  style={{color: 'white'}}
+                  style={{color: 'white', flex: 1, minWidth: 0, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap'}}
                   href="mailto:planung@affstaetterwohnbau.de?subject=Kundenanfrage&body=Dein%20Anliegen"
                 >
                   planung@affstaetterwohnbau.de
                 </a>
                 <StyledTooltip
-                  title={`${isCopied[1] ? 'Erfolgreich kopiert' : 'Kopieren'}`}
-                  color={`${isCopied[1] ? 'green' : '#636363'}`}
+                  title={`${isCopied[3] ? 'Erfolgreich kopiert' : 'Kopieren'}`}
+                  color={`${isCopied[3] ? 'green' : '#636363'}`}
                 >
                   <IconButton
-                    sx={{
-                      position: 'absolute',
-                      right: 3,
-                      width: 20,
-                      cursor: 'pointer',
-                      color: 'white',
-                    }}
-                    onClick={() => {
-                      handleCopyClick('planung@affstaetterwohnbau.de', 1)
-                    }}
+                    sx={{width: 24, height: 24, flexShrink: 0, color: 'white', ml: 'auto'}}
+                    onClick={() => handleCopyClick('planung@affstaetterwohnbau.de', 3)}
                   >
-                    {isCopied[1] ? (
-                      <CheckCircleOutlineIcon sx={{width: 20, color: 'white'}} />
+                    {isCopied[3] ? (
+                      <CheckCircleOutlineIcon sx={{width: 16, color: 'white'}} />
                     ) : (
-                      <ContentCopyIcon sx={{width: 20, color: 'white'}} />
+                      <ContentCopyIcon sx={{width: 16, color: 'white'}} />
                     )}
                   </IconButton>
                 </StyledTooltip>

@@ -54,12 +54,12 @@ const Home = () => {
               <button>Mehr erfahren!</button>
             </Link>
           </div>
-          <div class="container_hero">
-            <div class="item">
+          <div className="container_hero">
+            <div className="item">
               <FaCircleCheck color="#ff8000"></FaCircleCheck>
               <p>100% Zuverlässig</p>
             </div>
-            <div class="item">
+            <div className="item">
               <FaCircleCheck color="#ff8000"></FaCircleCheck>
               <p>100% Qualität</p>
             </div>

@@ -22,12 +22,8 @@ const navVariants = {
     },
   },
 };
-const NavBar = ({scrollNav}) => {
+const NavBar = () => {
   const [toggle, setToggle] = useState(false)
-
-  const baseStyles = {
-    backgroundColor: scrollNav? "rgba(255, 255, 255)" :"rgba(255, 255, 255)",
-  };
   const [navClassList, setNavClassList] = useState([])
   const scroll = useScrollListener()
 
@@ -47,14 +43,12 @@ const NavBar = ({scrollNav}) => {
        variants={navVariants}
        initial="hidden"
        animate="visible"
-       style={baseStyles} >
+      >
       <Link activeClass="active"
         to={'Home'}
         spy={true}className="app__navbar-logo">
-        <div className="app__navbar_logo_text" style={{color: scrollNav? "black" :"black"}}>
-          <h2>
-            Affstätter <br/> Wohnbau GmbH
-            </h2>
+        <div className="app__navbar_logo_text">
+          <h2>Affstätter <br/> Wohnbau GmbH</h2>
         </div>
         <img src={logo} alt="logo" />
       </Link>
@@ -64,7 +58,7 @@ const NavBar = ({scrollNav}) => {
             <Link activeClass="active"
         to={item}
         spy={true}
-        style={{color: scrollNav? "black" :"black"}}
+        style={{color: "black"}}
         className={"app__navbar-link-item"}
         >{item === 'Überuns' ? 'Über uns' : item}</Link>
           </li>
@@ -85,7 +79,7 @@ const NavBar = ({scrollNav}) => {
         onClick={() => setToggle(false)}
         spy={true}
         className="app__navbar-link-item"
-        style={{color: scrollNav? "white" :"black"}}>{item === 'Überuns' ? 'Über uns' : item}</Link>
+        style={{color: "black"}}>{item === 'Überuns' ? 'Über uns' : item}</Link>
                 </li>
               ))}
             </ul>

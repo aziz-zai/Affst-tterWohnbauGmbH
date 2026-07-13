@@ -12,8 +12,8 @@
     align-items: center;
     justify-content: center;
     backdrop-filter: blur(9.5px);
-    background-color: #E08A00;
-    border-radius: 8px;
+    background-color: #182138;
+    border-radius: 12px;
     overflow: hidden;
     padding: 1rem;
     height: 500px;
@@ -95,10 +95,9 @@
     button {
       display: block;
       width: 100%;
-      align-self: right;
-      background-color: #402800;
+      background-color: #182138;
       border: none;
-      padding: 0.5rem 2rem;
+      padding: 0.6rem 2rem;
       font-size: 1rem;
       color: #fff;
       font-family: inherit;
@@ -106,9 +105,12 @@
       transition: all 0.3s ease-in-out;
       border-radius: 50px;
       box-shadow: 0 1px 2px 0 rgb(0 0 0 / 5%);
-              &:hover{
-              transform: scale(1.02)
-              }
+      letter-spacing: 0.02em;
+      &:hover {
+        background-color: #FAC189;
+        color: #182138;
+        transform: scale(1.02);
+      }
     }
   }
   
@@ -136,7 +138,7 @@
   }
   
   @mixin input-focus {
-    border-color: #402800;
+    border-color: #FAC189;
   }
   
   @mixin label {
@@ -153,11 +155,10 @@
     position: absolute;
     top: 0;
     font-size: 0.9em;
-    color: var(--secondary-color);
-    font-weight: bold;
+    color: #FAC189;
+    font-weight: 600;
     transform: translateY(-50%);
     background-color: white;
-    font-weight: 600;
     border-radius: 10px;
   }
   
