@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link, Route, BrowserRouter as Router, Routes } from 'react-router-dom';
+import { Route, BrowserRouter as Router, Routes } from 'react-router-dom';
 import './App.scss';
 import Main from './Main';
 import Impressum from './component/Impressum/Impressum.jsx';

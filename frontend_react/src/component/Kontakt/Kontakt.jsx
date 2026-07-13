@@ -5,7 +5,6 @@ import React, {useRef, useState} from 'react'
 import {Link} from 'react-scroll'
 import AppWrap from '../../wrapper/AppWrap'
 import './Kontakt.scss'
-import SuccessAlert from './successAlert'
 import SuccessDialog from './successDialog'
 
 const Card = (props) => <div className="card">{props.children}</div>

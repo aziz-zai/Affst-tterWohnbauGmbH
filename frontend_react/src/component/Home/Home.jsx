@@ -19,14 +19,6 @@ const container = {
   },
 }
 
-const item = {
-  hidden: {y: 20, opacity: 0},
-  visible: {
-    y: 0,
-    opacity: 1,
-  },
-}
-
 const textVariants = {
   hidden: {
     opacity: 0,

@@ -3,12 +3,9 @@ import {
   ChevronRight as ChevronRightIcon,
   Close as CloseIcon,
 } from '@mui/icons-material'
-import {Dialog, DialogContent, DialogTitle, IconButton, Slide} from '@mui/material'
+import {IconButton} from '@mui/material'
 import React from 'react'
 
-const Transition = React.forwardRef(function Transition(props, ref) {
-  return <Slide direction="up" ref={ref} {...props} />
-})
 const MoreDialog = ({offerTitle, offerText, imgArray, open, handleClose}) => {
   const [currentIndex, setCurrentIndex] = React.useState(0)
 

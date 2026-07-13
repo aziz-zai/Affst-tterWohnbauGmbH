@@ -1,7 +1,7 @@
 import ArrowBackIosIcon from '@mui/icons-material/ArrowBackIos'
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos'
 import {IconButton} from '@mui/material'
-import React, {useEffect, useState} from 'react'
+import React, {useState} from 'react'
 import {useSwipeable} from 'react-swipeable'
 import Elektro from '../../assets/elektro.png'
 import ACAR from '../../assets/partner/p_acar.jpg'
@@ -121,7 +121,7 @@ function Projects() {
       <div className="activeNavOption_container">
         <div className="activeNavOption_wrapper">
           {fakeData.map((data) =>
-            data.key == index ? (
+            data.key === index ? (
               <div key={data.key} className="activeNavOption" style={{backgroundColor: 'white'}} />
             ) : (
               <div key={data.key} className="activeNavOption" />

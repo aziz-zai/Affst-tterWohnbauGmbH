@@ -1,8 +1,5 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import avatar1 from '../../assets/avatar_placeholder.png';
-import map from '../../assets/maps.jpg';
-import AppWrap from '../../wrapper/AppWrap';
-import { useCookieBanner } from '../cookieConsent'; // Import the updated hook
 import './UeberUns.scss';
 import * as CookieConsent from 'vanilla-cookieconsent';
 
@@ -18,6 +15,7 @@ function UeberUns({userPref}) {
           {userPref && userPref.acceptType === "all" ? (
 
             <iframe
+            title="Standort Affstätter Wohnbau GmbH"
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2639.7872812580003!2d8.768949792061964!3d48.575622846559156!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47975a5aab7303bf%3A0xa0b99630998b2bd5!2sNagolder%20Str.%204%2C%2071131%20Jettingen!5e0!3m2!1sde!2sde!4v1693858074887!5m2!1sde!2sde"
             width="100%"
             allowFullScreen=""

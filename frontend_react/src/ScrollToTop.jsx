@@ -1,5 +1,5 @@
 import CookieIcon from '@mui/icons-material/Cookie';
-import { Box, Fab, Zoom } from '@mui/material'
+import { Box, Fab } from '@mui/material'
 import React from 'react'
 import * as CookieConsent from 'vanilla-cookieconsent';
 
