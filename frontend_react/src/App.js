@@ -1,51 +1,24 @@
-import React, {useEffect, useState} from 'react'
-import './App.scss'
-import ScrollToTopFab from './ScrollToTop'
-import Footer from './components/Footer/Footer'
-import {
-  Contact,
-  Home,
-  Kontakt,
-  NavBar,
-  NavigationDots,
-  Offers,
-  Projects,
-  UeberUns,
-} from './components/index'
+import React from 'react';
+import { Link, Route, BrowserRouter as Router, Routes } from 'react-router-dom';
+import './App.scss';
+import Main from './Main';
+import Impressum from './component/Impressum/Impressum.jsx';
+import { useCookieBanner } from './component/cookieConsent'; // Importiere deinen Cookie Consent Hook
+import PrivacyPolicy from './PrivacyPolicy.js';
+
 const App = () => {
-  const [scrollNav, setScrollNav] = useState(false)
-
-  const changeNav = () => {
-    if (window.scrollY >= 1200) {
-      setScrollNav(true)
-    } else {
-      setScrollNav(false)
-    }
-  }
-
-  useEffect(() => {
-    window.addEventListener('scroll', changeNav)
-  }, [])
-  const currentYear = new Date().getFullYear()
+  // Verwende den Cookie Banner Hook
+  const userPref = useCookieBanner({ lang: 'de', privacyPolicyUrl: '/Datenschutzerklärung' });
 
   return (
-    <div className="app">
-      <Contact />
-      <NavBar scrollNav={scrollNav} />
-      <NavigationDots />
-      <div className="copyright">
-        <p className="p-text">@{currentYear} YER</p>
-        <p className="p-text">All rights reserved</p>
-      </div>
-      <Home />
-      <Projects />
-      <Offers />
-      <Kontakt />
-      <UeberUns />
-      <Footer />
-      <ScrollToTopFab />
-    </div>
-  )
-}
+    <Router>
+      <Routes>
+        <Route path="/" element={<Main userPref={userPref} />} />
+        <Route path="/impressum" element={<Impressum />} />
+        <Route path="/Datenschutzerklärung" element={<PrivacyPolicy />} />
+      </Routes>
+    </Router>
+  );
+};
 
-export default App
+export default App;
